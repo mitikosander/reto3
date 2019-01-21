@@ -16,29 +16,29 @@ public class Lineas extends JPanel {
 	public Lineas() {
 		setLayout(null);
 		
-		JButton btnNewButton = new JButton("Linea 1");
-		btnNewButton.setBounds(161, 60, 89, 23);
-		add(btnNewButton);
+		JButton btnLineasLinea1 = new JButton("Linea 1");
+		btnLineasLinea1.setBounds(161, 60, 89, 23);
+		add(btnLineasLinea1);
 		
-		JButton btnNewButton_1 = new JButton("Linea 2");
-		btnNewButton_1.setBounds(161, 100, 89, 23);
-		add(btnNewButton_1);
+		JButton btnLineasLinea2 = new JButton("Linea 2");
+		btnLineasLinea2.setBounds(161, 100, 89, 23);
+		add(btnLineasLinea2);
 		
-		JButton btnNewButton_2 = new JButton("Linea 3");
-		btnNewButton_2.setBounds(161, 134, 89, 23);
-		add(btnNewButton_2);
+		JButton btnLineasLinea3 = new JButton("Linea 3");
+		btnLineasLinea3.setBounds(161, 134, 89, 23);
+		add(btnLineasLinea3);
 		
-		JButton btnNewButton_3 = new JButton("Linea 4");
-		btnNewButton_3.setBounds(161, 173, 89, 23);
-		add(btnNewButton_3);
+		JButton btnLineasLinea4 = new JButton("Linea 4");
+		btnLineasLinea4.setBounds(161, 173, 89, 23);
+		add(btnLineasLinea4);
 		
-		JButton btnNewButton_4 = new JButton("Cancelar");
-		btnNewButton_4.setBounds(84, 249, 89, 23);
-		add(btnNewButton_4);
+		JButton btnCancelarLineas = new JButton("Cancelar");
+		btnCancelarLineas.setBounds(84, 249, 89, 23);
+		add(btnCancelarLineas);
 		
-		JButton btnNewButton_5 = new JButton("Aceptar");
-		btnNewButton_5.setBounds(259, 249, 89, 23);
-		add(btnNewButton_5);
+		JButton btnAceptarLineas = new JButton("Aceptar");
+		btnAceptarLineas.setBounds(259, 249, 89, 23);
+		add(btnAceptarLineas);
 		
 
 	}

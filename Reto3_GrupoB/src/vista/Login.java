@@ -11,8 +11,8 @@ public class Login extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField tFLogin;
+	private JPasswordField pFLogin;
 
 	/**
 	 * Create the panel.
@@ -24,27 +24,27 @@ public class Login extends JPanel {
 		lblLogin.setBounds(128, 127, 46, 14);
 		add(lblLogin);
 		
-		textField = new JTextField();
-		textField.setBounds(192, 124, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+		tFLogin = new JTextField();
+		tFLogin.setBounds(192, 124, 86, 20);
+		add(tFLogin);
+		tFLogin.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password:");
 		lblPassword.setBounds(128, 169, 60, 14);
 		add(lblPassword);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(26, 243, 89, 23);
-		add(btnCancelar);
+		JButton btnCancelarLogin = new JButton("Cancelar");
+		btnCancelarLogin.setBounds(26, 243, 89, 23);
+		add(btnCancelarLogin);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		JButton btnAceptarLogin = new JButton("Aceptar");
 		
-		btnAceptar.setBounds(339, 243, 89, 23);
-		add(btnAceptar);
+		btnAceptarLogin.setBounds(339, 243, 89, 23);
+		add(btnAceptarLogin);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(193, 166, 85, 17);
-		add(passwordField);
+		pFLogin = new JPasswordField();
+		pFLogin.setBounds(193, 166, 85, 17);
+		add(pFLogin);
 
 	}
 

@@ -20,9 +20,9 @@ public class SeleccionFecha extends JPanel {
 	public SeleccionFecha() {
 		setLayout(null);
 		
-		JLabel lblIda = new JLabel("Ida");
-		lblIda.setBounds(44, 32, 46, 14);
-		add(lblIda);
+		JLabel lblIdaSeleccionFecha = new JLabel("Ida");
+		lblIdaSeleccionFecha.setBounds(44, 32, 46, 14);
+		add(lblIdaSeleccionFecha);
 		
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(44, 57, 95, 20);
@@ -32,17 +32,17 @@ public class SeleccionFecha extends JPanel {
 		dateChooser_1.setBounds(297, 57, 95, 20);
 		add(dateChooser_1);
 		
-		JLabel lblvuelta = new JLabel("Vuelta");
-		lblvuelta.setBounds(297, 32, 75, 14);
-		add(lblvuelta);
+		JLabel lblvueltaSeleccionVuelta = new JLabel("Vuelta");
+		lblvueltaSeleccionVuelta.setBounds(297, 32, 75, 14);
+		add(lblvueltaSeleccionVuelta);
 		
-		JButton btnNewButton = new JButton("Cancelar");
-		btnNewButton.setBounds(34, 213, 89, 23);
-		add(btnNewButton);
+		JButton btnCancelarSeleccionFecha = new JButton("Cancelar");
+		btnCancelarSeleccionFecha.setBounds(34, 213, 89, 23);
+		add(btnCancelarSeleccionFecha);
 		
-		JButton btnNewButton_1 = new JButton("Aceptar");
-		btnNewButton_1.setBounds(303, 213, 89, 23);
-		add(btnNewButton_1);
+		JButton btnAceptarSeleccionFecha = new JButton("Aceptar");
+		btnAceptarSeleccionFecha.setBounds(303, 213, 89, 23);
+		add(btnAceptarSeleccionFecha);
 
 	}
 }

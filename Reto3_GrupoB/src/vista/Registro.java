@@ -12,10 +12,10 @@ public class Registro extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
+	private JTextField tFNombreRegistro;
+	private JTextField tfDNIRegistro;
+	private JPasswordField pFContraseñaRegistro;
+	private JPasswordField pFRegistroContraseña1;
 
 	/**
 	 * Create the panel.
@@ -27,58 +27,58 @@ public class Registro extends JPanel {
 		lblNewLabel.setBounds(52, 34, 120, 14);
 		add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(166, 31, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+		tFNombreRegistro = new JTextField();
+		tFNombreRegistro.setBounds(166, 31, 86, 20);
+		add(tFNombreRegistro);
+		tFNombreRegistro.setColumns(10);
 		
 		JLabel lblDni = new JLabel("DNI: ");
 		lblDni.setBounds(121, 70, 31, 14);
 		add(lblDni);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(166, 67, 86, 20);
-		add(textField_1);
+		tfDNIRegistro = new JTextField();
+		tfDNIRegistro.setColumns(10);
+		tfDNIRegistro.setBounds(166, 67, 86, 20);
+		add(tfDNIRegistro);
 		
 		JLabel lblSexo = new JLabel("Sexo: ");
 		lblSexo.setBounds(121, 102, 31, 14);
 		add(lblSexo);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(166, 98, 86, 20);
-		comboBox.addItem("");
-		comboBox.addItem("Masculino");
-		comboBox.setToolTipText("");
-		comboBox.addItem("Femenino");
-		comboBox.setToolTipText("");
-		add(comboBox);
+		JComboBox cBSexoRegistro = new JComboBox();
+		cBSexoRegistro.setBounds(166, 98, 86, 20);
+		cBSexoRegistro.addItem("");
+		cBSexoRegistro.addItem("Masculino");
+		cBSexoRegistro.setToolTipText("");
+		cBSexoRegistro.addItem("Femenino");
+		cBSexoRegistro.setToolTipText("");
+		add(cBSexoRegistro);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a: ");
 		lblContrasea.setBounds(89, 141, 63, 14);
 		add(lblContrasea);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(166, 138, 86, 20);
-		add(passwordField);
+		pFContraseñaRegistro = new JPasswordField();
+		pFContraseñaRegistro.setBounds(166, 138, 86, 20);
+		add(pFContraseñaRegistro);
 		
 		JLabel lblRepetirContrasea = new JLabel("Repetir contrase\u00F1a: ");
 		lblRepetirContrasea.setBounds(52, 179, 100, 14);
 		add(lblRepetirContrasea);
 		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(162, 176, 86, 20);
-		add(passwordField_1);
+		pFRegistroContraseña1 = new JPasswordField();
+		pFRegistroContraseña1.setBounds(162, 176, 86, 20);
+		add(pFRegistroContraseña1);
 		
-		JButton btnNewButton = new JButton("Cancelar");
-		btnNewButton.setBounds(43, 246, 89, 23);
-		add(btnNewButton);
+		JButton btnCancelarRegistro = new JButton("Cancelar");
+		btnCancelarRegistro.setBounds(43, 246, 89, 23);
+		add(btnCancelarRegistro);
 		Termibus.ocultarRegistro();
 		Termibus.mostrarInicio();
 		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(334, 246, 89, 23);
-		add(btnAceptar);
+		JButton btnAceptarRegistro = new JButton("Aceptar");
+		btnAceptarRegistro.setBounds(334, 246, 89, 23);
+		add(btnAceptarRegistro);
 		Termibus.ocultarRegistro();
 		Termibus.mostrarInicio();
 
