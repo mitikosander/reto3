@@ -10,7 +10,7 @@ package modelo;
  * @author IN1DM3B_15
  */
 public class Lineasdeautobuses {
-    
+    //hola
    //ATRIBUTOS
     private int codlinea;
     private String autobusrecorrerlinea;
