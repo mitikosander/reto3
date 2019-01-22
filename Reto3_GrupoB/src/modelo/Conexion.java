@@ -11,7 +11,7 @@ public class Conexion {
 	private void conectarBase() {
 		
 		//Variables para la conexion
-		String usuario=" ",password=" ",servidor=" ";
+		String usuario=Datos.user_BBDD,password=Datos.pass_BBDD,servidor=Datos.server_BBDD;
 		
 		//llamamos al Driver
 		try {
