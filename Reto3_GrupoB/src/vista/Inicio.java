@@ -27,25 +27,25 @@ public class Inicio extends JPanel {
 		lblNewLabel.setBounds(159, 30, 142, 69);
 		add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Acceder");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAccederInicio = new JButton("Acceder");
+		btnAccederInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			Termibus.ocultarInicio();
 			Termibus.mostrarLogin();
 			}
 		});
-		btnNewButton.setBounds(83, 196, 89, 23);
-		add(btnNewButton);
+		btnAccederInicio.setBounds(83, 196, 89, 23);
+		add(btnAccederInicio);
 		
-		JButton btnRegistrarse = new JButton("Registrarse");
-		btnRegistrarse.addActionListener(new ActionListener() {
+		JButton btnRegistrarseInicio = new JButton("Registrarse");
+		btnRegistrarseInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Termibus.ocultarInicio();
 				Termibus.mostrarRegistro();
 			}
 		});
-		btnRegistrarse.setBounds(268, 196, 89, 23);
-		add(btnRegistrarse);
+		btnRegistrarseInicio.setBounds(268, 196, 89, 23);
+		add(btnRegistrarseInicio);
 
 	}
 
