@@ -52,7 +52,7 @@ public class Lineasdeautobuses {
         this.municipioscomponerlinea = municipioscomponerlinea;
     }
     //COMENTARIO DE PRUEBA
-    //esto no va
+    
     //AIUDA
 }
     
