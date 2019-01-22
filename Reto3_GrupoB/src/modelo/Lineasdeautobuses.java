@@ -10,7 +10,7 @@ package modelo;
  * @author IN1DM3B_15
  */
 public class Lineasdeautobuses {
-    
+    //hola
    //ATRIBUTOS
     private int codlinea;
     private String autobusrecorrerlinea;
@@ -51,8 +51,9 @@ public class Lineasdeautobuses {
     public void setMunicipioscomponerlinea(String municipioscomponerlinea) {
         this.municipioscomponerlinea = municipioscomponerlinea;
     }
-    
-    
+    //COMENTARIO DE PRUEBA
+    //esto no va
+    //AIUDAme
 }
     
     
