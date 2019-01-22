@@ -18,32 +18,24 @@ public class Inicio extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
+	//Creamos en publico la instancia para poder llamar al objeto necesario desde vista
+	public JLabel logotermi;
+	public JButton btnAccederInicio,btnRegistrarseInicio;
 	public Inicio() {
 		setLayout(null);
 	
 		
-		JLabel lblNewLabel = new JLabel("TERMIBUS");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel.setBounds(159, 30, 142, 69);
-		add(lblNewLabel);
+		logotermi = new JLabel("TERMIBUS");
+		logotermi.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		logotermi.setBounds(159, 30, 142, 69);
+		add(logotermi);
 		
-		JButton btnAccederInicio = new JButton("Acceder");
-		btnAccederInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			Termibus.ocultarInicio();
-			Termibus.mostrarLogin();
-			}
-		});
+		 btnAccederInicio = new JButton("Acceder");
 		btnAccederInicio.setBounds(83, 196, 89, 23);
 		add(btnAccederInicio);
 		
-		JButton btnRegistrarseInicio = new JButton("Registrarse");
-		btnRegistrarseInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Termibus.ocultarInicio();
-				Termibus.mostrarRegistro();
-			}
-		});
+		btnRegistrarseInicio = new JButton("Registrarse");
 		btnRegistrarseInicio.setBounds(268, 196, 89, 23);
 		add(btnRegistrarseInicio);
 

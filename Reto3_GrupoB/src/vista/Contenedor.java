@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 public class Contenedor {
 
-	private JFrame frame;
+	public JFrame frame;
 
 	/**
 	 * Launch the application.
