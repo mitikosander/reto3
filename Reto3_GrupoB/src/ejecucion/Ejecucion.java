@@ -11,6 +11,7 @@ public class Ejecucion {
 		Modelo modelo=new Modelo();
 		Vista vista=new Vista();
 		Controlador controlador=new Controlador(vista, modelo);
+		
 
 	}
 
