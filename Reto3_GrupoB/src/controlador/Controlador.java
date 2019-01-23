@@ -23,6 +23,49 @@ public class Controlador {
 				modelo.metodos.mostrarPantalla(vista.login, vista.ventana.frame);
 			}
 		});
+		
+		vista.pantCarga.btnRegistrarseInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.registro, vista.ventana.frame);
+			}
+		});
+		vista.registro.btnCancelarRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
+			}
+		});
+		vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
+			}
+		});
+		vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.lineas, vista.ventana.frame);
+			}
+		});
+		vista.lineas.btnLineasLinea1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
+			}
+		});
+		vista.lineas.btnLineasLinea2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
+			}
+		});
+		vista.lineas.btnLineasLinea3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
+			}
+		});
+		vista.lineas.btnLineasLinea4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
+			}
+		});
+		
+		
 
 	}
 	
