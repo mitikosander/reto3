@@ -13,6 +13,7 @@ public class Controlador {
 	
 	private void InitializeEvents() {
 		
+		vista.
 	}
 	
 }

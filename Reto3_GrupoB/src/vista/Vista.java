@@ -20,8 +20,8 @@ public class Vista {
 		
 		
 	}
-	
 	public static void mostrarventana(JPanel panel) {
+		
 		
 	}
 }
