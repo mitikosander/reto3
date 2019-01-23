@@ -13,6 +13,7 @@ public class SeleccionFecha extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public JButton btnCancelarSeleccionFecha,btnAceptarSeleccionFecha;
 
 	/**
 	 * Create the panel.
@@ -36,11 +37,11 @@ public class SeleccionFecha extends JPanel {
 		lblvueltaSeleccionVuelta.setBounds(297, 32, 75, 14);
 		add(lblvueltaSeleccionVuelta);
 		
-		JButton btnCancelarSeleccionFecha = new JButton("Cancelar");
+		 btnCancelarSeleccionFecha = new JButton("Cancelar");
 		btnCancelarSeleccionFecha.setBounds(34, 213, 89, 23);
 		add(btnCancelarSeleccionFecha);
 		
-		JButton btnAceptarSeleccionFecha = new JButton("Aceptar");
+		 btnAceptarSeleccionFecha = new JButton("Aceptar");
 		btnAceptarSeleccionFecha.setBounds(303, 213, 89, 23);
 		add(btnAceptarSeleccionFecha);
 

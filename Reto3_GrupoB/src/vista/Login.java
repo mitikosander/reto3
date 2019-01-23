@@ -13,6 +13,7 @@ public class Login extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField tFLogin;
 	private JPasswordField pFLogin;
+	public JButton btnCancelarLogin, btnAceptarLogin;
 
 	/**
 	 * Create the panel.
@@ -33,11 +34,11 @@ public class Login extends JPanel {
 		lblPassword.setBounds(128, 169, 60, 14);
 		add(lblPassword);
 		
-		JButton btnCancelarLogin = new JButton("Cancelar");
+		 btnCancelarLogin = new JButton("Cancelar");
 		btnCancelarLogin.setBounds(26, 243, 89, 23);
 		add(btnCancelarLogin);
 		
-		JButton btnAceptarLogin = new JButton("Aceptar");
+		 btnAceptarLogin = new JButton("Aceptar");
 		
 		btnAceptarLogin.setBounds(339, 243, 89, 23);
 		add(btnAceptarLogin);

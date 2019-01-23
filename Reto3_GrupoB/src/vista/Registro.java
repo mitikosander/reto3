@@ -16,7 +16,8 @@ public class Registro extends JPanel {
 	private JTextField tfDNIRegistro;
 	private JPasswordField pFContraseñaRegistro;
 	private JPasswordField pFRegistroContraseña1;
-
+	public JComboBox cBSexoRegistro;
+	public JButton btnCancelarRegistro, btnAceptarRegistro;
 	/**
 	 * Create the panel.
 	 */
@@ -45,7 +46,7 @@ public class Registro extends JPanel {
 		lblSexo.setBounds(121, 102, 31, 14);
 		add(lblSexo);
 		
-		JComboBox cBSexoRegistro = new JComboBox();
+		cBSexoRegistro = new JComboBox();
 		cBSexoRegistro.setBounds(166, 98, 86, 20);
 		cBSexoRegistro.addItem("");
 		cBSexoRegistro.addItem("Masculino");
@@ -70,17 +71,15 @@ public class Registro extends JPanel {
 		pFRegistroContraseña1.setBounds(162, 176, 86, 20);
 		add(pFRegistroContraseña1);
 		
-		JButton btnCancelarRegistro = new JButton("Cancelar");
+		 btnCancelarRegistro = new JButton("Cancelar");
 		btnCancelarRegistro.setBounds(43, 246, 89, 23);
 		add(btnCancelarRegistro);
-		Termibus.ocultarRegistro();
-		Termibus.mostrarInicio();
+
 		
-		JButton btnAceptarRegistro = new JButton("Aceptar");
+		 btnAceptarRegistro = new JButton("Aceptar");
 		btnAceptarRegistro.setBounds(334, 246, 89, 23);
 		add(btnAceptarRegistro);
-		Termibus.ocultarRegistro();
-		Termibus.mostrarInicio();
+
 
 	}
 }

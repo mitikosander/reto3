@@ -31,7 +31,7 @@ public class Inicio extends JPanel {
 		logotermi.setBounds(159, 30, 142, 69);
 		add(logotermi);
 		
-		 btnAccederInicio = new JButton("Acceder");
+		btnAccederInicio = new JButton("Acceder");
 		btnAccederInicio.setBounds(83, 196, 89, 23);
 		add(btnAccederInicio);
 		
