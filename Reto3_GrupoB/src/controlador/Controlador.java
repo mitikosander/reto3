@@ -64,9 +64,51 @@ public class Controlador {
 				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
 			}
 		});
+		vista.lineas.btnCancelarLineas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
+			}
+		});
+		vista.paradas.btnAceptarParadas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.ticket, vista.ventana.frame);
+			}
+		});
+		vista.paradas.btnCancelarParadas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.lineas, vista.ventana.frame);
+			}
+		});
+		vista.ticket.btnCancelarTicket.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
+			}
+		});
+		vista.ticket.btnPagarTicket.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.pagar, vista.ventana.frame);
+			}
+		});
+		vista.pagar.btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.metodos.mostrarPantalla(vista.ticket, vista.ventana.frame);
+			}
+		});
+		vista.pagar.btnFinalizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Falta un metodo que borre todos los datos al volver al inicio
+				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
+			}
+		});
+		vista.pagar.btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Guarda los datos en un archivo y vuelve al inicio 
+				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
+			}
+		});
 		
 		
-
+		
 	}
 	
 }
