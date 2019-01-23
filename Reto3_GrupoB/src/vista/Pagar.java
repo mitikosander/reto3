@@ -14,6 +14,7 @@ public class Pagar extends JPanel {
 	private JTextField tfPagarPagar;
 	private JTextField tFIntroducidoPagar;
 	private JTextField tFAdevolverPagar;
+	public JButton btn50Pagar, btn20Pagar, btn10Pagar, btn5Pagar, btn2Pagar,btn1Pagar, btn05Pagar,btn02Pagar,btn01Pagar,btn005Pagar,btn002Pagar, btn001Pagar, btnGuardar, btnCancelar,btnFinalizar;                                                      
 
 	/**
 	 * Create the panel.
@@ -49,64 +50,64 @@ public class Pagar extends JPanel {
 		add(tFAdevolverPagar);
 		tFAdevolverPagar.setColumns(10);
 		
-		JButton btn50Pagar = new JButton("50");
+		 btn50Pagar = new JButton("50");
 		btn50Pagar.setBounds(71, 164, 60, 23);
 		add(btn50Pagar);
 		
-		JButton btn20Pagar = new JButton("20");
+		 btn20Pagar = new JButton("20");
 		btn20Pagar.setBounds(141, 164, 60, 23);
 		
 		add(btn20Pagar);
 		
-		JButton btn10Pagar = new JButton("10");
+		 btn10Pagar = new JButton("10");
 		btn10Pagar.setBounds(211, 164, 61, 23);
 		add(btn10Pagar);
 		
-		JButton btn5Pagar = new JButton("5");
+		 btn5Pagar = new JButton("5");
 		btn5Pagar.setBounds(287, 164, 63, 23);
 		add(btn5Pagar);
 		
-		JButton btn2Pagar = new JButton("2");
+		 btn2Pagar = new JButton("2");
 		btn2Pagar.setBounds(71, 198, 60, 23);
 		add(btn2Pagar);
 		
-		JButton btn1Pagar = new JButton("1");
+		 btn1Pagar = new JButton("1");
 		btn1Pagar.setBounds(141, 198, 60, 23);
 		add(btn1Pagar);
 		
-		JButton btn05Pagar = new JButton("0,5");
+		 btn05Pagar = new JButton("0,5");
 		btn05Pagar.setBounds(211, 198, 61, 23);
 		add(btn05Pagar);
 		
-		JButton btn02Pagar = new JButton("0,2");
+		 btn02Pagar = new JButton("0,2");
 		btn02Pagar.setBounds(287, 198, 63, 23);
 		add(btn02Pagar);
 		
-		JButton btn01Pagar = new JButton("0,1");
+		 btn01Pagar = new JButton("0,1");
 		btn01Pagar.setBounds(71, 232, 60, 23);
 		add(btn01Pagar);
 		
-		JButton btn005Pagar = new JButton("0,05");
+		 btn005Pagar = new JButton("0,05");
 		btn005Pagar.setBounds(138, 232, 63, 23);
 		add(btn005Pagar);
 		
-		JButton btn002Pagar = new JButton("0.02");
+		 btn002Pagar = new JButton("0.02");
 		btn002Pagar.setBounds(211, 232, 61, 23);
 		add(btn002Pagar);
 		
-		JButton btn001Pagar = new JButton("0.01");
+		 btn001Pagar = new JButton("0.01");
 		btn001Pagar.setBounds(287, 232, 63, 23);
 		add(btn001Pagar);
 		
-		JButton btnNewButton_1 = new JButton("Guardar");
-		btnNewButton_1.setBounds(0, 277, 89, 23);
-		add(btnNewButton_1);
+		 btnGuardar = new JButton("Guardar");
+		btnGuardar.setBounds(0, 277, 89, 23);
+		add(btnGuardar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		 btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(183, 277, 89, 23);
 		add(btnCancelar);
 		
-		JButton btnFinalizar = new JButton("Finalizar");
+		 btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setBounds(361, 277, 89, 23);
 		add(btnFinalizar);
 

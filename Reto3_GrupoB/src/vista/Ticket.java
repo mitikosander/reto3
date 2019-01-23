@@ -16,6 +16,7 @@ public class Ticket extends JPanel {
 	private JTextField tFOrigenTicket;
 	private JTextField tFDestinoTicket;
 	private JTextField tFPrecioTicket;
+	public JButton btnCancelarTicket, btnPagarTicket;
 
 	/**
 	 * Create the panel.
@@ -83,11 +84,11 @@ public class Ticket extends JPanel {
 		tFPrecioTicket.setBounds(340, 208, 86, 20);
 		add(tFPrecioTicket);
 		
-		JButton btnCancelarTicket = new JButton("Cancelar");
+		btnCancelarTicket = new JButton("Cancelar");
 		btnCancelarTicket.setBounds(34, 253, 89, 23);
 		add(btnCancelarTicket);
 		
-		JButton btnPagarTicket = new JButton("Pagar");
+		btnPagarTicket = new JButton("Pagar");
 		btnPagarTicket.setBounds(305, 253, 89, 23);
 		add(btnPagarTicket);
 
