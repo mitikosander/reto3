@@ -75,7 +75,7 @@ public class Ticket extends JPanel {
 		add(tFDestinoTicket);
 		
 		JLabel lblPrecioTicket = new JLabel("Precio:");
-		lblPrecioTicket.setBounds(305, 211, 61, 14);
+		lblPrecioTicket.setBounds(292, 211, 61, 14);
 		add(lblPrecioTicket);
 		
 		tFPrecioTicket = new JTextField();
