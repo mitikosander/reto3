@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 import modelo.Modelo;
 import vista.Vista;
@@ -16,7 +17,7 @@ public class Controlador {
 	
 	private void InitializeEvents() {
 		//Nos conectamos a la base de datos
-		modelo.conexion.conectarBase();
+		Connection conectar=modelo.conexion.conectarBase();
 		//Cargamos la pantalla de inicio en la ventana contenedora
 		vista.ventana.frame.setContentPane(vista.pantCarga);
 		//Añadimos la funcion que cambia de pantalla al pulsar el boton login
