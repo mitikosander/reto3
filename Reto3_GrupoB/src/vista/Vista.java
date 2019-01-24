@@ -1,5 +1,6 @@
 package vista;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Vista {
@@ -19,6 +20,8 @@ public class Vista {
 		//Instanciamos el panel como un objeto para acceder a sus atributos
 		ventana=new Contenedor();
 		 pantCarga=new Inicio();
+		 
+		 
 		 lineas = new Lineas();
 		 login = new Login();
 		 pagar = new Pagar();
@@ -30,8 +33,9 @@ public class Vista {
 		
 		
 	}
-	public static void mostrarventana(JPanel panel) {
-		
-		
+	
+	public void mostrarPantalla(JPanel panel ) {
+		ventana.setContentPane(panel);
+		ventana.setVisible(true);
 	}
 }

@@ -32,11 +32,7 @@ public class Metodos {
 	
 	
 	//metodo para mostrar pantalla al pulsar un boton
-	
-	public void mostrarPantalla(JPanel panel,JFrame ventana ) {
-		ventana.getContentPane().add(panel);
-		panel.setVisible(true);
-	}
+
 	
 	
 	
