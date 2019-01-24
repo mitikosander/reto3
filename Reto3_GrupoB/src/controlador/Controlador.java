@@ -15,6 +15,8 @@ public class Controlador {
 	}
 	
 	private void InitializeEvents() {
+		//Nos conectamos a la base de datos
+		modelo.conexion.conectarBase();
 		//Cargamos la pantalla de inicio en la ventana contenedora
 		vista.ventana.frame.setContentPane(vista.pantCarga);
 		//Añadimos la funcion que cambia de pantalla al pulsar el boton login
