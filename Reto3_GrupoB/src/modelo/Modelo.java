@@ -28,6 +28,8 @@ public class Modelo {
 		municipio=new Municipio();
 		parada=new Parada();
 		
+		//terminado
+		
 	}
 	
 	
