@@ -1,8 +1,12 @@
 package modelo;
 
 public class Modelo {
+	public Metodos metodos;
+	public Conexion conexion;
 	public Modelo() {
-		Conexion conectar=new Conexion();
+
+		metodos = new Metodos();
+		conexion=new Conexion();
 		
 	}
 	

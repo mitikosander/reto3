@@ -9,7 +9,7 @@ public class Lineas extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JButton  btnLineasLinea1, btnLineasLinea2, btnLineasLinea3, btnLineasLinea4, btnCancelarLineas,btnAceptarLineas;
+	public JButton  btnLineasLinea1, btnLineasLinea2, btnLineasLinea3, btnLineasLinea4, btnCancelarLineas;
 	/**
 	 * Create the panel.
 	 */
@@ -34,12 +34,8 @@ public class Lineas extends JPanel {
 		add(btnLineasLinea4);
 		
 		 btnCancelarLineas = new JButton("Cancelar");
-		btnCancelarLineas.setBounds(84, 249, 89, 23);
+		btnCancelarLineas.setBounds(161, 252, 89, 23);
 		add(btnCancelarLineas);
-		
-		 btnAceptarLineas = new JButton("Aceptar");
-		btnAceptarLineas.setBounds(259, 249, 89, 23);
-		add(btnAceptarLineas);
 		
 
 	}
