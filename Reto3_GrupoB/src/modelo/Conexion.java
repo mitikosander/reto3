@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class Conexion {
 	
 	//Metodo al que llamaremos para inicializar la conexion con la base de datos
-	public void conectarBase() {
+	public static Connection conectarBase() {
 		
 		//Variables para la conexion
 		String usuario=Datos.user_BBDD,password=Datos.pass_BBDD,servidor=Datos.server_BBDD;
@@ -27,9 +27,11 @@ public class Conexion {
 					   "jdbc:mysql://"+servidor+":3306/database",
 					   usuario,
 					   password);
+			return conexion;
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+			return null;
 		}
 	
 		
