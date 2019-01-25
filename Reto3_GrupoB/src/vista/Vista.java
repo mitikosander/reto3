@@ -1,5 +1,6 @@
 package vista;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Vista {
@@ -35,4 +36,15 @@ public class Vista {
 		ventana.setVisible(true);
 		
 	}
+	
+	public void setTexto(JLabel etiqueta, String texto) {
+		
+		etiqueta.setText(texto);
+		
+	}
+	public void setInt(JLabel etiqueta, int num) {
+		
+
+	}
+
 }
