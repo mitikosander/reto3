@@ -6,7 +6,6 @@ public class Modelo {
 	public Autobus autobus;
 	public Billete billete;
 	public Cliente cliente;
-	public consultasBBDD ConsultasBBDD;
 	public Datos datos;
 	public Ficheros ficheros;
 	public Lineasdeautobuses lineasdeautobuses;
@@ -21,7 +20,6 @@ public class Modelo {
 		autobus=new Autobus();
 		billete=new Billete();
 		cliente=new Cliente();
-		ConsultasBBDD=new consultasBBDD();
 		datos=new Datos();
 		ficheros=new Ficheros();
 		lineasdeautobuses=new Lineasdeautobuses();
