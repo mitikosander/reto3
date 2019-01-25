@@ -16,6 +16,8 @@ public class Pagar extends JPanel {
 	private JTextField tFAdevolverPagar;
 	public JButton btn50Pagar, btn20Pagar, btn10Pagar, btn5Pagar, btn2Pagar,btn1Pagar, btn05Pagar,btn02Pagar,btn01Pagar,btn005Pagar,btn002Pagar, btn001Pagar, btnGuardar, btnCancelar,btnFinalizar;                                                      
 
+	
+	
 	/**
 	 * Create the panel.
 	 */
@@ -54,9 +56,9 @@ public class Pagar extends JPanel {
 		btn50Pagar.setBounds(71, 164, 60, 23);
 		add(btn50Pagar);
 		
+		
 		 btn20Pagar = new JButton("20");
 		btn20Pagar.setBounds(141, 164, 60, 23);
-		
 		add(btn20Pagar);
 		
 		 btn10Pagar = new JButton("10");
