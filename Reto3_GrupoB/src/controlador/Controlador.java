@@ -99,12 +99,12 @@ public class Controlador {
 				});
 				vista.seleccionFecha.btnAceptarSeleccionFecha.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			}
+						vista.mostrarPantalla(vista.ticket);			}
 				});
 				
 				vista.paradas.btnAceptarParadas.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.ticket);			}
+						vista.mostrarPantalla(vista.seleccionFecha);			}
 				});
 				vista.paradas.btnCancelarParadas.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
