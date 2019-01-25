@@ -7,8 +7,10 @@ import java.sql.SQLException;
 
 public class Conexion {
 	
+	private Connection conexion;
+	
 	//Metodo al que llamaremos para inicializar la conexion con la base de datos
-	public static Connection conectarBase() {
+	public Connection conectarBase() {
 		
 		//Variables para la conexion
 		String usuario=Datos.user_BBDD,password=Datos.pass_BBDD,servidor=Datos.server_BBDD;
@@ -16,26 +18,44 @@ public class Conexion {
 		//llamamos al Driver
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("Driver cargado");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
+			System.err.println("Driver no encontrado");
 			e.printStackTrace();
 		}
 		
 		//establecemos la conexion pasando los parametros definidos
 		try {
-			Connection conexion = DriverManager.getConnection(
+			 conexion = DriverManager.getConnection(
 					   "jdbc:mysql://"+servidor+":3306/database",
 					   usuario,
 					   password);
+			System.out.println("Conexion completa");
 			return conexion;
-		} catch (SQLException e) {
 			
+		} catch (SQLException e) {
+			System.err.println("Error en la conexion");
 			e.printStackTrace();
 			return null;
 		}
 	
 		
 	}
+	
+	
+	//Método para desconectar la BBDD
+	
+	public void desconectar() {
+        if(conexion != null) {
+            try {
+                conexion.close();
+                conexion = null;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 	
 
