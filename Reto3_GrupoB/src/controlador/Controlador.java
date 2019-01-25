@@ -12,6 +12,7 @@ public class Controlador {
 	public Controlador(Vista vista, Modelo modelo) {
 		this.vista=vista;
 		this.modelo=modelo;
+	
 		
 		InitializeEvents();
 		
@@ -21,8 +22,11 @@ public class Controlador {
 		vista.ventana.setContentPane(vista.pantCarga);
 		vista.ventana.setVisible(true);
 	}
-	
+	//Cambiar variables cuando sea necesario
+	double precioTotal=150;
+	double  pagar=precioTotal;
 	private void InitializeEvents() {
+	
 		
 		
 		//Te mete a la pantalla login
@@ -139,8 +143,43 @@ public class Controlador {
 						//Guarda los datos en un archivo y vuelve al inicio 
 						vista.mostrarPantalla(vista.pantCarga);			}
 				});
-				
-		
+				//Para que cada vez que le des a un boton de pagar, vaya restando de el precio 
+				vista.pagar.btn50Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-50;	}
+				});
+				vista.pagar.btn20Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-20;	}
+				});
+				vista.pagar.btn10Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-10;	}
+				});
+				vista.pagar.btn5Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-5;	}
+				});
+				vista.pagar.btn2Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-2;	}
+				});
+				vista.pagar.btn1Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-1;	}
+				});
+				vista.pagar.btn05Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-0.5;	}
+				});
+				vista.pagar.btn02Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-0.2;	}
+				});
+				vista.pagar.btn01Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-0.1;	}
+				});
 	}
 	
 }
