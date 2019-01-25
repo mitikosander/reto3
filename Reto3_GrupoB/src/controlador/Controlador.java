@@ -72,22 +72,6 @@ public class Controlador {
 						vista.mostrarPantalla(vista.lineas);			}
 				});
 				
-				vista.lineas.btnLineasLinea1.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.paradas);			}
-				});
-				vista.lineas.btnLineasLinea2.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.paradas);			}
-				});
-				vista.lineas.btnLineasLinea3.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.paradas);			}
-				});
-				vista.lineas.btnLineasLinea4.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.paradas);			}
-				});
 				
 				vista.lineas.btnCancelarLineas.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -99,12 +83,12 @@ public class Controlador {
 				});
 				vista.seleccionFecha.btnAceptarSeleccionFecha.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			}
+						vista.mostrarPantalla(vista.ticket);			}
 				});
 				
 				vista.paradas.btnAceptarParadas.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.ticket);			}
+						vista.mostrarPantalla(vista.seleccionFecha);			}
 				});
 				vista.paradas.btnCancelarParadas.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {

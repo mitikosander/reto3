@@ -23,94 +23,94 @@ public class Pagar extends JPanel {
 	 */
 	public Pagar() {
 		setLayout(null);
-	   
+		setBounds(100, 100, 500, 500);
 		
 		JLabel lblAPagar = new JLabel("A pagar : ");
-		lblAPagar.setBounds(125, 49, 63, 14);
+		lblAPagar.setBounds(113, 84, 63, 14);
 		add(lblAPagar);
 		
 		tfPagarPagar = new JTextField();
-		tfPagarPagar.setBounds(186, 46, 86, 20);
+		tfPagarPagar.setBounds(186, 81, 86, 20);
 		add(tfPagarPagar);
 		tfPagarPagar.setColumns(10);
 		
 		JLabel lblIntroducido = new JLabel("Introducido: ");
-		lblIntroducido.setBounds(125, 77, 63, 14);
+		lblIntroducido.setBounds(113, 138, 63, 14);
 		add(lblIntroducido);
 		
 		tFIntroducidoPagar = new JTextField();
-		tFIntroducidoPagar.setBounds(186, 74, 86, 20);
+		tFIntroducidoPagar.setBounds(186, 135, 86, 20);
 		add(tFIntroducidoPagar);
 		tFIntroducidoPagar.setColumns(10);
 		
 		JLabel lblADevolver = new JLabel("A devolver : ");
-		lblADevolver.setBounds(125, 105, 63, 14);
+		lblADevolver.setBounds(113, 194, 63, 14);
 		add(lblADevolver);
 		
 		tFAdevolverPagar = new JTextField();
-		tFAdevolverPagar.setBounds(186, 102, 86, 20);
+		tFAdevolverPagar.setBounds(186, 191, 86, 20);
 		add(tFAdevolverPagar);
 		tFAdevolverPagar.setColumns(10);
 		
 		 btn50Pagar = new JButton("50");
-		btn50Pagar.setBounds(71, 164, 60, 23);
+		btn50Pagar.setBounds(96, 255, 60, 23);
 		add(btn50Pagar);
 		
 		
 		 btn20Pagar = new JButton("20");
-		btn20Pagar.setBounds(141, 164, 60, 23);
+		btn20Pagar.setBounds(166, 255, 60, 23);
 		add(btn20Pagar);
 		
 		 btn10Pagar = new JButton("10");
-		btn10Pagar.setBounds(211, 164, 61, 23);
+		btn10Pagar.setBounds(249, 255, 61, 23);
 		add(btn10Pagar);
 		
 		 btn5Pagar = new JButton("5");
-		btn5Pagar.setBounds(287, 164, 63, 23);
+		btn5Pagar.setBounds(320, 255, 63, 23);
 		add(btn5Pagar);
 		
 		 btn2Pagar = new JButton("2");
-		btn2Pagar.setBounds(71, 198, 60, 23);
+		btn2Pagar.setBounds(96, 324, 60, 23);
 		add(btn2Pagar);
 		
 		 btn1Pagar = new JButton("1");
-		btn1Pagar.setBounds(141, 198, 60, 23);
+		btn1Pagar.setBounds(169, 324, 60, 23);
 		add(btn1Pagar);
 		
 		 btn05Pagar = new JButton("0,5");
-		btn05Pagar.setBounds(211, 198, 61, 23);
+		btn05Pagar.setBounds(249, 324, 61, 23);
 		add(btn05Pagar);
 		
 		 btn02Pagar = new JButton("0,2");
-		btn02Pagar.setBounds(287, 198, 63, 23);
+		btn02Pagar.setBounds(320, 324, 63, 23);
 		add(btn02Pagar);
 		
 		 btn01Pagar = new JButton("0,1");
-		btn01Pagar.setBounds(71, 232, 60, 23);
+		btn01Pagar.setBounds(96, 382, 60, 23);
 		add(btn01Pagar);
 		
 		 btn005Pagar = new JButton("0,05");
-		btn005Pagar.setBounds(138, 232, 63, 23);
+		btn005Pagar.setBounds(166, 382, 63, 23);
 		add(btn005Pagar);
 		
 		 btn002Pagar = new JButton("0.02");
-		btn002Pagar.setBounds(211, 232, 61, 23);
+		btn002Pagar.setBounds(249, 382, 61, 23);
 		add(btn002Pagar);
 		
 		 btn001Pagar = new JButton("0.01");
-		btn001Pagar.setBounds(287, 232, 63, 23);
+		btn001Pagar.setBounds(320, 382, 63, 23);
 		add(btn001Pagar);
 		
 		 btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(0, 277, 89, 23);
+		btnGuardar.setBounds(10, 466, 89, 23);
 		add(btnGuardar);
 		
 		 btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(183, 277, 89, 23);
+		btnCancelar.setBounds(221, 466, 89, 23);
 		add(btnCancelar);
 		
 		 btnFinalizar = new JButton("Finalizar");
-		btnFinalizar.setBounds(361, 277, 89, 23);
+		btnFinalizar.setBounds(401, 466, 89, 23);
 		add(btnFinalizar);
 
 	}

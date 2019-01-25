@@ -4,8 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import java.awt.Color;
 
 public class Inicio extends JPanel {
 	
@@ -24,19 +24,20 @@ public class Inicio extends JPanel {
 	public JButton btnAccederInicio,btnRegistrarseInicio;
 	public Inicio() {
 		setLayout(null);
-	
+		setBounds(100, 100, 500, 500);
 		
 		logotermi = new JLabel("TERMIBUS");
-		logotermi.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		logotermi.setBounds(159, 30, 142, 69);
+		logotermi.setForeground(Color.RED);
+		logotermi.setFont(new Font("Rod", Font.PLAIN, 75));
+		logotermi.setBounds(58, 66, 360, 139);
 		add(logotermi);
 		
 		btnAccederInicio = new JButton("Acceder");
-		btnAccederInicio.setBounds(83, 196, 89, 23);
+		btnAccederInicio.setBounds(58, 418, 89, 23);
 		add(btnAccederInicio);
 		
 		btnRegistrarseInicio = new JButton("Registrarse");
-		btnRegistrarseInicio.setBounds(268, 196, 89, 23);
+		btnRegistrarseInicio.setBounds(329, 418, 89, 23);
 		add(btnRegistrarseInicio);
 
 	}
