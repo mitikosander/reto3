@@ -4,21 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class Contenedor {
+public class Contenedor extends JFrame {
 
 	public JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
-			public void run() {
-				try {
-					Contenedor window = new Contenedor();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-	
+public Contenedor() {
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setBounds(100,100,450,300);
+}
 	
 }
