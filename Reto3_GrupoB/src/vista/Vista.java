@@ -31,24 +31,24 @@ public class Vista {
 		
 		
 	}
-	//método para 
+	//mÃ©todo para 
 	public  void mostrarPantalla(JPanel panel) {
 		ventana.setContentPane(panel);
 		ventana.setVisible(true);
 		
 	}
-	
-	//método para poner un String en un label
+	//mÃ©todo para poner un String en un label
 	public void setStringLabel(JLabel etiqueta, String txt) {
 		etiqueta.setText(txt);
 	}
-	//método para poner double en un label que le pasemos
+	//mÃ©todo para poner double en un label que le pasemos
 	public void setDoubleLabel(JLabel etiqueta, double d) {
 		etiqueta.setText(Double.toString(d));
 	}
 	
-	//método para poner ints en un label que le pasemos
+	//mÃ©todo para poner ints en un label que le pasemos
 	public void setIntLabel(JLabel etiqueta, int n) {
 		etiqueta.setText(Integer.toString(n));
 	}
+
 }
