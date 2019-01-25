@@ -20,31 +20,31 @@ public class Login extends JPanel {
 	 */
 	public Login() {
 		setLayout(null);
-		
+		setBounds(100, 100, 500, 500);
 		JLabel lblLogin = new JLabel("Login: ");
-		lblLogin.setBounds(128, 127, 46, 14);
+		lblLogin.setBounds(128, 227, 46, 14);
 		add(lblLogin);
 		
 		tFLogin = new JTextField();
-		tFLogin.setBounds(192, 124, 86, 20);
+		tFLogin.setBounds(192, 224, 86, 20);
 		add(tFLogin);
 		tFLogin.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(128, 169, 60, 14);
+		lblPassword.setBounds(114, 304, 60, 14);
 		add(lblPassword);
 		
 		 btnCancelarLogin = new JButton("Cancelar");
-		btnCancelarLogin.setBounds(26, 243, 89, 23);
+		btnCancelarLogin.setBounds(32, 446, 89, 23);
 		add(btnCancelarLogin);
 		
 		 btnAceptarLogin = new JButton("Aceptar");
 		
-		btnAceptarLogin.setBounds(339, 243, 89, 23);
+		btnAceptarLogin.setBounds(367, 446, 89, 23);
 		add(btnAceptarLogin);
 		
 		pFLogin = new JPasswordField();
-		pFLogin.setBounds(193, 166, 85, 17);
+		pFLogin.setBounds(192, 299, 85, 20);
 		add(pFLogin);
 
 	}
