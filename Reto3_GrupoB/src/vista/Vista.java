@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 public class Vista {
 
-	public Contenedor ventana;
+	public  Contenedor ventana;
 	public Inicio pantCarga;
 	public Lineas lineas;
 	public Login login;
@@ -30,8 +30,9 @@ public class Vista {
 		
 		
 	}
-	public static void mostrarventana(JPanel panel) {
-		
+	public  void mostrarPantalla(JPanel panel) {
+		ventana.setContentPane(panel);
+		ventana.setVisible(true);
 		
 	}
 }

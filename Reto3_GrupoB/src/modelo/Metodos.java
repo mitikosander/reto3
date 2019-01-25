@@ -30,13 +30,7 @@ public class Metodos {
 	
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
 	
-	
-	//metodo para mostrar pantalla al pulsar un boton
-	
-	public void mostrarPantalla(JPanel panel,JFrame ventana ) {
-		ventana.getContentPane().add(panel);
-		panel.setVisible(true);
-	}
+
 	
 	
 	
