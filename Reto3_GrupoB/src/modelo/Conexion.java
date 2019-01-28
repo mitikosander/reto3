@@ -13,7 +13,7 @@ public class Conexion {
 	public Connection conectarBase() {
 		
 		//Variables para la conexion
-		String usuario=Datos.user_BBDD,password=Datos.pass_BBDD,servidor=Datos.server_BBDD;
+		String usuario=Datos.user_BBDD,password=Datos.pass_BBDD,url=Datos.URL_BBDD;
 		
 		//llamamos al Driver
 		try {
@@ -28,7 +28,7 @@ public class Conexion {
 		//establecemos la conexion pasando los parametros definidos
 		try {
 			 conexion = DriverManager.getConnection(
-					   "jdbc:mysql://"+servidor+":3306/database",
+					   url,
 					   usuario,
 					   password);
 			System.out.println("Conexion completa");
