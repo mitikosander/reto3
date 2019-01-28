@@ -1,24 +1,19 @@
 package vista;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 
-public class Contenedor {
-
-	public JFrame frame;
+public class Contenedor extends JFrame{
 
 	/**
-	 * Launch the application.
+	 * 
 	 */
-			public void run() {
-				try {
-					Contenedor window = new Contenedor();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
+	private static final long serialVersionUID = 1L;
+	public JFrame frame;
+
+	public Contenedor() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(100,100,500,500);
+	}
 	
 	
 }
