@@ -17,6 +17,7 @@ public class Cliente {
     private String apellido;
     private String sexo;
     private String contrasenya;
+    private int fecha_nac;
     
    //CONSTRUCTORES
     public Cliente(){
@@ -28,6 +29,7 @@ public class Cliente {
     this.apellido = apellido;
     this.sexo = sexo;
     this.contrasenya = contrasenya;
+    this.fecha_nac = fecha_nac;
 }
 
     //GETTER
@@ -50,6 +52,10 @@ public class Cliente {
     public String getContrasenya() {
         return contrasenya;
     }
+    
+    public int getFecha_nac() {
+        return fecha_nac;
+    }
 
     //SETTER
     public void setDni(String dni) {
@@ -70,6 +76,10 @@ public class Cliente {
 
     public void setContrasenya(String contrasenya) {
         this.contrasenya = contrasenya;
+    }
+    
+    public void setFecha_nac(int fecha_nac) {
+        this.fecha_nac = fecha_nac;
     }
 
  

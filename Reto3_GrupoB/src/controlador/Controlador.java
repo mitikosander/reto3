@@ -130,7 +130,8 @@ public class Controlador {
 				//Para que cada vez que le des a un boton de pagar, vaya restando de el precio 
 				vista.pagar.btn50Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-50;	}
+						pagar=pagar-50;	
+						}
 				});
 				vista.pagar.btn20Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
