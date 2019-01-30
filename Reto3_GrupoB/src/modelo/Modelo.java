@@ -29,6 +29,23 @@ public class Modelo {
 		//terminado
 		
 	}
+	public Lineasdeautobuses[] obtenerLineas() {
+		Lineasdeautobuses lineas[] = new Lineasdeautobuses[3];
+		Lineasdeautobuses L1 = new Lineasdeautobuses();
+		Lineasdeautobuses L2 = new Lineasdeautobuses();
+		Lineasdeautobuses L3 = new Lineasdeautobuses();	
+		
+		L1.setAutobusrecorrerlinea("unox");
+		L2.setAutobusrecorrerlinea("dosx");
+		L3.setAutobusrecorrerlinea("trex");		
+		
+		lineas[0]=L1;
+		lineas[1]=L2;
+		lineas[2]=L3;
+		
+		return lineas;
+
+	}
 	
 	
 }

@@ -11,6 +11,7 @@ public class Lineas extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	public JButton  btnCancelarLineas;
+	public JComboBox<Object> LineascB;
 	/**
 	 * Create the panel.
 	 */
@@ -22,9 +23,9 @@ public class Lineas extends JPanel {
 		btnCancelarLineas.setBounds(200, 421, 89, 23);
 		add(btnCancelarLineas);
 		
-		JComboBox<Object> comboBox = new JComboBox<Object>();
-		comboBox.setBounds(150, 151, 195, 20);
-		add(comboBox);
+		LineascB = new JComboBox<Object>();
+		LineascB.setBounds(150, 151, 195, 20);
+		add(LineascB);
 		
 
 	}

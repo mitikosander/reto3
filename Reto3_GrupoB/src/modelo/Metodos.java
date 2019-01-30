@@ -31,7 +31,7 @@ public class Metodos {
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
 	
 
-	
+
 	
 	
 
