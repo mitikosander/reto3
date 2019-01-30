@@ -3,7 +3,6 @@ package modelo;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import vista.Vista;
 
 public class Metodos {
@@ -131,8 +130,16 @@ public class Metodos {
 	
 	//Método para cargar array parada con los datos de la BBDD
 	
-	
-	
-	
-
+	public static double calcularDistanciaEuclediana() {
+		Punto p1 = new Punto(5, 10);
+		Punto p2 = new Punto(3, 7);
+		double resultado = 0;
+		try {
+			resultado = p1.distancia(p2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultado;
+	}
 }
