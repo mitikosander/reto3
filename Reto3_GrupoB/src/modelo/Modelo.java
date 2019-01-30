@@ -65,7 +65,7 @@ public class Modelo {
 		L2.setCodlinea(4);
 		L3.setCodlinea(2);
 		
-		return ;
+		return lineas;
 		
 		
 	}
