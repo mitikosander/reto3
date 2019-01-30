@@ -11,8 +11,8 @@ public class Login extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField tFLogin;
-	private JPasswordField pFLogin;
+	public JTextField tFLogin;
+	public JPasswordField pFLogin;
 	public JButton btnCancelarLogin, btnAceptarLogin;
 
 	/**
