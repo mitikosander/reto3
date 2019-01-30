@@ -12,8 +12,11 @@ public class Ficheros {
 	public static void cargarFichero() {
 	String fichero = "D: \\ aqui va la ruta"; 
 	String strCurrentLine; 
+	BufferedReader objReader = null;
+	//stCurrentline lee la linea actual 
+	//objReader devuelve una cadena
 	        try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {   
-	            while ((strCurrentLine = br.readLine()) != null) {   
+	            while ((strCurrentLine = objReader.readLine()) != null) {   
 	                System.out.println(strCurrentLine);  
 	            }  
 	        } catch (IOException e) {  
