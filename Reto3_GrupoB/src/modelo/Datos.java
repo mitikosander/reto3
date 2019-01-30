@@ -16,4 +16,9 @@ public class Datos {
 	static String URL_destino_ticet="";
 	
 	
+	//Arrays que vamos a cargar con los datos de la BBDD
+	Lineasdeautobuses[] lineas=Metodos.cargarArrLineas();
+	
+	
+	
 }
