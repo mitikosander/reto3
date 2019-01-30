@@ -5,6 +5,7 @@ import vista.Paradas;
 public class Modelo {
 	public Metodos metodos;
 	public Conexion conexion;
+	public Punto punto;
 	public Autobus autobus;
 	public Billete billete;
 	public Cliente cliente;
@@ -27,6 +28,7 @@ public class Modelo {
 		lineasdeautobuses=new Lineasdeautobuses();
 		municipio=new Municipio();
 		parada=new Parada();
+    punto = new Punto();
 		
 		//terminado
 		
@@ -70,4 +72,5 @@ public class Modelo {
 		
 	}
 	
+
 }

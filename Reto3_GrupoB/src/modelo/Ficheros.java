@@ -7,7 +7,6 @@ import java.io.IOException;
 
 public class Ficheros {
 	
-	
 	//Metodo para cargar el fichero que le pases poniendo la ruta 
 	public static void cargarFichero() {
 	String fichero = "D: \\ aqui va la ruta"; 
@@ -19,10 +18,8 @@ public class Ficheros {
 	        } catch (IOException e) {  
 	            e.printStackTrace(); 
 	        }
-	
 	}
 	
-	//Metodo para guardar los datos del fichero en un array
 	
 	//Metodo para guardar los datos del ticket en un fichero
 
