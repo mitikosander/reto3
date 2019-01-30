@@ -2,116 +2,214 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 
+import modelo.Lineasdeautobuses;
 import modelo.Modelo;
 import vista.Vista;
 
 public class Controlador {
 	private Vista vista;
 	private Modelo modelo;
+	
+	
+	
 	public Controlador(Vista vista, Modelo modelo) {
 		this.vista=vista;
 		this.modelo=modelo;
-	}
-	
-	private void InitializeEvents() {
+		InitializeEvents();
+		
 		//Nos conectamos a la base de datos
-		Connection conectar=modelo.conexion.conectarBase();
+	//	Connection conectar=modelo.conexion.conectarBase();
 		//Cargamos la pantalla de inicio en la ventana contenedora
-		vista.ventana.frame.setContentPane(vista.pantCarga);
-		//Añadimos la funcion que cambia de pantalla al pulsar el boton login
-		vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.login, vista.ventana.frame);
-			}
-		});
+		vista.ventana.setContentPane(vista.pantCarga);
+		vista.ventana.setVisible(true);
+	}
+	
+	
+	//Cambiar variables cuando sea necesario
+	double precioTotal=150;
+	double  pagar=precioTotal;
+	
+	
+	
+	private void InitializeEvents() {	
+		//Te mete a la pantalla login
+				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.login);
+					}
+				});
+				//Cuando estas en la pantalla login, te lleva a la pantalla de carga
+				vista.login.btnCancelarLogin.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);
+					}
+				});
+				
+				//Te lleva a la pantalla de registro
+				vista.pantCarga.btnRegistrarseInicio.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.registro);
+					}
+				});
+				//Te lleva a la pantalla de carga
+				vista.registro.btnCancelarRegistro.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);
+					}
+				});
+				
+				//Te lleva a la pantalla de carga, habiendo creado el usuario
+				vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);		
+						}
+				});
+				
+				//Te lleva a la pantalla de login
+				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.login);			
+						}
+				});
+				//Te lleva a la pantalla de lineas
+				vista.login.btnAceptarLogin.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.lineas);
+						rellenarComboLineas();
+					}
+				});
+				
+				
+				vista.lineas.btnCancelarLineas.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				vista.seleccionFecha.btnCancelarSeleccionFecha.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				vista.seleccionFecha.btnAceptarSeleccionFecha.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.ticket);			
+						}
+				});
+				
+				vista.paradas.btnAceptarParadas.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.seleccionFecha);			
+						}
+				});
+				vista.paradas.btnCancelarParadas.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				vista.ticket.btnPagarTicket.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pagar);			
+						}
+				});
+				vista.ticket.btnCancelarTicket.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				
+				
+				
+				vista.ticket.btnCancelarTicket.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				vista.ticket.btnPagarTicket.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.ticket);		
+						}
+				});
+				vista.pagar.btnCancelar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				vista.pagar.btnFinalizar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				vista.pagar.btnGuardar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						//Guarda los datos en un archivo y vuelve al inicio 
+						vista.mostrarPantalla(vista.pantCarga);			
+						}
+				});
+				//Para que cada vez que le des a un boton de pagar, vaya restando de el precio 
+				vista.pagar.btn50Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-50;	
+						}
+				});
+				vista.pagar.btn20Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-20;	}
+				});
+				vista.pagar.btn10Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-10;	}
+				});
+				vista.pagar.btn5Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-5;	}
+				});
+				vista.pagar.btn2Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-2;	}
+				});
+				vista.pagar.btn1Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-1;	}
+				});
+				vista.pagar.btn05Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-0.5;	}
+				});
+				vista.pagar.btn02Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-0.2;	}
+				});
+				vista.pagar.btn01Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pagar=pagar-0.1;	}
+				});
+	}
+	
+	private void rellenarComboLineas() {
+		//Sacar las lineas de la BBDD y rellenar el combobox
+		//1.Sacar datos de la BBDD
+				
+		Lineasdeautobuses[] lineas = modelo.obtenerLineas();
 		
-		vista.pantCarga.btnRegistrarseInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.registro, vista.ventana.frame);
-			}
-		});
-		vista.registro.btnCancelarRegistro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
-			}
-		});
-		vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
-			}
-		});
-		vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.lineas, vista.ventana.frame);
-			}
-		});
-		vista.lineas.btnLineasLinea1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
-			}
-		});
-		vista.lineas.btnLineasLinea2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
-			}
-		});
-		vista.lineas.btnLineasLinea3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
-			}
-		});
-		vista.lineas.btnLineasLinea4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
-			}
-		});
-		vista.lineas.btnCancelarLineas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
-			}
-		});
-		vista.paradas.btnAceptarParadas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.ticket, vista.ventana.frame);
-			}
-		});
-		vista.paradas.btnCancelarParadas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.lineas, vista.ventana.frame);
-			}
-		});
-		vista.ticket.btnCancelarTicket.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.paradas, vista.ventana.frame);
-			}
-		});
-		vista.ticket.btnPagarTicket.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.pagar, vista.ventana.frame);
-			}
-		});
-		vista.pagar.btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modelo.metodos.mostrarPantalla(vista.ticket, vista.ventana.frame);
-			}
-		});
-		vista.pagar.btnFinalizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Falta un metodo que borre todos los datos al volver al inicio
-				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
-			}
-		});
-		vista.pagar.btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Guarda los datos en un archivo y vuelve al inicio 
-				modelo.metodos.mostrarPantalla(vista.pantCarga, vista.ventana.frame);
-			}
-		});
-		
+		//2.Relllenar combo de lineas		
+
+		for(int i = 0;i<lineas.length;i++) {
+			vista.lineas.LineascB.addItem(lineas[i].getAutobusrecorrerlinea());
+		}
+
+	}
+	//Rellena el combo con las paradas de inicio que haya en esa linea
+	private void rellenarComboParadasInicio() {
 		
 		
 	}
-	
+	//Rellena el combo con las paradas de destino que haya en esa linea
+	private void rellenarComboParadasDestino() {
+		
+		
+	}
+
+
 }

@@ -16,7 +16,7 @@ public class Paradas extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	public JScrollPane sPNombreLineaParadas;
-	public JComboBox cBOrigenParadas,cBDestinoParadas;
+	public JComboBox<String> cBOrigenParadas,cBDestinoParadas;
 	public JRadioButton rdbtnIdaVueltaParadas;
 	public JButton btnCancelarParadas,btnAceptarParadas;
 	
@@ -26,40 +26,40 @@ public class Paradas extends JPanel {
 	 */
 	public Paradas() {
 		setLayout(null);
-		
+		setBounds(100, 100, 500, 500);
 		 sPNombreLineaParadas = new JScrollPane();
-		sPNombreLineaParadas.setBounds(101, 60, 220, 183);
+		sPNombreLineaParadas.setBounds(116, 60, 220, 183);
 		add(sPNombreLineaParadas);
 		
 		JLabel lblNombreDeLinea = new JLabel("Nombre de linea");
 		sPNombreLineaParadas.setColumnHeaderView(lblNombreDeLinea);
 		
 		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(320, 60, 17, 183);
+		scrollBar.setBounds(336, 60, 17, 183);
 		add(scrollBar);
 		
-		 cBOrigenParadas = new JComboBox();
-		cBOrigenParadas.setBounds(152, 280, 114, 20);
+		 cBOrigenParadas = new JComboBox<String>();
+		cBOrigenParadas.setBounds(163, 297, 114, 20);
 		add(cBOrigenParadas);
 		cBOrigenParadas.addItem("Origen");
 		cBOrigenParadas.setToolTipText("");
 		
-		cBDestinoParadas = new JComboBox();
-		cBDestinoParadas.setBounds(152, 311, 114, 20);
+		cBDestinoParadas = new JComboBox<String>();
+		cBDestinoParadas.setBounds(163, 364, 114, 20);
 		add(cBDestinoParadas);
 		cBDestinoParadas.addItem("Destino");
 		cBOrigenParadas.setToolTipText("");
 		
 		rdbtnIdaVueltaParadas = new JRadioButton("Ida/Vuelta");
-		rdbtnIdaVueltaParadas.setBounds(152, 348, 109, 23);
+		rdbtnIdaVueltaParadas.setBounds(183, 416, 109, 23);
 		add(rdbtnIdaVueltaParadas);
 		
 		btnCancelarParadas = new JButton("Cancelar");
-		btnCancelarParadas.setBounds(23, 407, 89, 23);
+		btnCancelarParadas.setBounds(31, 466, 89, 23);
 		add(btnCancelarParadas);
 		
 		btnAceptarParadas = new JButton("Aceptar");
-		btnAceptarParadas.setBounds(349, 407, 89, 23);
+		btnAceptarParadas.setBounds(382, 466, 89, 23);
 		add(btnAceptarParadas);
 		
 
