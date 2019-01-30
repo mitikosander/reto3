@@ -3,40 +3,11 @@ package modelo;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import vista.Vista;
 
 public class Metodos {
 
-	// metodo para cifrar la contrase√±a
-
-	public static String encriptarPass(String pass) {
-		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			byte[] messageDigest = md.digest(pass.getBytes());
-			BigInteger number = new BigInteger(1, messageDigest);
-			String hashtext = number.toString(16);
-
-			while (hashtext.length() < 32) {
-				hashtext = "0" + hashtext;
-			}
-			return hashtext;
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	// metodo para comprobar que la contrase√±a escrita sea igual que la guardada en
-	// la base
-
-	// metodo para mostrar pantalla al pulsar un boton
-
-	public void mostrarPantalla(JPanel panel, JFrame ventana) {
-		ventana.getContentPane().add(panel);
-		panel.setVisible(true);
-	}
-=======
-	//metodo para cifrar la contrase√±a
+	//metodo para cifrar la contraseÒa
 	
 	private static String encriptarPass(String pass) {
 		Vista vista=new Vista();
@@ -58,7 +29,9 @@ public class Metodos {
 			 throw new RuntimeException(e);
 			 }
 	}
-	//M√©todo para comprobar que el DNI introducido en el registro no existe en la base de datos
+	
+	
+	//MÈtodo para comprobar que el DNI introducido en el registro no existe en la base de datos
 	public static boolean dniExistente(String dni) {
 		boolean dniExistente=false;
 		Vista vista=new Vista();
@@ -67,20 +40,10 @@ public class Metodos {
 		
 		return dniExistente;
 	}
-	//M√©todo para comprobar que el usuario introducido en el registro no existe en la base de datos
-	public static boolean userExistente(String user) {
-		boolean userExistente=false;
-		Vista vista=new Vista();
-		user=vista.registro.tFNombreRegistro.getName();
-		//bucle que compara el nombre escrito con los existentes en la bbdd 
-		//si existe devuelve true, si no, false
-		
-		return userExistente;
-	}
+
 	
 	
-	
-	//M√©todo para comprobar que el login del usuario ha sido correcto
+	//MÈtodo para comprobar que el login del usuario ha sido correcto
 	public static boolean comprobarLogin(String user, String pass) {
 		boolean pass_comp=false;
 		boolean user_comp=comprobarUsuario(user);
@@ -96,7 +59,7 @@ public class Metodos {
 		}
 	}
 	
-	//m√©todo para comprobar que el usuario introducido en el login existe en la base de datos
+	//mÈtodo para comprobar que el usuario introducido en el login existe en la base de datos
 	
 	private static boolean comprobarUsuario(String user) {
 		String usuarioAcomparar=null;
@@ -113,15 +76,15 @@ public class Metodos {
 		}
 	}
 	
-	//metodo para comprobar que la contrase√±a escrita sea igual que la guardada en la base
-
+	//metodo para comprobar que la contraseÒa escrita sea igual que la guardada en la base
+	
 	private static boolean comprobarPassword(String passRecibida) {
 		String passAComparar=null;
-		//Encriptamos la contrase√±a que recibimos
+		//Encriptamos la contraseÒa que recibimos
 		
 		String passEncriptada= encriptarPass(passRecibida);
 		
-		//consultar en la base la contrase√±a del usuario que ha tenido que ser validado anteriormente
+		//consultar en la base la contraseÒa del usuario que ha tenido que ser validado anteriormente
 		
 		if(passEncriptada.equals(passAComparar)) {
 			return true;
@@ -131,12 +94,20 @@ public class Metodos {
 		
 	}
 	
+	//MÈtodo que recibe la tabla a consultar y devuelve el numero 
+		private static int contarLargoArr(String nombreTablaConsulta) {
+			int cont=0;
+			//consulta para obtener el count 
+			
+			
+			return cont;
+		}
 	
-	//M√©todo para cargar array de Lineas con los datos de la BBDD
+	//MÈtodo para cargar array de Lineas con los datos de la BBDD
 	public static Lineasdeautobuses[] cargarArrLineas() {
 		Lineasdeautobuses[] lineas;
 		String tablaconsulta="";
-		//llamamos al metodo contLargoArr para saber el largo que tendr√° nuestro array
+		//llamamos al metodo contLargoArr para saber el largo que tendr· nuestro array
 		int contLargo=contarLargoArr(tablaconsulta);
 		
 		//asignamos el largo al array
@@ -145,28 +116,20 @@ public class Metodos {
 		
 		//hacemos la consulta a la tabla
 		
+		
 		//cargamos el array
 		
 		
 		return lineas;
 	}
 	
-	//M√©todo que recibe la tabla a consultar y devuelve el numero 
-	private static int contarLargoArr(String nombreTablaConsulta) {
-		int cont=0;
-		//consulta para obtener el count 
-		
-		
-		return cont;
-	}
-	//M√©todo cargar array de Usurios con los datos de la BBDD
 	
-	//M√©todo para cargar array de Municipios con los datos de la BBDD
+	//MÈtodo cargar array de Usurios con los datos de la BBDD
 	
-	//M√©todo para cargar array parada con los datos de la BBDD
+	//MÈtodo para cargar array de Municipios con los datos de la BBDD
 	
-
-
+	//MÈtodo para cargar array parada con los datos de la BBDD
+	
 	public static double calcularDistanciaEuclediana() {
 		Punto p1 = new Punto(5, 10);
 		Punto p2 = new Punto(3, 7);

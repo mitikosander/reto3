@@ -4,7 +4,7 @@ public class Ficheros {
 	
 	
 	//Metodo para cargar el fichero con los datos necesarios
-	public static void cargarFichero() {
+	public static void cargarFichero(String rutaFichero) {
 		
 	}
 	
