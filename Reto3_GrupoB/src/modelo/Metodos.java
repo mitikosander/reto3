@@ -86,7 +86,7 @@ public class Metodos {
 	}
 	
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
-	
+
 	private static boolean comprobarPassword(String passRecibida) {
 		String passAComparar=null;
 		//Encriptamos la contraseña que recibimos
@@ -137,7 +137,7 @@ public class Metodos {
 	
 	//Método para cargar array parada con los datos de la BBDD
 	
-	
+
 	
 	
 
