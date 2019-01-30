@@ -3,7 +3,6 @@ package ejecucion;
 import controlador.Controlador;
 import modelo.Modelo;
 import vista.Vista;
-import modelo.DistanciaEuclidiana;
 import modelo.Punto;
 
 public class Ejecucion {
