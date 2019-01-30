@@ -4,9 +4,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import vista.Vista;
 
 public class Metodos {
@@ -73,7 +70,7 @@ public class Metodos {
 	
 	//método para comprobar que el usuario introducido en el login existe en la base de datos
 	
-	public static boolean comprobarUsuario(String user) {
+	private static boolean comprobarUsuario(String user) {
 		String usuarioAcomparar=null;
 		//cogemos el valor del textField que nos han pasado como usuario
 		Vista vista=new Vista();
@@ -90,7 +87,7 @@ public class Metodos {
 	
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
 	
-	public static boolean comprobarPassword(String passRecibida) {
+	private static boolean comprobarPassword(String passRecibida) {
 		String passAComparar=null;
 		//Encriptamos la contraseña que recibimos
 		
@@ -105,6 +102,41 @@ public class Metodos {
 		}
 		
 	}
+	
+	
+	//Método para cargar array de Lineas con los datos de la BBDD
+	public static Lineasdeautobuses[] cargarArrLineas() {
+		Lineasdeautobuses[] lineas;
+		String tablaconsulta="";
+		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
+		int contLargo=contarLargoArr(tablaconsulta);
+		
+		//asignamos el largo al array
+		lineas=new Lineasdeautobuses[contLargo];
+		
+		
+		//hacemos la consulta a la tabla
+		
+		//cargamos el array
+		
+		
+		return lineas;
+	}
+	
+	//Método que recibe la tabla a consultar y devuelve el numero 
+	private static int contarLargoArr(String nombreTablaConsulta) {
+		int cont=0;
+		//consulta para obtener el count 
+		
+		
+		return cont;
+	}
+	//Método cargar array de Usurios con los datos de la BBDD
+	
+	//Método para cargar array de Municipios con los datos de la BBDD
+	
+	//Método para cargar array parada con los datos de la BBDD
+	
 	
 	
 	
