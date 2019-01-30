@@ -12,10 +12,10 @@ public class Registro extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField tFNombreRegistro;
-	private JTextField tfDNIRegistro;
-	private JPasswordField pFContraseñaRegistro;
-	private JPasswordField pFRegistroContraseña1;
+	public JTextField tFNombreRegistro;
+	public JTextField tfDNIRegistro;
+	public JPasswordField pFContraseñaRegistro;
+	public JPasswordField pFRegistroContraseña1;
 	public JComboBox<String> cBSexoRegistro;
 	public JButton btnCancelarRegistro, btnAceptarRegistro;
 	/**
