@@ -3,7 +3,6 @@ package modelo;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import vista.Vista;
 
 public class Metodos {
@@ -30,6 +29,8 @@ public class Metodos {
 			 throw new RuntimeException(e);
 			 }
 	}
+	
+	
 	//Método para comprobar que el DNI introducido en el registro no existe en la base de datos
 	public static boolean dniExistente(String dni) {
 		boolean dniExistente=false;
@@ -39,17 +40,7 @@ public class Metodos {
 		
 		return dniExistente;
 	}
-	//Método para comprobar que el usuario introducido en el registro no existe en la base de datos
-	public static boolean userExistente(String user) {
-		boolean userExistente=false;
-		Vista vista=new Vista();
-		user=vista.registro.tFNombreRegistro.getName();
-		//bucle que compara el nombre escrito con los existentes en la bbdd 
-		//si existe devuelve true, si no, false
-		
-		return userExistente;
-	}
-	
+
 	
 	
 	//Método para comprobar que el login del usuario ha sido correcto
@@ -86,7 +77,7 @@ public class Metodos {
 	}
 	
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
-
+	
 	private static boolean comprobarPassword(String passRecibida) {
 		String passAComparar=null;
 		//Encriptamos la contraseña que recibimos
@@ -103,6 +94,14 @@ public class Metodos {
 		
 	}
 	
+	//Método que recibe la tabla a consultar y devuelve el numero 
+		private static int contarLargoArr(String nombreTablaConsulta) {
+			int cont=0;
+			//consulta para obtener el count 
+			
+			
+			return cont;
+		}
 	
 	//Método para cargar array de Lineas con los datos de la BBDD
 	public static Lineasdeautobuses[] cargarArrLineas() {
@@ -117,28 +116,30 @@ public class Metodos {
 		
 		//hacemos la consulta a la tabla
 		
+		
 		//cargamos el array
 		
 		
 		return lineas;
 	}
 	
-	//Método que recibe la tabla a consultar y devuelve el numero 
-	private static int contarLargoArr(String nombreTablaConsulta) {
-		int cont=0;
-		//consulta para obtener el count 
-		
-		
-		return cont;
-	}
+	
 	//Método cargar array de Usurios con los datos de la BBDD
 	
 	//Método para cargar array de Municipios con los datos de la BBDD
 	
 	//Método para cargar array parada con los datos de la BBDD
 	
-
-	
-	
-
+	public static double calcularDistanciaEuclediana() {
+		Punto p1 = new Punto(5, 10);
+		Punto p2 = new Punto(3, 7);
+		double resultado = 0;
+		try {
+			resultado = p1.distancia(p2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultado;
+	}
 }
