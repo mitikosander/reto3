@@ -31,7 +31,7 @@ public class Login extends JPanel {
 		tFLogin.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(114, 304, 60, 14);
+		lblPassword.setBounds(111, 302, 79, 14);
 		add(lblPassword);
 		
 		 btnCancelarLogin = new JButton("Cancelar");
