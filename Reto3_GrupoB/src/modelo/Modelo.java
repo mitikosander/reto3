@@ -49,28 +49,35 @@ public class Modelo {
 		lineas[1]=L2;
 		lineas[2]=L3;
 		
+		//ACCEDER A LA BBDD
+		//select * from lineas;
+		
 		return lineas;
 
 	}
-	//metodo que obtiene las paradas de la linea que le pases
-	public Lineasdeautobuses[] obtenerParadas(Lineasdeautobuses linea) {
+
+	public Parada[] obtenerParadas(int codLinea) {
 		//select todas las poblaciones, despues select de lineas de todas la poblaciones, comparar y seleccionar 
 		//solo las poblaciones de la linea que tu quieres
-		Lineasdeautobuses lineas[] = new Lineasdeautobuses[3];
-		Lineasdeautobuses L1 = new Lineasdeautobuses();
-		Lineasdeautobuses L2 = new Lineasdeautobuses();
-		Lineasdeautobuses L3 = new Lineasdeautobuses();	
+		Parada paradas[] = new Parada[3];
+		Parada p1 = new Parada();
+		Parada p2 = new Parada();
+		Parada p3 = new Parada();
+		//He tenido que cambiar los setters de parada a public para que me dejase usarlo, si hay que cambiarlo solo hay que ponerlos en private
+		p1.setCodigoParada(12);
+		p1.setNombreParada("koldo");
+		p2.setCodigoParada(22);
+		p2.setNombreParada("derio");
+		p3.setCodigoParada(32);
+		p3.setNombreParada("sanma");
 		
+		paradas[0]=p1;
+		paradas[1]=p2;
+		paradas[2]=p3;
 		
+		//ACCEDER A LA BBDD
+		//select * from paradas where Linea = codLinea;
 		
-		L1.setCodlinea(1);
-		L2.setCodlinea(4);
-		L3.setCodlinea(2);
-		
-		return lineas;
-		
-		
-	}
-	
-
+		return paradas;
+}
 }
