@@ -29,7 +29,7 @@ public class Inicio extends JPanel {
 		logotermi = new JLabel("TERMIBUS");
 		logotermi.setForeground(Color.RED);
 		logotermi.setFont(new Font("Rod", Font.PLAIN, 75));
-		logotermi.setBounds(58, 66, 360, 139);
+		logotermi.setBounds(58, 66, 404, 139);
 		add(logotermi);
 		
 		btnAccederInicio = new JButton("Acceder");
@@ -37,7 +37,7 @@ public class Inicio extends JPanel {
 		add(btnAccederInicio);
 		
 		btnRegistrarseInicio = new JButton("Registrarse");
-		btnRegistrarseInicio.setBounds(329, 418, 89, 23);
+		btnRegistrarseInicio.setBounds(329, 418, 102, 23);
 		add(btnRegistrarseInicio);
 
 	}

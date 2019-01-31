@@ -43,7 +43,7 @@ public class Registro extends JPanel {
 		add(tfDNIRegistro);
 		
 		JLabel lblSexo = new JLabel("Sexo: ");
-		lblSexo.setBounds(121, 254, 31, 14);
+		lblSexo.setBounds(89, 254, 63, 14);
 		add(lblSexo);
 		
 		cBSexoRegistro = new JComboBox<String>();
@@ -56,7 +56,7 @@ public class Registro extends JPanel {
 		add(cBSexoRegistro);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a: ");
-		lblContrasea.setBounds(89, 313, 63, 14);
+		lblContrasea.setBounds(66, 313, 86, 14);
 		add(lblContrasea);
 		
 		pFContraseñaRegistro = new JPasswordField();
@@ -64,7 +64,7 @@ public class Registro extends JPanel {
 		add(pFContraseñaRegistro);
 		
 		JLabel lblRepetirContrasea = new JLabel("Repetir contrase\u00F1a: ");
-		lblRepetirContrasea.setBounds(52, 379, 100, 14);
+		lblRepetirContrasea.setBounds(33, 379, 119, 14);
 		add(lblRepetirContrasea);
 		
 		pFRegistroContraseña1 = new JPasswordField();

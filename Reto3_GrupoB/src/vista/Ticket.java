@@ -95,13 +95,16 @@ public class Ticket extends JPanel {
 		add(btnPagarTicket);
 		
 		JLabel lblFechaVuelta = new JLabel("Fecha Vuelta: ");
-		lblFechaVuelta.setBounds(303, 144, 77, 14);
+		lblFechaVuelta.setBounds(286, 144, 89, 14);
 		add(lblFechaVuelta);
 		
 		txtFechaVuelta = new JTextField();
+		txtFechaVuelta.setEditable(false);
+		tFPrecioTicket.setEditable(false);
+		txtFechaVuelta.setColumns(10);
 		txtFechaVuelta.setBounds(375, 141, 86, 20);
 		add(txtFechaVuelta);
-		txtFechaVuelta.setColumns(10);
+		
 
 	}
 }
