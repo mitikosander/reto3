@@ -4,13 +4,16 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import vista.Vista;
 
 public class Metodos {
 
 	// metodo para cifrar la contraseña
 
-	public static String encriptarPass(String pass) {
+	public static String encriptaString(String pass) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			byte[] messageDigest = md.digest(pass.getBytes());
@@ -35,7 +38,7 @@ public class Metodos {
 		ventana.getContentPane().add(panel);
 		panel.setVisible(true);
 	}
-=======
+
 	//metodo para cifrar la contraseña
 	
 	private static String encriptarPass(String pass) {
