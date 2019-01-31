@@ -3,8 +3,11 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 import modelo.Lineasdeautobuses;
 import modelo.Modelo;
+import modelo.Parada;
 import vista.Vista;
 
 public class Controlador {
@@ -77,6 +80,16 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.lineas);
 						rellenarComboLineas();
+						
+					}
+				});
+				
+				//Te lleva a la pantalla paradas
+				vista.lineas.btnaceptarLineas.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.paradas);
+						rellenarComboParadasInicio(1);
+						rellenarComboParadasDestino(2);
 					}
 				});
 				
@@ -201,13 +214,25 @@ public class Controlador {
 
 	}
 	//Rellena el combo con las paradas de inicio que haya en esa linea
-	private void rellenarComboParadasInicio() {
-		
-		
+	private void rellenarComboParadasInicio(int codLinea) {
+
+		Parada paradas[] = modelo.obtenerParadas(1);		
+	
+		//Rellenar las paradas
+		for(int i = 0;i<paradas.length;i++) {
+			vista.paradas.cBOrigenParadas.addItem(paradas[i].getNombreParada());
+		}
 	}
+	
 	//Rellena el combo con las paradas de destino que haya en esa linea
-	private void rellenarComboParadasDestino() {
+	private void rellenarComboParadasDestino(int codLinea) {
 		
+		Parada paradas[] = modelo.obtenerParadas(1);
+
+		//Rellenar las paradas
+		for(int i = 0;i<paradas.length;i++) {
+			vista.paradas.cBDestinoParadas.addItem(paradas[i].getNombreParada());
+		}
 		
 	}
 

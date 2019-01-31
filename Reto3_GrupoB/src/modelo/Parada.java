@@ -19,11 +19,11 @@ public class Parada {
 		}
 
 		// GETTERS Y SETTERS
-		private double getCodigoParada() {
+		public double getCodigoParada() {
 			return codigoParada;
 		}
 
-		private void setCodigoParada(double codigoParada) {
+		public void setCodigoParada(double codigoParada) {
 			this.codigoParada = codigoParada;
 		}
 
@@ -35,11 +35,11 @@ public class Parada {
 			this.calle = calle;
 		}
 
-		private String getNombreParada() {
+		public String getNombreParada() {
 			return nombreParada;
 		}
 
-		private void setNombreParada(String nombreParada) {
+		public void setNombreParada(String nombreParada) {
 			this.nombreParada = nombreParada;
 		}
 
