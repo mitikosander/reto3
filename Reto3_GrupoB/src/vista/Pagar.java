@@ -11,9 +11,8 @@ public class Pagar extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField tfPagarPagar;
-	private JTextField tFIntroducidoPagar;
-	private JTextField tFAdevolverPagar;
+	public JTextField tFIntroducidoPagar;
+	public JTextField tFAdevolverPagar;
 	public JButton btn50Pagar, btn20Pagar, btn10Pagar, btn5Pagar, btn2Pagar,btn1Pagar, btn05Pagar,btn02Pagar,btn01Pagar,btn005Pagar,btn002Pagar, btn001Pagar, btnGuardar, btnCancelar,btnFinalizar;                                                      
 
 	
@@ -21,24 +20,17 @@ public class Pagar extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	public Pagar() {
 		setLayout(null);
 		setBounds(100, 100, 500, 500);
-		
-		JLabel lblAPagar = new JLabel("A pagar : ");
-		lblAPagar.setBounds(113, 84, 63, 14);
-		add(lblAPagar);
-		
-		tfPagarPagar = new JTextField();
-		tfPagarPagar.setBounds(186, 81, 86, 20);
-		add(tfPagarPagar);
-		tfPagarPagar.setColumns(10);
 		
 		JLabel lblIntroducido = new JLabel("Introducido: ");
 		lblIntroducido.setBounds(96, 138, 80, 14);
 		add(lblIntroducido);
 		
 		tFIntroducidoPagar = new JTextField();
+		tFIntroducidoPagar.setEditable(false);
 		tFIntroducidoPagar.setBounds(186, 135, 86, 20);
 		add(tFIntroducidoPagar);
 		tFIntroducidoPagar.setColumns(10);
