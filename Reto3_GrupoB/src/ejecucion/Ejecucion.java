@@ -16,6 +16,7 @@ public class Ejecucion {
 		
 		
 		modelo.conexion.conectarBase();
+		modelo.metodos.cargarArrLineas();
 		
 	}
 
