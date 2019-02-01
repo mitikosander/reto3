@@ -34,8 +34,11 @@ public class Controlador {
 	double  pagar=precioTotal;
 	
 	
-	
 	private void InitializeEvents() {	
+		//Seteados valores en los campos
+		
+		vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+		
 		//Te mete a la pantalla login
 				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -65,6 +68,7 @@ public class Controlador {
 				//Te lleva a la pantalla de carga, habiendo creado el usuario
 				vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						registroUsuario();
 						vista.mostrarPantalla(vista.pantCarga);		
 						}
 				});
@@ -163,40 +167,112 @@ public class Controlador {
 				//Para que cada vez que le des a un boton de pagar, vaya restando de el precio 
 				vista.pagar.btn50Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+					
+						if(pagar>0) {
 						pagar=pagar-50;	
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
+				}
 				});
 				vista.pagar.btn20Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-20;	}
+						if(pagar>0) {
+						pagar=pagar-20;	
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
 				});
 				vista.pagar.btn10Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-10;	}
+						if(pagar>0) {
+						pagar=pagar-10;
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
 				});
 				vista.pagar.btn5Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-5;	}
+						if(pagar>0) {
+						pagar=pagar-5;
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
 				});
 				vista.pagar.btn2Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-2;	}
+						if(pagar>0) {
+						pagar=pagar-2;
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));	
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+					}
+					}
 				});
 				vista.pagar.btn1Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-1;	}
+						if(pagar>0) {
+						pagar=pagar-1;	
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
 				});
 				vista.pagar.btn05Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-0.5;	}
+						if(pagar>0) {
+						pagar=pagar-0.5;	
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
 				});
 				vista.pagar.btn02Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-0.2;	}
+						if(pagar>0) {
+						pagar=pagar-0.2;	
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
 				});
 				vista.pagar.btn01Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pagar=pagar-0.1;	}
+						if(pagar>0) {
+						pagar=pagar-0.1;
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
+				});
+				vista.pagar.btn005Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if(pagar>0) {
+						pagar=pagar-0.1;
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
+				});
+				vista.pagar.btn002Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if(pagar>0) {
+						pagar=pagar-0.1;
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
+				});
+				vista.pagar.btn001Pagar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if(pagar>0) {
+						pagar=pagar-0.1;
+						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}
+					}
 				});
 	}
 	
@@ -234,6 +310,17 @@ public class Controlador {
 			vista.paradas.cBDestinoParadas.addItem(paradas[i].getNombreParada());
 		}
 		
+	}
+	//Para guardar los datos del usuario en el registro
+	private void registroUsuario() {
+		String usuario = null,DNI = null, contrasenia = null, contrasenia1 = null;
+		vista.registro.tFNombreRegistro.setText(usuario);
+		vista.registro.tfDNIRegistro.setText(DNI);
+		vista.registro.pFContraseñaRegistro.setText(contrasenia);
+		vista.registro.pFRegistroContraseña1.setText(contrasenia1);
+		if (contrasenia!=contrasenia1) {
+			
+		}
 	}
 
 
