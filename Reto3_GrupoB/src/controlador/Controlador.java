@@ -317,7 +317,7 @@ public class Controlador {
 		vista.registro.tfDNIRegistro.setText(DNI);
 		vista.registro.pFContraseñaRegistro.setText(contrasenia);
 		vista.registro.pFRegistroContraseña1.setText(contrasenia1);
-		if (contrasenia!=contrasenia1) {
+		if (!contrasenia.equals(contrasenia1)) {
 			
 		}
 	}
