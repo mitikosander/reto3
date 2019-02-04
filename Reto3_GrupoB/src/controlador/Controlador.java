@@ -21,8 +21,7 @@ public class Controlador {
 		this.modelo=modelo;
 		InitializeEvents();
 		
-		//Nos conectamos a la base de datos
-	//	Connection conectar=modelo.conexion.conectarBase();
+		
 		//Cargamos la pantalla de inicio en la ventana contenedora
 		vista.ventana.setContentPane(vista.pantCarga);
 		vista.ventana.setVisible(true);

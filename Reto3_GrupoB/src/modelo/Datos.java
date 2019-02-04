@@ -18,7 +18,9 @@ public class Datos {
 	
 	//Arrays que vamos a cargar con los datos de la BBDD
 	Lineasdeautobuses[] lineas=Metodos.cargarArrLineas();
-	
+	Municipio [] municipios=Metodos.cargarArrMunicipios();
+	Cliente[] clientes=Metodos.cargarArrClientes();
+	Parada[] paradas=Metodos.cargarArrParadas();
 	
 	
 }
