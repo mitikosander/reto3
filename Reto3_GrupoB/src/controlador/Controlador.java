@@ -67,21 +67,31 @@ public class Controlador {
 				//Te lleva a la pantalla de carga, habiendo creado el usuario
 				vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						registroUsuario();
-						vista.mostrarPantalla(vista.pantCarga);		
+					
+							vista.mostrarPantalla(vista.pantCarga);
+						
+						
+						
 						}
 				});
 				
 				//Te lleva a la pantalla de login
 				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.login);			
+						
+						vista.mostrarPantalla(vista.login);		
+						
 						}
 				});
 				//Te lleva a la pantalla de lineas
 				vista.login.btnAceptarLogin.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.lineas);
+						
+						boolean validarLogin=modelo.metodos.comprobarLogin();
+						if(validarLogin==true) {
+							vista.mostrarPantalla(vista.lineas);
+						}
+						
 						rellenarComboLineas();
 						
 					}
@@ -312,15 +322,16 @@ public class Controlador {
 	}
 	//Para guardar los datos del usuario en el registro
 	private void registroUsuario() {
+		String sql;
 		String usuario = null,DNI = null, contrasenia = null, contrasenia1 = null;
 		vista.registro.tFNombreRegistro.setText(usuario);
 		vista.registro.tfDNIRegistro.setText(DNI);
 		vista.registro.pFContraseñaRegistro.setText(contrasenia);
 		vista.registro.pFRegistroContraseña1.setText(contrasenia1);
-		if (contrasenia!=contrasenia1) {
+			sql="INSERT INTO cliente()";
 			
 		}
-	}
+	
 
 
 }
