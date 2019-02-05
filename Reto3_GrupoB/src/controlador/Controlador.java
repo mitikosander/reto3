@@ -133,9 +133,6 @@ public class Controlador {
 						vista.mostrarPantalla(vista.pantCarga);			
 						}
 				});
-				
-				
-				
 				vista.ticket.btnCancelarTicket.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.pantCarga);			
@@ -170,7 +167,7 @@ public class Controlador {
 						if(pagar>0) {
 						pagar=pagar-50;	
 						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 				}
 				});
@@ -179,7 +176,7 @@ public class Controlador {
 						if(pagar>0) {
 						pagar=pagar-20;	
 						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
 				});
@@ -187,7 +184,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-10;
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
@@ -196,8 +193,8 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-5;
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+					vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
 				});
@@ -205,7 +202,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-2;
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));	
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));	
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 					}
 					}
@@ -214,7 +211,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-1;	
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
@@ -223,7 +220,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-0.5;	
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
@@ -232,8 +229,8 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-0.2;	
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+					vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
 				});
@@ -241,7 +238,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-0.1;
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
@@ -250,7 +247,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-0.1;
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
@@ -259,7 +256,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-0.1;
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
@@ -268,7 +265,7 @@ public class Controlador {
 					public void actionPerformed(ActionEvent e) {
 						if(pagar>0) {
 						pagar=pagar-0.1;
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
 						}
 					}
