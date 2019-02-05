@@ -47,33 +47,54 @@ public class Metodos {
 	
 	
 	//Método para comprobar que el login del usuario ha sido correcto
-	public static boolean comprobarLogin(String user, String pass) {
+	public boolean comprobarLogin() {
+		Vista vista=new Vista();
 		boolean pass_comp=false;
-		boolean user_comp=comprobarUsuario(user);
+		boolean user_comp=comprobarUsuario();
 		
 		if(user_comp=true) {
-			pass_comp=comprobarPassword(pass);
+			pass_comp=comprobarPassword();
 		}
 		
 		if(user_comp==true && pass_comp==true) {
+			vista.login.lblErrorDeRegistro.setVisible(false);
 			return true;
+			
 		}else {
+			vista.login.lblErrorDeRegistro.setVisible(true);
 			return false;
+			
 		}
 	}
 	
 	//método para comprobar que el usuario introducido en el login existe en la base de datos
 	
-	private static boolean comprobarUsuario(String user) {
+	private boolean comprobarUsuario() {
+		Conexion connect=new Conexion();
 		String usuarioAcomparar=null;
+		String user,sql;
 		//cogemos el valor del textField que nos han pasado como usuario
 		Vista vista=new Vista();
-		vista.login.tFLogin.getName();
+		user=vista.login.tFLogin.getName();
 		//hacemos la consulta para conseguir el dato del usuario y guardarlo en la variable
+		sql="SELECT Nombre FROM cliente WHERE Nombre LIKE '"+user+"'";
+		
+		try {
+			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				usuarioAcomparar=rs.getString(1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta incorrecta");
+		}
+		
 		
 		//comparamos el campo dado en el textField con el usuario de la BBDD
 		if(user.equals(usuarioAcomparar)) {
 			return true;
+		}else if(usuarioAcomparar==null){
+			return false;
 		}else {
 			return false;
 		}
@@ -81,16 +102,34 @@ public class Metodos {
 	
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
 	
-	private static boolean comprobarPassword(String passRecibida) {
+	private static boolean comprobarPassword() {
+		Vista vista=new Vista();
+		Conexion connect=new Conexion();
 		String passAComparar=null;
+		String passRecibida=vista.login.pFLogin.getName();
 		//Encriptamos la contraseña que recibimos
 		
 		String passEncriptada= encriptarPass(passRecibida);
-		
+		String sql="SELECT Contrasenya FROM cliente WHERE Contrasenya LIKE '"+passRecibida+"'";
+		System.out.println(sql);
 		//consultar en la base la contraseña del usuario que ha tenido que ser validado anteriormente
+		
+		try {
+			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				passAComparar=rs.getString(1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta incorrecta");
+		}
+		
+		
 		
 		if(passEncriptada.equals(passAComparar)) {
 			return true;
+		}else if(passAComparar==null){
+			return false;
 		}else {
 			return false;
 		}
@@ -184,7 +223,7 @@ public class Metodos {
 		try {
 			resultado = p1.distancia(p2);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return resultado;

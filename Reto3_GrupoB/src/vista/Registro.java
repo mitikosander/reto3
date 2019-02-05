@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class Registro extends JPanel {
 	/**
@@ -18,6 +19,7 @@ public class Registro extends JPanel {
 	public JPasswordField pFRegistroContraseña1;
 	public JComboBox<String> cBSexoRegistro;
 	public JButton btnCancelarRegistro, btnAceptarRegistro;
+	public JLabel warningrepe;
 	/**
 	 * Create the panel.
 	 */
@@ -79,6 +81,12 @@ public class Registro extends JPanel {
 		 btnAceptarRegistro = new JButton("Aceptar");
 		btnAceptarRegistro.setBounds(375, 454, 89, 23);
 		add(btnAceptarRegistro);
+		
+		 warningrepe = new JLabel("No coincide");
+		warningrepe.setForeground(Color.RED);
+		warningrepe.setBounds(311, 378, 86, 16);
+		warningrepe.setVisible(false);
+		add(warningrepe);
 
 
 	}
