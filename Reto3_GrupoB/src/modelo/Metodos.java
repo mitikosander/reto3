@@ -137,10 +137,10 @@ public class Metodos {
 	}
 	
 	//Método que recibe la tabla a consultar y devuelve el numero 
-		private static int contarLargoArr(String nombreTablaConsulta, String nombrePKTabla) {
+		private static int contarLargoArr(String nombreTablaConsulta) {
 			Conexion connect=new Conexion();
 			int cont=0;
-			String sql="SELECT COUNT("+nombrePKTabla+") FROM "+nombreTablaConsulta;
+			String sql="SELECT COUNT(*) FROM "+nombreTablaConsulta;
 			//consulta para obtener el count 
 			try {
 				PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
@@ -159,9 +159,9 @@ public class Metodos {
 	public static Lineasdeautobuses[] cargarArrLineas() {
 		Lineasdeautobuses[] lineas;
 		String tablaconsulta="linea_autobus";
-		String pkConsulta="Cod_Linea";
+		
 		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
+		int contLargo=contarLargoArr(tablaconsulta);
 		System.out.println(contLargo);
 		//asignamos el largo al array
 		lineas=new Lineasdeautobuses[contLargo];
@@ -180,10 +180,10 @@ public class Metodos {
 	//Método cargar array de Clientes con los datos de la BBDD
 	public static Cliente[] cargarArrClientes() {
 		Cliente [] clientes;
-		String tablaconsulta="";
-		String pkConsulta="";
+		String tablaconsulta="cliente";
+		
 		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
+		int contLargo=contarLargoArr(tablaconsulta);
 		
 		clientes=new Cliente[contLargo];
 		
@@ -192,10 +192,10 @@ public class Metodos {
 	//Método para cargar array de Municipios con los datos de la BBDD
 	public static Municipio[] cargarArrMunicipios() {
 		Municipio[] municipios;
-		String tablaconsulta="";
-		String pkConsulta="";
+		String tablaconsulta="poblacion";
+		
 		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
+		int contLargo=contarLargoArr(tablaconsulta);
 		
 		
 		municipios=new Municipio[contLargo];
@@ -205,15 +205,17 @@ public class Metodos {
 	//Método para cargar array parada con los datos de la BBDD
 	public static Parada[] cargarArrParadas() {
 		Parada[] paradas;
-		String tablaconsulta="";
-		String pkConsulta="";
+		String tablaconsulta="parada";
+		
 		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
+		int contLargo=contarLargoArr(tablaconsulta);
 		
 		
 		paradas=new Parada[contLargo];
 		return paradas;
 	}
+	
+	
 	public static double calcularDistanciaEuclediana() {
 		Punto p1 = new Punto(5, 10);
 		Punto p2 = new Punto(3, 7);

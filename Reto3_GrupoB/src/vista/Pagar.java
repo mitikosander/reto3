@@ -25,7 +25,7 @@ public class Pagar extends JPanel {
 		setLayout(null);
 		setBounds(100, 100, 500, 500);
 		
-		JLabel lblIntroducido = new JLabel("Introducido: ");
+		JLabel lblIntroducido = new JLabel("Total:");
 		lblIntroducido.setBounds(96, 138, 80, 14);
 		add(lblIntroducido);
 		
@@ -40,6 +40,7 @@ public class Pagar extends JPanel {
 		add(lblADevolver);
 		
 		tFAdevolverPagar = new JTextField();
+		tFAdevolverPagar.setEditable(false);
 		tFAdevolverPagar.setBounds(186, 191, 86, 20);
 		add(tFAdevolverPagar);
 		tFAdevolverPagar.setColumns(10);
