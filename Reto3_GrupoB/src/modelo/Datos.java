@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Datos {
 
 	//En esta clase tendremos de forma mas accesible los datos para cargar la base y otros datos que puedan cambiar y sea posible facilitar el acceso a ellos
@@ -13,14 +15,14 @@ public class Datos {
 	
 	//datos para la URL del fichero y la ruta de destino para guardar el ticket
 	static String URL_Fichero="";
-	static String URL_destino_ticet="";
+	static String URL_destino_ticket="";
 	
 	
 	//Arrays que vamos a cargar con los datos de la BBDD
-	Lineasdeautobuses[] lineas=Metodos.cargarArrLineas();
-	Municipio [] municipios=Metodos.cargarArrMunicipios();
-	Cliente[] clientes=Metodos.cargarArrClientes();
-	Parada[] paradas=Metodos.cargarArrParadas();
-	
+	ArrayList<Lineasdeautobuses> lineas=Metodos.cargarArrLineas();
+	ArrayList<Municipio> municipios=Metodos.cargarArrMunicipios();
+	ArrayList<Cliente> clientes=Metodos.cargarArrClientes();
+	ArrayList<Parada> paradas=Metodos.cargarArrParadas();
+	ArrayList<Autobus> autobuses=Metodos.cargarArrAutobuses();
 	
 }
