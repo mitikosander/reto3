@@ -15,8 +15,8 @@ public class Ejecucion {
 		Controlador controlador=new Controlador(vista, modelo);
 		
 		
-		modelo.conexion.conectarBase();
-		modelo.metodos.cargarArrLineas();
+	
+		
 		
 	}
 

@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.sql.Date;
+
 /**
  *
  * @author IN1DM3B_15
@@ -17,13 +19,13 @@ public class Cliente {
     private String apellido;
     private String sexo;
     private String contrasenya;
-    private int fecha_nac;
+    private Date fecha_nac;
     
    //CONSTRUCTORES
     public Cliente(){
     }
     
-    public Cliente (String dni, String nombre, String apellido, String sexo, String contrasenya){
+    public Cliente (String dni, String nombre, String apellido, String sexo, String contrasenya,Date fecha_nac){
     this.dni = dni;
     this.nombre = nombre;
     this.apellido = apellido;
@@ -53,7 +55,7 @@ public class Cliente {
         return contrasenya;
     }
     
-    public int getFecha_nac() {
+    public Date getFecha_nac() {
         return fecha_nac;
     }
 
@@ -78,7 +80,7 @@ public class Cliente {
         this.contrasenya = contrasenya;
     }
     
-    public void setFecha_nac(int fecha_nac) {
+    public void setFecha_nac(Date fecha_nac) {
         this.fecha_nac = fecha_nac;
     }
 

@@ -20,35 +20,35 @@ public class Autobus {
 		}
 
 		// GETTERS Y SETTERS
-		private int getCodigoAutobus() {
+		public int getCodigoAutobus() {
 			return codigoAutobus;
 		}
 
-		private void setCodigoAutobus(int codigoAutobus) {
+		public void setCodigoAutobus(int codigoAutobus) {
 			this.codigoAutobus = codigoAutobus;
 		}
 
-		private int getNumeroDePlazas() {
+		public int getNumeroDePlazas() {
 			return numeroDePlazas;
 		}
 
-		private void setNumeroDePlazas(int numeroDePlazas) {
+		public void setNumeroDePlazas(int numeroDePlazas) {
 			this.numeroDePlazas = numeroDePlazas;
 		}
 
-		private double getConsummo() {
+		public double getConsummo() {
 			return consummo;
 		}
 
-		private void setConsummo(double consummo) {
+		public void setConsummo(double consummo) {
 			this.consummo = consummo;
 		}
 
-		private String getColor() {
+		public String getColor() {
 			return color;
 		}
 
-		private void setColor(String color) {
+		public void setColor(String color) {
 			this.color = color;
 		}
 
