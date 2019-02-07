@@ -6,10 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
+import modelo.Cliente;
 import modelo.Lineasdeautobuses;
 import modelo.Modelo;
 import modelo.Parada;
 import vista.Pagar;
+import vista.Registro;
 import vista.Vista;
 
 public class Controlador {
@@ -68,7 +70,9 @@ public class Controlador {
 				//Te lleva a la pantalla de carga, habiendo creado el usuario
 				vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-					
+						
+							String value = (String)cBSexoRegistro.getSelectedItem();
+							show_cBSexoRegistro_selected_item.setText(value);
 							vista.mostrarPantalla(vista.pantCarga);
 						
 						
@@ -367,16 +371,28 @@ public class Controlador {
 
 	//Para guardar los datos del usuario en el registro
 	private void registroUsuario() {
-		String usuario = null,DNI = null, contrasenia = null, contrasenia1 = null;
-		vista.registro.tFNombreRegistro.setText(usuario);
-		vista.registro.tfDNIRegistro.setText(DNI);
-		vista.registro.pFContraseñaRegistro.setText(contrasenia);
-		vista.registro.pFRegistroContraseña1.setText(contrasenia1);
-		if (contrasenia!=contrasenia1) {
-			
+		
+		//Al darle al boton registrar, Guardas los datos de la pantalla y los guarda en un objeto usuario
+		
+		if(vista.registro.pFContraseñaRegistro.getPassword() == vista.registro.pFRegistroContraseña1.getPassword()) {
+
+		Cliente c1 = new Cliente();
+
+		c1.setNombre(vista.registro.tFNombreRegistro.getText());
+		c1.setDni(vista.registro.tfDNIRegistro.getText());
+		
+		c1.setContrasenya(String.valueOf(vista.registro.pFContraseñaRegistro.getPassword()));
+		c1.setContrasenya(String.valueOf(vista.registro.pFRegistroContraseña1.getPassword()));
+		if (vista.registro.cBSexoRegistro.getSelectedItem().equals("Masculino")){
+			c1.setSexo("M");
+		}else {
+			c1.setSexo("F");
+		}	
 		}
 		
 	}
+	
+
 
 	
 	/**
