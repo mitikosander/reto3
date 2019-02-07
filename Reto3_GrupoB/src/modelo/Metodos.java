@@ -1,15 +1,15 @@
 package modelo;
 
-import java.io.ObjectInputStream;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Blob;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.mysql.cj.xdevapi.Result;
+
 
 import vista.Vista;
 
@@ -171,18 +171,29 @@ public class Metodos {
 	//Método para cargar array de Lineas con los datos de la BBDD
 	public static ArrayList<Lineasdeautobuses> cargarArrLineas() {
 		ArrayList<Lineasdeautobuses> lineas=new ArrayList<Lineasdeautobuses>();
-		String sql="";
+		String sql1="SELECT l1.Cod_Linea, Cod_bus, Nombre FROM linea_autobus l1, linea l2 WHERE l1.Cod_Linea=l2.Cod_Linea";
+	
 		Conexion connection= new Conexion();
+		Lineasdeautobuses l1;
 		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql1);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				l1=new Lineasdeautobuses();
+				
+				l1.setCodlinea(rs.getString(1));
+				l1.setCodBus(rs.getInt(2));
+				l1.setMunicipioscomponerlinea(rs.getString(3));
+				
+				lineas.add(l1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta no valida");
+		}
 
-		
-		
-		
-		//hacemos la consulta a la tabla
-		
-		
-		//cargamos el array
-		
+			System.out.println("Cargado array de Lineas de Autobuses");
 		
 		return lineas;
 	}
@@ -220,7 +231,7 @@ public class Metodos {
 	}
 	//Método para cargar array de Municipios con los datos de la BBDD
 	public static ArrayList<Municipio> cargarArrMunicipios() {
-		ArrayList<Municipio> municipios = new ArrayList();
+		ArrayList<Municipio> municipios = new ArrayList<Municipio>();
 		Conexion connect= new Conexion();
 		String tablaconsulta="poblacion";
 		String sql="SELECT p1.Cod_Postal,Nombre,Cod_Parada FROM "+tablaconsulta+" p1, poblacion_parada p2 WHERE p1.Cod_Postal=p2.Cod_Postal";
@@ -280,6 +291,26 @@ public class Metodos {
 		return paradas;
 	}
 	
+	
+	public static ArrayList<String> cargarParadas(){
+		Conexion connection= new Conexion();
+		ArrayList<String> nombreParadas=new ArrayList<String>();
+		String sql="Select Nombre FROM parada";
+		String nombreParada;
+		 try {
+			 PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			 ResultSet rs=ps.executeQuery();
+			 
+			 while(rs.next()) {
+				 nombreParada=rs.getString(1);
+				nombreParadas.add(nombreParada); 
+			 }
+		 }catch(Exception e) {
+			 System.err.println("Consulta erronea");
+		 }
+		
+		return nombreParadas;
+	}
 	
 	public static double calcularDistanciaEuclediana() {
 		Punto p1 = new Punto(5, 10);
