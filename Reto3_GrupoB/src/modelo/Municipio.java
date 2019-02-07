@@ -2,15 +2,15 @@ package modelo;
 
 public class Municipio {
 	// ATRIBUTOS
-		private String nombre = "";
-		private String CodigoPostal = "";
-		private String relacionParada = "";
+		private String nombre;
+		private int CodigoPostal;
+		private int relacionParada;
 
 		// CONSTRUCTORES
 		public Municipio() {
 		}
 
-		public Municipio(String nombre, String codigoPostal, String relacionParada) {
+		public Municipio(String nombre, int codigoPostal, int relacionParada) {
 			super();
 			this.nombre = nombre;
 			CodigoPostal = codigoPostal;
@@ -18,27 +18,27 @@ public class Municipio {
 		}
 
 		// GETTERS Y SETTERS
-		private String getNombre() {
+		public String getNombre() {
 			return nombre;
 		}
 
-		private void setNombre(String nombre) {
+		public void setNombre(String nombre) {
 			this.nombre = nombre;
 		}
 
-		private String getCodigoPostal() {
+		public int getCodigoPostal() {
 			return CodigoPostal;
 		}
 
-		private void setCodigoPostal(String codigoPostal) {
+		public void setCodigoPostal(int codigoPostal) {
 			CodigoPostal = codigoPostal;
 		}
 
-		private String getRelacionParada() {
+		public int getRelacionParada() {
 			return relacionParada;
 		}
 
-		private void setRelacionParada(String relacionParada) {
+		public void setRelacionParada(int relacionParada) {
 			this.relacionParada = relacionParada;
 		}
 

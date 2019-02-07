@@ -51,9 +51,7 @@ public class Lineasdeautobuses {
     public void setMunicipioscomponerlinea(String municipioscomponerlinea) {
         this.municipioscomponerlinea = municipioscomponerlinea;
     }
-    //COMENTARIO DE PRUEBA
-    //esto no va
-    //AIUDA
+    
 }
     
     

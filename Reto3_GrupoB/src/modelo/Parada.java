@@ -2,20 +2,21 @@ package modelo;
 
 public class Parada {
 	// ATRIBUTOS
-		private double codigoParada = 0;
-		private String calle = "";
-		private String nombreParada = "";
-		private double coordenadas = 0;
-
+		private double codigoParada ;
+		private String calle ;
+		private String nombreParada;
+		private double latitud ;
+		private double longitud;
 		// CONSTRUCTORES
 		public Parada() {
 		}
 
-		public Parada(double codigoParada, String calle, String nombreParada, double coordenadas) {
+		public Parada(double codigoParada, String calle, String nombreParada, double latitud,double longitud) {
 			this.codigoParada = codigoParada;
 			this.calle = calle;
 			this.nombreParada = nombreParada;
-			this.coordenadas = coordenadas;
+			this.latitud = latitud;
+			this.longitud=longitud;
 		}
 
 		// GETTERS Y SETTERS
@@ -27,11 +28,11 @@ public class Parada {
 			this.codigoParada = codigoParada;
 		}
 
-		private String getCalle() {
+		public String getCalle() {
 			return calle;
 		}
 
-		private void setCalle(String calle) {
+		public void setCalle(String calle) {
 			this.calle = calle;
 		}
 
@@ -43,12 +44,19 @@ public class Parada {
 			this.nombreParada = nombreParada;
 		}
 
-		private double getCoordenadas() {
-			return coordenadas;
+		public double getLatitud() {
+			return latitud;
 		}
 
-		private void setCoordenadas(double coordenadas) {
-			this.coordenadas = coordenadas;
+		public void setLatitud(double latitud) {
+			this.latitud = latitud;
 		}
-
+		
+		public double getLongitud() {
+			return longitud;
+		}
+		
+		public void setLongitud(double longitud) {
+			this.longitud=longitud;
+		}
 }

@@ -1,10 +1,15 @@
 package modelo;
 
+import java.io.ObjectInputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Blob;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import com.mysql.cj.xdevapi.Result;
 
 import vista.Vista;
 
@@ -47,33 +52,54 @@ public class Metodos {
 	
 	
 	//Método para comprobar que el login del usuario ha sido correcto
-	public static boolean comprobarLogin(String user, String pass) {
+	public boolean comprobarLogin() {
+		Vista vista=new Vista();
 		boolean pass_comp=false;
-		boolean user_comp=comprobarUsuario(user);
+		boolean user_comp=comprobarUsuario();
 		
 		if(user_comp=true) {
-			pass_comp=comprobarPassword(pass);
+			pass_comp=comprobarPassword();
 		}
 		
 		if(user_comp==true && pass_comp==true) {
+			vista.login.lblErrorDeRegistro.setVisible(false);
 			return true;
+			
 		}else {
+			vista.login.lblErrorDeRegistro.setVisible(true);
 			return false;
+			
 		}
 	}
 	
 	//método para comprobar que el usuario introducido en el login existe en la base de datos
 	
-	private static boolean comprobarUsuario(String user) {
+	private boolean comprobarUsuario() {
+		Conexion connect=new Conexion();
 		String usuarioAcomparar=null;
+		String user,sql;
 		//cogemos el valor del textField que nos han pasado como usuario
 		Vista vista=new Vista();
-		vista.login.tFLogin.getName();
+		user=vista.login.tFLogin.getName();
 		//hacemos la consulta para conseguir el dato del usuario y guardarlo en la variable
+		sql="SELECT Nombre FROM cliente WHERE Nombre LIKE '"+user+"'";
+		
+		try {
+			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				usuarioAcomparar=rs.getString(1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta incorrecta");
+		}
+		
 		
 		//comparamos el campo dado en el textField con el usuario de la BBDD
 		if(user.equals(usuarioAcomparar)) {
 			return true;
+		}else if(usuarioAcomparar==null){
+			return false;
 		}else {
 			return false;
 		}
@@ -81,51 +107,75 @@ public class Metodos {
 	
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
 	
-	private static boolean comprobarPassword(String passRecibida) {
+	private static boolean comprobarPassword() {
+		Vista vista=new Vista();
+		Conexion connect=new Conexion();
 		String passAComparar=null;
+		String passRecibida=vista.login.pFLogin.getName();
 		//Encriptamos la contraseña que recibimos
 		
 		String passEncriptada= encriptarPass(passRecibida);
-		
+		String sql="SELECT Contrasenya FROM cliente WHERE Contrasenya LIKE '"+passRecibida+"'";
+		System.out.println(sql);
 		//consultar en la base la contraseña del usuario que ha tenido que ser validado anteriormente
+		
+		try {
+			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				passAComparar=rs.getString(1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta incorrecta");
+		}
+		
+		
 		
 		if(passEncriptada.equals(passAComparar)) {
 			return true;
+		}else if(passAComparar==null){
+			return false;
 		}else {
 			return false;
 		}
 		
 	}
 	
-	//Método que recibe la tabla a consultar y devuelve el numero 
-		private static int contarLargoArr(String nombreTablaConsulta, String nombrePKTabla) {
-			Conexion connect=new Conexion();
-			int cont=0;
-			String sql="SELECT COUNT("+nombrePKTabla+") FROM "+nombreTablaConsulta;
-			//consulta para obtener el count 
-			try {
-				PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
-				ResultSet rs=ps.executeQuery();
-				while(rs.next()) {
-					cont=rs.getInt(1);
-				}
-			}catch(Exception e) {
-				System.err.println("Consulta incorrecta");
-			}
+	//Método para cargar array de Autobuses
+	public static ArrayList<Autobus> cargarArrAutobuses(){
+		ArrayList<Autobus> autobuses=new ArrayList<Autobus>();
+		String sql="SELECT * FROM autobus";
+		Conexion connection=new Conexion();
+		Autobus a1;
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
 			
-			return cont;
+			while(rs.next()) {
+				a1=new Autobus();
+				
+				a1.setCodigoAutobus(rs.getInt(1));
+				a1.setNumeroDePlazas(rs.getInt(2));
+				a1.setConsummo(rs.getDouble(3));
+				a1.setColor(rs.getString(4));
+				
+				autobuses.add(a1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta erronea");
 		}
+		System.out.println("Cargado array Autobuses");
+		return autobuses;
+	}
 	
 	//Método para cargar array de Lineas con los datos de la BBDD
-	public static Lineasdeautobuses[] cargarArrLineas() {
-		Lineasdeautobuses[] lineas;
-		String tablaconsulta="linea_autobus";
-		String pkConsulta="Cod_Linea";
-		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
-		System.out.println(contLargo);
-		//asignamos el largo al array
-		lineas=new Lineasdeautobuses[contLargo];
+	public static ArrayList<Lineasdeautobuses> cargarArrLineas() {
+		ArrayList<Lineasdeautobuses> lineas=new ArrayList<Lineasdeautobuses>();
+		String sql="";
+		Conexion connection= new Conexion();
+		
+
+		
 		
 		
 		//hacemos la consulta a la tabla
@@ -139,42 +189,98 @@ public class Metodos {
 	
 	
 	//Método cargar array de Clientes con los datos de la BBDD
-	public static Cliente[] cargarArrClientes() {
-		Cliente [] clientes;
-		String tablaconsulta="";
-		String pkConsulta="";
-		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
+	public static ArrayList<Cliente> cargarArrClientes() {
+		ArrayList<Cliente> clientes=new ArrayList<Cliente>();
+		Conexion connection=new Conexion();
+		String sql="SELECT * FROM cliente";
 		
-		clientes=new Cliente[contLargo];
+		Cliente c1;
+		//Hacemos la consulta
+		try {
+		PreparedStatement ps= connection.conectarBase().prepareStatement(sql);
+		ResultSet rs=ps.executeQuery();
 		
+		while(rs.next()) {
+			c1=new Cliente();
+			c1.setDni(rs.getString(1));
+			c1.setNombre(rs.getString(2));
+			c1.setApellido(rs.getString(3));
+			c1.setFecha_nac(rs.getDate(4));
+			c1.setSexo(rs.getString(5));
+			c1.setContrasenya(rs.getString(6));
+			
+			clientes.add(c1);
+		}
+		
+		}catch(Exception e) {
+			System.err.println("Consulta erronea" +e);
+		}
+		System.out.println("Cargado array Clientes");
 		return clientes;
 	}
 	//Método para cargar array de Municipios con los datos de la BBDD
-	public static Municipio[] cargarArrMunicipios() {
-		Municipio[] municipios;
-		String tablaconsulta="";
-		String pkConsulta="";
-		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
+	public static ArrayList<Municipio> cargarArrMunicipios() {
+		ArrayList<Municipio> municipios = new ArrayList();
+		Conexion connect= new Conexion();
+		String tablaconsulta="poblacion";
+		String sql="SELECT p1.Cod_Postal,Nombre,Cod_Parada FROM "+tablaconsulta+" p1, poblacion_parada p2 WHERE p1.Cod_Postal=p2.Cod_Postal";
+		Municipio m1;
 		
 		
-		municipios=new Municipio[contLargo];
+		
+		
+		//Ejecutamos la sencuencia SQL
+		try {
+			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				
+				m1=new Municipio();
+				m1.setCodigoPostal(rs.getInt(1));
+				m1.setNombre(rs.getString(2));
+				m1.setRelacionParada(rs.getInt(3));			
+				
+				municipios.add(m1);
+				
+			}
+			
+			
+		}catch(Exception e) {
+			System.err.println("Consulta incorrecta"+ e);
+		}
+		
+		System.out.println("Array Municipios Cargado");
 		
 		return municipios;
 	}
 	//Método para cargar array parada con los datos de la BBDD
-	public static Parada[] cargarArrParadas() {
-		Parada[] paradas;
-		String tablaconsulta="";
-		String pkConsulta="";
-		//llamamos al metodo contLargoArr para saber el largo que tendrá nuestro array
-		int contLargo=contarLargoArr(tablaconsulta,pkConsulta);
-		
-		
-		paradas=new Parada[contLargo];
+	public static ArrayList<Parada> cargarArrParadas() {
+		ArrayList<Parada> paradas=new ArrayList<Parada>();
+		Conexion connect=new Conexion();
+		String sql="SELECT * FROM parada";
+		Parada p1;
+		try {
+			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				p1=new Parada();
+				p1.setCodigoParada(rs.getInt(1));
+				p1.setNombreParada(rs.getString(2));
+				p1.setCalle(rs.getString(3));
+				p1.setLatitud(rs.getDouble(4));
+				p1.setLongitud(rs.getDouble(5));
+				
+				paradas.add(p1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta erronea");
+		}
+		System.out.println("Array Paradas cargado");
 		return paradas;
 	}
+	
+	
 	public static double calcularDistanciaEuclediana() {
 		Punto p1 = new Punto(5, 10);
 		Punto p2 = new Punto(3, 7);
@@ -182,7 +288,7 @@ public class Metodos {
 		try {
 			resultado = p1.distancia(p2);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return resultado;
