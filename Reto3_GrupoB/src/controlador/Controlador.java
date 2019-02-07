@@ -4,10 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 
 import modelo.Lineasdeautobuses;
 import modelo.Modelo;
 import modelo.Parada;
+import vista.Pagar;
 import vista.Vista;
 
 public class Controlador {
@@ -29,10 +31,9 @@ public class Controlador {
 	
 	
 	//Cambiar variables cuando sea necesario
-	double precioTotal=150;
-	double  pagar=precioTotal;
-	
-	
+	static double precioTotal=150;
+	static double  pagar=precioTotal;
+	static double vueltas;
 	private void InitializeEvents() {	
 		//Seteados valores en los campos
 		
@@ -133,14 +134,11 @@ public class Controlador {
 						vista.mostrarPantalla(vista.pantCarga);			
 						}
 				});
-				vista.ticket.btnCancelarTicket.addActionListener(new ActionListener() {
+				vista.pagar.btnFinalizar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			
-						}
-				});
-				vista.ticket.btnPagarTicket.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.ticket);		
+						
+						vista.vueltas.setVisible(true);
+							
 						}
 				});
 				vista.pagar.btnCancelar.addActionListener(new ActionListener() {
@@ -148,7 +146,7 @@ public class Controlador {
 						vista.mostrarPantalla(vista.pantCarga);			
 						}
 				});
-				vista.pagar.btnFinalizar.addActionListener(new ActionListener() {
+				vista.vueltas.cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
 						vista.mostrarPantalla(vista.pantCarga);			
@@ -166,107 +164,156 @@ public class Controlador {
 					
 						if(pagar>0) {
 						pagar=pagar-50;	
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-						//vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						pagar = Math.round(pagar * 100.0) / 100.0;
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
+					
+						
 				}
 				});
 				vista.pagar.btn20Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
 						pagar=pagar-20;	
-						vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-						//vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						pagar = Math.round(pagar * 100.0) / 100.0;
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn10Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
-						pagar=pagar-10;
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						pagar=pagar-10;	
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn5Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
-						pagar=pagar-5;
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-					vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						pagar=pagar-5;	
+						pagar = Math.round(pagar * 100.0) / 100.0;
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn2Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
-						pagar=pagar-2;
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));	
+						pagar=pagar-2;	
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
-					}
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+						}
 					}
 				});
 				vista.pagar.btn1Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
 						pagar=pagar-1;	
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn05Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
 						pagar=pagar-0.5;	
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn02Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
 						pagar=pagar-0.2;	
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
-					vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						pagar = Math.round(pagar * 100.0) / 100.0;
+						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn01Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
-						pagar=pagar-0.1;
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						pagar=pagar-0.1;	
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn005Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
-						pagar=pagar-0.1;
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						pagar=pagar-0.05;	
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn002Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
-						pagar=pagar-0.1;
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						pagar=pagar-0.02;	
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
 				vista.pagar.btn001Pagar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						if(pagar>0) {
-						pagar=pagar-0.1;
-						//vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+						pagar=pagar-0.01;	
+						pagar = Math.round(pagar * 100.0) / 100.0;
 						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						}else if(pagar<0) {
+							vueltas=pagar*-1;
+							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
 						}
 					}
 				});
@@ -315,9 +362,35 @@ public class Controlador {
 		vista.registro.pFContraseñaRegistro.setText(contrasenia);
 		vista.registro.pFRegistroContraseña1.setText(contrasenia1);
 		if (contrasenia!=contrasenia1) {
-			
-		}
+}
 	}
+	
+	/**
+	 * Este metodo se encarga de calcular la cantidad de monedas que se nos devolverá cuando ingresamos una cantidad mayor a la que se nos pide pagar
+	 * @param txtDevolver
+	 * @param devolver
+	 */
+		public static void devolver(JTextArea txtDevolver,double [] devolver ) {
+			double[] dineros = { 50, 20, 10, 5, 2, 1, 0.5, 0.20, 0.10, 0.05, 0.02, 0.01 };
+
+			vueltas = (pagar * -1);
+			vueltas = Math.round(pagar * 100.0) / 100.0;
+
+			for (int i = 0; i < dineros.length; i++) {
+				if (vueltas >= dineros[i]) {
+
+					devolver[i] = Math.floor(vueltas / dineros[i]);
+					vueltas = vueltas - (devolver[i] * dineros[i]);
+				}
+			}
+
+			for (int i = 0; i < dineros.length; i++) {
+					if(devolver[i]!=0) {
+					txtDevolver.append("\n Te devolvemos " + devolver[i] + " monedas o billetes de: " + dineros[i] + " Euros");
+					}
+			}
+
+		}
 
 
 }

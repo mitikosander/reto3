@@ -14,7 +14,7 @@ public class Vista {
 	public Registro registro;
 	public SeleccionFecha seleccionFecha;
 	public Ticket ticket;
-	
+	public Vueltas vueltas;
 	public Vista() {
 		
 		//Instanciamos el panel como un objeto para acceder a sus atributos
@@ -27,7 +27,7 @@ public class Vista {
 		 registro = new Registro();
 		 seleccionFecha = new SeleccionFecha();
 		 ticket = new Ticket();
-		
+		 vueltas = new Vueltas();
 		
 		
 	}

@@ -35,17 +35,17 @@ public class Pagar extends JPanel {
 		add(tFIntroducidoPagar);
 		tFIntroducidoPagar.setColumns(10);
 		
-		JLabel lblADevolver = new JLabel("A devolver : ");
-		lblADevolver.setBounds(96, 194, 80, 14);
+		JLabel lblADevolver = new JLabel("Vueltas:");
+		lblADevolver.setBounds(77, 177, 99, 14);
 		add(lblADevolver);
 		
 		tFAdevolverPagar = new JTextField();
 		tFAdevolverPagar.setEditable(false);
-		tFAdevolverPagar.setBounds(186, 191, 86, 20);
+		tFAdevolverPagar.setBounds(186, 174, 86, 20);
 		add(tFAdevolverPagar);
 		tFAdevolverPagar.setColumns(10);
 		
-		 btn50Pagar = new JButton("50");
+		btn50Pagar = new JButton("50");
 		btn50Pagar.setBounds(96, 255, 60, 23);
 		add(btn50Pagar);
 		
@@ -105,6 +105,8 @@ public class Pagar extends JPanel {
 		 btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setBounds(401, 466, 89, 23);
 		add(btnFinalizar);
+		
+	
 
 	}
 }
