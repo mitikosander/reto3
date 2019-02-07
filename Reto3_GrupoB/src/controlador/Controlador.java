@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 
@@ -45,7 +46,7 @@ public class Controlador {
 					}
 				});
 				//Cuando estas en la pantalla login, te lleva a la pantalla de carga
-				vista.login.btnCancelarLogin.addActionListener(new ActionListener() {
+				vista.login.getBtnCancelarLogin().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.pantCarga);
 					}
@@ -84,19 +85,18 @@ public class Controlador {
 						}
 				});
 				//Te lleva a la pantalla de lineas
-				vista.login.btnAceptarLogin.addActionListener(new ActionListener() {
+				
+				vista.login.getBtnAceptarLogin().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
-						System.out.println(vista.login.tFLogin_Pass);
-						boolean validarLogin=modelo.metodos.comprobarLogin(vista.login.tFLogin.getName(), vista.login.tFLogin_Pass.getName());
+						boolean validarLogin=modelo.metodos.comprobarLogin(vista.login.gettFLogin().getName(),vista.login.getPasswordField().getName());
 						if(validarLogin==true) {
 							vista.mostrarPantalla(vista.lineas);
 						}
 						
 						rellenarComboLineas();
-						
 					}
 				});
+
 				
 				//Te lleva a la pantalla paradas
 				vista.lineas.btnaceptarLineas.addActionListener(new ActionListener() {
@@ -287,34 +287,34 @@ public class Controlador {
 		//Sacar las lineas de la BBDD y rellenar el combobox
 		//1.Sacar datos de la BBDD
 				
-		Lineasdeautobuses[] lineas = modelo.obtenerLineas();
+		ArrayList<Lineasdeautobuses> lineas=modelo.datos.getLineas();
 		
 		//2.Relllenar combo de lineas		
 
-		for(int i = 0;i<lineas.length;i++) {
-			vista.lineas.LineascB.addItem(lineas[i].getAutobusrecorrerlinea());
+		for(int i = 0;i<lineas.size();i++) {
+			vista.lineas.LineascB.addItem(lineas.get(i));
 		}
 
 	}
 	//Rellena el combo con las paradas de inicio que haya en esa linea
 	private void rellenarComboParadasInicio(int codLinea) {
 
-		Parada paradas[] = modelo.obtenerParadas(1);		
+		ArrayList<Parada> paradaInicio=modelo.datos.getParadas();		
 	
 		//Rellenar las paradas
-		for(int i = 0;i<paradas.length;i++) {
-			vista.paradas.cBOrigenParadas.addItem(paradas[i].getNombreParada());
+		for(int i = 0;i<paradaInicio.size();i++) {
+			//vista.paradas.cBOrigenParadas.addItem(paradaInicio.get(i));
 		}
 	}
 	
 	//Rellena el combo con las paradas de destino que haya en esa linea
 	private void rellenarComboParadasDestino(int codLinea) {
 		
-		Parada paradas[] = modelo.obtenerParadas(1);
+		ArrayList<Parada> paradaDestino=modelo.datos.getParadas();		
 
 		//Rellenar las paradas
-		for(int i = 0;i<paradas.length;i++) {
-			vista.paradas.cBDestinoParadas.addItem(paradas[i].getNombreParada());
+		for(int i = 0;i<paradaDestino.size();i++) {
+			//vista.paradas.cBDestinoParadas.
 		}
 		
 	}
