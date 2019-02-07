@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JPasswordField;
+
 import java.awt.Color;
 
 public class Login extends JPanel {
@@ -12,8 +12,8 @@ public class Login extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JTextField tFLogin;
-	public JPasswordField pFLogin;
+	public JTextField tFLogin, tFLogin_Pass;
+
 	public JButton btnCancelarLogin, btnAceptarLogin;
 	public JLabel lblErrorDeRegistro;
 
@@ -45,9 +45,9 @@ public class Login extends JPanel {
 		btnAceptarLogin.setBounds(367, 446, 89, 23);
 		add(btnAceptarLogin);
 		
-		pFLogin = new JPasswordField();
-		pFLogin.setBounds(192, 299, 85, 20);
-		add(pFLogin);
+		tFLogin_Pass = new JTextField();
+		tFLogin_Pass.setBounds(192, 299, 85, 20);
+		add(tFLogin_Pass);
 		
 		lblErrorDeRegistro = new JLabel("Error de registro");
 		lblErrorDeRegistro.setForeground(Color.RED);

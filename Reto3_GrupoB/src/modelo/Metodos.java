@@ -18,9 +18,6 @@ public class Metodos {
 	//metodo para cifrar la contraseña
 	
 	private static String encriptarPass(String pass) {
-		Vista vista=new Vista();
-		
-		pass=vista.login.pFLogin.getName();
 		
 		 try {
 			 MessageDigest md = MessageDigest.getInstance("MD5");
@@ -52,13 +49,15 @@ public class Metodos {
 	
 	
 	//Método para comprobar que el login del usuario ha sido correcto
-	public boolean comprobarLogin() {
+	public boolean comprobarLogin(String user,String pass) {
 		Vista vista=new Vista();
+		boolean user_comp=comprobarUsuario(user);
 		boolean pass_comp=false;
-		boolean user_comp=comprobarUsuario();
 		
 		if(user_comp=true) {
-			pass_comp=comprobarPassword();
+			pass_comp=comprobarPassword(pass);
+		}else {
+			return false;
 		}
 		
 		if(user_comp==true && pass_comp==true) {
@@ -74,16 +73,15 @@ public class Metodos {
 	
 	//método para comprobar que el usuario introducido en el login existe en la base de datos
 	
-	private boolean comprobarUsuario() {
+	private boolean comprobarUsuario(String user) {
 		Conexion connect=new Conexion();
 		String usuarioAcomparar=null;
-		String user,sql;
+		String sql;
 		//cogemos el valor del textField que nos han pasado como usuario
-		Vista vista=new Vista();
-		user=vista.login.tFLogin.getName();
+		
 		//hacemos la consulta para conseguir el dato del usuario y guardarlo en la variable
 		sql="SELECT Nombre FROM cliente WHERE Nombre LIKE '"+user+"'";
-		
+		System.out.println(sql);
 		try {
 			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -107,15 +105,15 @@ public class Metodos {
 	
 	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
 	
-	private static boolean comprobarPassword() {
-		Vista vista=new Vista();
+	private static boolean comprobarPassword(String passRecibida) {
+		
 		Conexion connect=new Conexion();
 		String passAComparar=null;
-		String passRecibida=vista.login.pFLogin.getName();
+		
 		//Encriptamos la contraseña que recibimos
 		
 		String passEncriptada= encriptarPass(passRecibida);
-		String sql="SELECT Contrasenya FROM cliente WHERE Contrasenya LIKE '"+passRecibida+"'";
+		String sql="SELECT Contrasenya FROM cliente WHERE Contrasenya LIKE '"+passEncriptada+"' AND Nombre LIKE ";
 		System.out.println(sql);
 		//consultar en la base la contraseña del usuario que ha tenido que ser validado anteriormente
 		

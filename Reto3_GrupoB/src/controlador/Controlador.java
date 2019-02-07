@@ -87,7 +87,8 @@ public class Controlador {
 				vista.login.btnAceptarLogin.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						boolean validarLogin=modelo.metodos.comprobarLogin();
+						System.out.println(vista.login.tFLogin_Pass);
+						boolean validarLogin=modelo.metodos.comprobarLogin(vista.login.tFLogin.getName(), vista.login.tFLogin_Pass.getName());
 						if(validarLogin==true) {
 							vista.mostrarPantalla(vista.lineas);
 						}
