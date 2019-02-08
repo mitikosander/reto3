@@ -10,29 +10,25 @@ package modelo;
  * @author IN1DM3B_15
  */
 public class Lineasdeautobuses {
-    //hola
+    
    //ATRIBUTOS
-    private int codlinea;
-    private String autobusrecorrerlinea;
+    private String codlinea;
+    private int cod_bus;
     private String municipioscomponerlinea; 
     
    //CONSTRUCTORES
     public Lineasdeautobuses(){
     }
     
-    public Lineasdeautobuses (int codlinea, String autobusrecorrerlinea, String municipioscomponerlinea){
-    this.codlinea = codlinea;
-    this.autobusrecorrerlinea = autobusrecorrerlinea;
-    this.municipioscomponerlinea = municipioscomponerlinea;
-    }
+
 
    //GETTER
-    public int getCodlinea() {
+    public String getCodlinea() {
         return codlinea;
     }
 
-    public String getAutobusrecorrerlinea() {
-        return autobusrecorrerlinea;
+    public int getCodBus() {
+        return cod_bus;
     }
 
     public String getMunicipioscomponerlinea() {
@@ -40,12 +36,12 @@ public class Lineasdeautobuses {
     }
 
     //SETTER
-    public void setCodlinea(int codlinea) {
+    public void setCodlinea(String codlinea) {
         this.codlinea = codlinea;
     }
 
-    public void setAutobusrecorrerlinea(String autobusrecorrerlinea) {
-        this.autobusrecorrerlinea = autobusrecorrerlinea;
+    public void setCodBus(int cod_bus) {
+        this.cod_bus = cod_bus;
     }
 
     public void setMunicipioscomponerlinea(String municipioscomponerlinea) {

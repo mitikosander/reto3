@@ -4,18 +4,19 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JPasswordField;
+
 import java.awt.Color;
+import javax.swing.JPasswordField;
 
 public class Login extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JTextField tFLogin;
-	public JPasswordField pFLogin;
-	public JButton btnCancelarLogin, btnAceptarLogin;
-	public JLabel lblErrorDeRegistro;
+	private JTextField tFLogin;
+	private JButton btnCancelarLogin, btnAceptarLogin;
+	private JLabel lblErrorDeRegistro;
+	private JPasswordField passwordField;
 
 	/**
 	 * Create the panel.
@@ -45,16 +46,56 @@ public class Login extends JPanel {
 		btnAceptarLogin.setBounds(367, 446, 89, 23);
 		add(btnAceptarLogin);
 		
-		pFLogin = new JPasswordField();
-		pFLogin.setBounds(192, 299, 85, 20);
-		add(pFLogin);
-		
 		lblErrorDeRegistro = new JLabel("Error de registro");
 		lblErrorDeRegistro.setForeground(Color.RED);
 		lblErrorDeRegistro.setBounds(188, 363, 112, 16);
 		lblErrorDeRegistro.setVisible(false);
 		add(lblErrorDeRegistro);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(192, 298, 86, 22);
+		add(passwordField);
 
 	}
 
+	public JTextField gettFLogin() {
+		return tFLogin;
+	}
+
+	public void settFLogin(JTextField tFLogin) {
+		this.tFLogin = tFLogin;
+	}
+
+	public JButton getBtnCancelarLogin() {
+		return btnCancelarLogin;
+	}
+
+	public void setBtnCancelarLogin(JButton btnCancelarLogin) {
+		this.btnCancelarLogin = btnCancelarLogin;
+	}
+
+	public JButton getBtnAceptarLogin() {
+		return btnAceptarLogin;
+	}
+
+	public void setBtnAceptarLogin(JButton btnAceptarLogin) {
+		this.btnAceptarLogin = btnAceptarLogin;
+	}
+
+	public JLabel getLblErrorDeRegistro() {
+		return lblErrorDeRegistro;
+	}
+
+	public void setLblErrorDeRegistro(JLabel lblErrorDeRegistro) {
+		this.lblErrorDeRegistro = lblErrorDeRegistro;
+	}
+
+	public JPasswordField getPasswordField() {
+		return passwordField;
+	}
+
+	public void setPasswordField(JPasswordField passwordField) {
+		this.passwordField = passwordField;
+	}
+	
 }

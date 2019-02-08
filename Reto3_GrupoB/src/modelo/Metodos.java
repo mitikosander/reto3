@@ -1,15 +1,15 @@
 package modelo;
 
-import java.io.ObjectInputStream;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Blob;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.mysql.cj.xdevapi.Result;
+
 
 import vista.Vista;
 
@@ -18,9 +18,6 @@ public class Metodos {
 	//metodo para cifrar la contraseña
 	
 	private static String encriptarPass(String pass) {
-		Vista vista=new Vista();
-		
-		pass=vista.login.pFLogin.getName();
 		
 		 try {
 			 MessageDigest md = MessageDigest.getInstance("MD5");
@@ -52,94 +49,28 @@ public class Metodos {
 	
 	
 	//Método para comprobar que el login del usuario ha sido correcto
-	public boolean comprobarLogin() {
-		Vista vista=new Vista();
-		boolean pass_comp=false;
-		boolean user_comp=comprobarUsuario();
-		
-		if(user_comp=true) {
-			pass_comp=comprobarPassword();
-		}
-		
-		if(user_comp==true && pass_comp==true) {
-			vista.login.lblErrorDeRegistro.setVisible(false);
-			return true;
-			
-		}else {
-			vista.login.lblErrorDeRegistro.setVisible(true);
-			return false;
-			
-		}
-	}
-	
-	//método para comprobar que el usuario introducido en el login existe en la base de datos
-	
-	private boolean comprobarUsuario() {
-		Conexion connect=new Conexion();
-		String usuarioAcomparar=null;
-		String user,sql;
-		//cogemos el valor del textField que nos han pasado como usuario
-		Vista vista=new Vista();
-		user=vista.login.tFLogin.getName();
-		//hacemos la consulta para conseguir el dato del usuario y guardarlo en la variable
-		sql="SELECT Nombre FROM cliente WHERE Nombre LIKE '"+user+"'";
-		
+	public boolean comprobarLogin(String user,String pass) {
+	Conexion connection=new Conexion();
+	String sql="SELECT Nombre,Contrasenya FROM cliente WHERE Nombre LIKE '"+user+"' AND Contrasenya LIKE '"+pass+"'";
+
 		try {
-			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
-			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
-				usuarioAcomparar=rs.getString(1);
-			}
-		}catch(Exception e) {
-			System.err.println("Consulta incorrecta");
-		}
+		PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+		ResultSet rs=ps.executeQuery();
 		
-		
-		//comparamos el campo dado en el textField con el usuario de la BBDD
-		if(user.equals(usuarioAcomparar)) {
+		rs.last();
+		if(rs.getRow()>0) {
 			return true;
-		}else if(usuarioAcomparar==null){
-			return false;
 		}else {
 			return false;
 		}
-	}
-	
-	//metodo para comprobar que la contraseña escrita sea igual que la guardada en la base
-	
-	private static boolean comprobarPassword() {
-		Vista vista=new Vista();
-		Conexion connect=new Conexion();
-		String passAComparar=null;
-		String passRecibida=vista.login.pFLogin.getName();
-		//Encriptamos la contraseña que recibimos
-		
-		String passEncriptada= encriptarPass(passRecibida);
-		String sql="SELECT Contrasenya FROM cliente WHERE Contrasenya LIKE '"+passRecibida+"'";
-		System.out.println(sql);
-		//consultar en la base la contraseña del usuario que ha tenido que ser validado anteriormente
-		
-		try {
-			PreparedStatement ps=connect.conectarBase().prepareStatement(sql);
-			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
-				passAComparar=rs.getString(1);
-			}
+				
 		}catch(Exception e) {
-			System.err.println("Consulta incorrecta");
-		}
-		
-		
-		
-		if(passEncriptada.equals(passAComparar)) {
-			return true;
-		}else if(passAComparar==null){
-			return false;
-		}else {
-			return false;
-		}
-		
+		System.err.println("Consulta incorrecta"+e);
+		return false;
 	}
+	}
+	
+
 	
 	//Método para cargar array de Autobuses
 	public static ArrayList<Autobus> cargarArrAutobuses(){
@@ -171,18 +102,29 @@ public class Metodos {
 	//Método para cargar array de Lineas con los datos de la BBDD
 	public static ArrayList<Lineasdeautobuses> cargarArrLineas() {
 		ArrayList<Lineasdeautobuses> lineas=new ArrayList<Lineasdeautobuses>();
-		String sql="";
+		String sql1="SELECT l1.Cod_Linea, Cod_bus, Nombre FROM linea_autobus l1, linea l2 WHERE l1.Cod_Linea=l2.Cod_Linea";
+	
 		Conexion connection= new Conexion();
+		Lineasdeautobuses l1;
 		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql1);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				l1=new Lineasdeautobuses();
+				
+				l1.setCodlinea(rs.getString(1));
+				l1.setCodBus(rs.getInt(2));
+				l1.setMunicipioscomponerlinea(rs.getString(3));
+				
+				lineas.add(l1);
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta no valida");
+		}
 
-		
-		
-		
-		//hacemos la consulta a la tabla
-		
-		
-		//cargamos el array
-		
+			System.out.println("Cargado array de Lineas de Autobuses");
 		
 		return lineas;
 	}
@@ -220,7 +162,7 @@ public class Metodos {
 	}
 	//Método para cargar array de Municipios con los datos de la BBDD
 	public static ArrayList<Municipio> cargarArrMunicipios() {
-		ArrayList<Municipio> municipios = new ArrayList();
+		ArrayList<Municipio> municipios = new ArrayList<Municipio>();
 		Conexion connect= new Conexion();
 		String tablaconsulta="poblacion";
 		String sql="SELECT p1.Cod_Postal,Nombre,Cod_Parada FROM "+tablaconsulta+" p1, poblacion_parada p2 WHERE p1.Cod_Postal=p2.Cod_Postal";
@@ -280,6 +222,26 @@ public class Metodos {
 		return paradas;
 	}
 	
+	
+	public static ArrayList<String> cargarParadas(){
+		Conexion connection= new Conexion();
+		ArrayList<String> nombreParadas=new ArrayList<String>();
+		String sql="Select Nombre FROM parada";
+		String nombreParada;
+		 try {
+			 PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			 ResultSet rs=ps.executeQuery();
+			 
+			 while(rs.next()) {
+				 nombreParada=rs.getString(1);
+				nombreParadas.add(nombreParada); 
+			 }
+		 }catch(Exception e) {
+			 System.err.println("Consulta erronea");
+		 }
+		
+		return nombreParadas;
+	}
 	
 	public static double calcularDistanciaEuclediana() {
 		Punto p1 = new Punto(5, 10);

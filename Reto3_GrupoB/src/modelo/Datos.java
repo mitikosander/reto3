@@ -19,10 +19,41 @@ public class Datos {
 	
 	
 	//Arrays que vamos a cargar con los datos de la BBDD
-	ArrayList<Lineasdeautobuses> lineas=Metodos.cargarArrLineas();
-	ArrayList<Municipio> municipios=Metodos.cargarArrMunicipios();
-	ArrayList<Cliente> clientes=Metodos.cargarArrClientes();
-	ArrayList<Parada> paradas=Metodos.cargarArrParadas();
-	ArrayList<Autobus> autobuses=Metodos.cargarArrAutobuses();
+	private ArrayList<Lineasdeautobuses> lineas=Metodos.cargarArrLineas();
+	private ArrayList<Municipio> municipios=Metodos.cargarArrMunicipios();
+	private ArrayList<Cliente> clientes=Metodos.cargarArrClientes();
+	private ArrayList<Parada> paradas=Metodos.cargarArrParadas();
+	private ArrayList<Autobus> autobuses=Metodos.cargarArrAutobuses();
+	public ArrayList<Lineasdeautobuses> getLineas() {
+		return lineas;
+	}
+	public void setLineas(ArrayList<Lineasdeautobuses> lineas) {
+		this.lineas = lineas;
+	}
+	public ArrayList<Municipio> getMunicipios() {
+		return municipios;
+	}
+	public void setMunicipios(ArrayList<Municipio> municipios) {
+		this.municipios = municipios;
+	}
+	public ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+	public ArrayList<Parada> getParadas() {
+		return paradas;
+	}
+	public void setParadas(ArrayList<Parada> paradas) {
+		this.paradas = paradas;
+	}
+	public ArrayList<Autobus> getAutobuses() {
+		return autobuses;
+	}
+	public void setAutobuses(ArrayList<Autobus> autobuses) {
+		this.autobuses = autobuses;
+	}
+	
 	
 }

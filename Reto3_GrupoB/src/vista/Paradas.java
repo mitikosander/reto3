@@ -16,7 +16,7 @@ public class Paradas extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	public JScrollPane sPNombreLineaParadas;
-	public static JComboBox<String> cBOrigenParadas;
+	public JComboBox<String> cBOrigenParadas;
 	public JComboBox<String> cBDestinoParadas;
 	public JRadioButton rdbtnIdaVueltaParadas;
 	public JButton btnCancelarParadas,btnAceptarParadas;
