@@ -108,7 +108,7 @@ public class Ticket extends JPanel {
 		txtFechaVuelta.setBounds(375, 141, 86, 20);
 		add(txtFechaVuelta);
 		
-		JLabel lblHoraSalida = new JLabel("Hora salida");
+		JLabel lblHoraSalida = new JLabel("Hora salida:");
 		lblHoraSalida.setBounds(286, 189, 76, 14);
 		add(lblHoraSalida);
 		
@@ -118,7 +118,7 @@ public class Ticket extends JPanel {
 		txtHoraSalida.setBounds(375, 186, 86, 20);
 		add(txtHoraSalida);
 		
-		JLabel lblHoraVuelta = new JLabel("Hora vuelta");
+		JLabel lblHoraVuelta = new JLabel("Hora vuelta:");
 		lblHoraVuelta.setBounds(286, 231, 76, 14);
 		add(lblHoraVuelta);
 		
