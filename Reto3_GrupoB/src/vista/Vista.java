@@ -14,7 +14,7 @@ public class Vista {
 	public Registro registro;
 	public SeleccionFecha seleccionFecha;
 	public Ticket ticket;
-	
+	public Vueltas vueltas;
 	public Vista() {
 		
 		//Instanciamos el panel como un objeto para acceder a sus atributos
@@ -27,26 +27,26 @@ public class Vista {
 		 registro = new Registro();
 		 seleccionFecha = new SeleccionFecha();
 		 ticket = new Ticket();
-		
+		 vueltas = new Vueltas();
 		
 		
 	}
-	//método para 
+	//metodo para 
 	public  void mostrarPantalla(JPanel panel) {
 		ventana.setContentPane(panel);
 		ventana.setVisible(true);
 		
 	}
-	//método para poner un String en un label
+	//metodo para poner un String en un label
 	public void setStringLabel(JLabel etiqueta, String txt) {
 		etiqueta.setText(txt);
 	}
-	//método para poner double en un label que le pasemos
+	//metodo para poner double en un label que le pasemos
 	public void setDoubleLabel(JLabel etiqueta, double d) {
 		etiqueta.setText(Double.toString(d));
 	}
 	
-	//método para poner ints en un label que le pasemos
+	//metodo para poner ints en un label que le pasemos
 	public void setIntLabel(JLabel etiqueta, int n) {
 		etiqueta.setText(Integer.toString(n));
 	}
