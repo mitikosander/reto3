@@ -71,12 +71,9 @@ public class Controlador {
 				vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-							String value = (String)cBSexoRegistro.getSelectedItem();
-							show_cBSexoRegistro_selected_item.setText(value);
+							String value = (String)vista.registro.cBSexoRegistro.getSelectedItem();
+							vista.registro.cBSexoRegistro.setSelectedItem(value);
 							vista.mostrarPantalla(vista.pantCarga);
-						
-						
-						
 						}
 				});
 				
