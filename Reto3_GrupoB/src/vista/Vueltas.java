@@ -22,7 +22,7 @@ public class Vueltas extends JDialog {
 	 */
 	public static final long serialVersionUID = 1L;
 	public final JPanel contentPanel = new JPanel();
-	public static JButton cancelButton;
+	public JButton cancelButton;
 	public final JLabel lblVueltas = new JLabel("Vueltas");
 	public static JTextArea txtDevolver;
 	public static double[] devolver = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

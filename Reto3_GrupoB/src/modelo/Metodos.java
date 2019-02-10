@@ -1,15 +1,10 @@
 package modelo;
 
-
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-
+import org.apache.commons.codec.digest.DigestUtils;
 
 import vista.Vista;
 
@@ -17,22 +12,10 @@ public class Metodos {
 
 	//metodo para cifrar la contraseña
 	
-	private static String encriptarPass(String pass) {
+	private  String encriptarPass(String pass) {
 		
-		 try {
-			 MessageDigest md = MessageDigest.getInstance("MD5");
-			 byte[] messageDigest = md.digest(pass.getBytes());
-			 BigInteger number = new BigInteger(1, messageDigest);
-			 pass= number.toString(16);
-
-			 while (pass.length() < 32) {
-			 pass = "0" + pass;
-			 }
-			 return pass;
-			 }
-			 catch (NoSuchAlgorithmException e) {
-			 throw new RuntimeException(e);
-			 }
+		pass=DigestUtils.md5Hex(pass);
+		return pass;
 	}
 	
 	
@@ -50,6 +33,7 @@ public class Metodos {
 	
 	//Método para comprobar que el login del usuario ha sido correcto
 	public boolean comprobarLogin(String user,String pass) {
+	pass=encriptarPass(pass);
 	Conexion connection=new Conexion();
 	String sql="SELECT Nombre,Contrasenya FROM cliente WHERE Nombre LIKE '"+user+"' AND Contrasenya LIKE '"+pass+"'";
 
@@ -254,6 +238,39 @@ public class Metodos {
 			e.printStackTrace();
 		}
 		return resultado;
+	}
+	
+	//método para comprobar que las contraseñas del registro coinciden antes de hacer un insert de usuario
+	public boolean comprobarPassCoinciden(String pass1, String pass2) {
+		if(pass1.equals(pass2)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	//Método para insertar los datos guardados en la BBDD y registrar el usuario
+	public void insertarUsuario(Cliente c1) {
+		Conexion connection=new Conexion();
+		String sql="INSERT INTO cliente VALUES(?,?,?,?,?,?)";
+		
+		try {
+			//Preparamos la consulta
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			//Seguidamente asignamos los atributos a la consulta
+			ps.setString(1, c1.getDni());
+			ps.setString(2, c1.getNombre());
+			ps.setString(3, c1.getApellido());
+			ps.setDate(4, c1.getFecha_nac());
+			ps.setString(5, c1.getSexo());
+			ps.setString(6, c1.getContrasenya());
+			
+			ps.executeUpdate();
+			
+		}catch(Exception e) {
+			System.err.println("Insert Erroneo, revise los datosS");
+		}
+		
 	}
 	
 	
