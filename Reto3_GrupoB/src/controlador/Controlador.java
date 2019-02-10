@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 import modelo.Cliente;
-import modelo.Lineasdeautobuses;
+
 import modelo.Modelo;
-import modelo.Parada;
+
 import vista.Vista;
 
 public class Controlador {
@@ -117,9 +117,11 @@ public class Controlador {
 				//Te lleva a la pantalla paradas
 				vista.lineas.btnaceptarLineas.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						String nombreLineaSelecc=vista.lineas.LineascB.getSelectedItem().toString();
 						vista.mostrarPantalla(vista.paradas);
-						rellenarComboParadasInicio(1);
-						rellenarComboParadasDestino(2);
+						rellenarComboParadasInicio(nombreLineaSelecc);
+						rellenarComboParadasDestino(nombreLineaSelecc);
+						
 					}
 				});
 				
@@ -349,9 +351,9 @@ public class Controlador {
 		//Sacar las lineas de la BBDD y rellenar el combobox
 		//1.Sacar datos de la BBDD
 				
-		ArrayList<Lineasdeautobuses> lineas=modelo.datos.getLineas();
+		ArrayList<String> lineas=modelo.metodos.cargarLineas();
 		
-		//2.Relllenar combo de lineas		
+		//2.Rellenar combo de lineas		
 
 		for(int i = 0;i<lineas.size();i++) {
 			vista.lineas.LineascB.addItem(lineas.get(i));
@@ -359,24 +361,24 @@ public class Controlador {
 
 	}
 	//Rellena el combo con las paradas de inicio que haya en esa linea
-	private void rellenarComboParadasInicio(int codLinea) {
+	private void rellenarComboParadasInicio(String nombreLineaP) {
 
-		ArrayList<Parada> paradaInicio=modelo.datos.getParadas();		
+		ArrayList<String>nombreParadas=modelo.metodos.cargarParadas(nombreLineaP);	
 	
 		//Rellenar las paradas
-		for(int i = 0;i<paradaInicio.size();i++) {
-			//vista.paradas.cBOrigenParadas.addItem(paradaInicio.get(i));
+		for(int i = 0;i<nombreParadas.size();i++) {
+			vista.paradas.cBOrigenParadas.addItem(nombreParadas.get(i));
 		}
 	}
 	
 	//Rellena el combo con las paradas de destino que haya en esa linea
-	private void rellenarComboParadasDestino(int codLinea) {
+	private void rellenarComboParadasDestino(String nombreLineaP) {
 		
-		ArrayList<Parada> paradaDestino=modelo.datos.getParadas();		
-
+		ArrayList<String>nombreParadas=modelo.metodos.cargarParadas(nombreLineaP);	
+		
 		//Rellenar las paradas
-		for(int i = 0;i<paradaDestino.size();i++) {
-			//vista.paradas.cBDestinoParadas.
+		for(int i = 0;i<nombreParadas.size();i++) {
+			vista.paradas.cBDestinoParadas.addItem(nombreParadas.get(i));
 		}
 		
 	}

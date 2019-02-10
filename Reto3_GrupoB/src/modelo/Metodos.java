@@ -273,5 +273,48 @@ public class Metodos {
 		
 	}
 	
+	//Método para cargar un arrayList con los nombres de las lineas de autobus
+	public  ArrayList<String> cargarLineas(){
+		Conexion connection= new Conexion();
+		ArrayList<String> nLineas=new ArrayList<String>();
+		String sql="SELECT Nombre FROM linea";
+		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				nLineas.add(rs.getString(1));
+			}
+		
+		}catch(Exception e) {
+			System.err.println("Consulta no valida");
+		}
+		
+		return nLineas;
+	}
+	
+	
+	//Método para cargar en un arrayList las paradas de una Linea segun cual hayamos seleccionado
+	public ArrayList<String> cargarParadas(String nombreLinea){
+		ArrayList<String> nombreParadas=new ArrayList<String>();
+		Conexion connection= new Conexion();
+		String sql="SELECT p.Nombre FROM parada p, linea_parada lp, linea l "
+				+ "WHERE p.Cod_Parada=lp.Cod_Parada AND l.Cod_Linea=lp.Cod_Linea "
+				+ "AND l.Nombre LIKE '"+nombreLinea+"'";
+		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				nombreParadas.add(rs.getString(1));
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta no valida"+e);
+		}
+		
+		return nombreParadas;
+	}
 	
 }
