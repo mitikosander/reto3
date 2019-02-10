@@ -4,15 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
+
 import javax.swing.JTextArea;
 
 import modelo.Cliente;
 import modelo.Lineasdeautobuses;
 import modelo.Modelo;
 import modelo.Parada;
-import vista.Pagar;
-import vista.Registro;
 import vista.Vista;
 
 public class Controlador {
@@ -75,6 +73,10 @@ public class Controlador {
 							String value = (String)vista.registro.cBSexoRegistro.getSelectedItem();
 							vista.registro.cBSexoRegistro.setSelectedItem(value);
 							vista.mostrarPantalla(vista.pantCarga);
+							
+							//recogemos los datos del usuario
+							Cliente c1=cogerdatosregistroUsuario();
+							modelo.metodos.insertarUsuario(c1);
 						}
 				});
 				
@@ -90,9 +92,16 @@ public class Controlador {
 				
 				vista.login.getBtnAceptarLogin().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						boolean validarLogin=modelo.metodos.comprobarLogin(vista.login.gettFLogin().getName(),vista.login.getPasswordField().getName());
+						String user=vista.login.gettFLogin().getText();
+						String password=String.valueOf(vista.login.getPasswordField().getPassword());
+						boolean validarLogin=modelo.metodos.comprobarLogin(user,password);
+						
 						if(validarLogin==true) {
+							
 							vista.mostrarPantalla(vista.lineas);
+						}else {
+							//tener en cuenta valor para resetear
+							vista.login.getLblErrorDeRegistro().setVisible(true);
 						}
 						
 						rellenarComboLineas();
@@ -368,7 +377,7 @@ public class Controlador {
 	}
 
 	//Para guardar los datos del usuario en el registro
-	private void registroUsuario() {
+	private Cliente cogerdatosregistroUsuario() {
 		
 		//Al darle al boton registrar, Guardas los datos de la pantalla y los guarda en un objeto usuario
 		
@@ -385,10 +394,14 @@ public class Controlador {
 			c1.setSexo("M");
 		}else {
 			c1.setSexo("F");
-		}	
 		}
+		return c1;
+		}
+		return null;
 		
 	}
+	
+	
 	
 
 
