@@ -40,16 +40,18 @@ public class Controlador {
 		
 		vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 		
-		//Te mete a la pantalla login
+			//Te mete a la pantalla login
 				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.login);
 					}
 				});
+				
 				//Cuando estas en la pantalla login, te lleva a la pantalla de carga
 				vista.login.getBtnCancelarLogin().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.pantCarga);
+						resetLogin();
 					}
 				});
 				
@@ -72,11 +74,13 @@ public class Controlador {
 						
 							String value = (String)vista.registro.cBSexoRegistro.getSelectedItem();
 							vista.registro.cBSexoRegistro.setSelectedItem(value);
-							vista.mostrarPantalla(vista.pantCarga);
+							
 							
 							//recogemos los datos del usuario
 							Cliente c1=cogerdatosregistroUsuario();
 							modelo.metodos.insertarUsuario(c1);
+							
+							vista.mostrarPantalla(vista.pantCarga);
 						}
 				});
 				
@@ -100,8 +104,9 @@ public class Controlador {
 							
 							vista.mostrarPantalla(vista.lineas);
 						}else {
-							//tener en cuenta valor para resetear
+							
 							vista.login.getLblErrorDeRegistro().setVisible(true);
+							resetLogin();
 						}
 						
 						rellenarComboLineas();
@@ -432,5 +437,42 @@ public class Controlador {
 			}
 
 		}
+		
+		//Método para resetear valores de pantalla login
+		public static void resetLogin() {
+			Vista vista=new Vista();
+			vista.login.gettFLogin().setText(null);
+			vista.login.getPasswordField().setText(null);
+			vista.login.getLblErrorDeRegistro().setVisible(false);
+		}
+		
+		//Método para resetear valores de la pantalla Registro
+		public static void resetRegistro() {
+			
+		}
+		
+		//Método para resetear valores de la pantalla Lineas
+		public static void resetLineas() {
+			
+		}
+		
+		//Método para resetear valores de la pantalla Paradas
+		public static void resetParadas() {
+		
+		}
+		
+		//Método para resetear valores de la pantalla SeleccionFecha
+		public static void resetSeleccionFecha() {
+			
+		}
+		
+		//Método para resetear los valores de la pantalla Ticket
+		public static void resetTicket() {
+			
+		}
+		//Método para resetear los valores de la pantalla Pagar
+		public static void resetPagar() {
+			
 		}
 
+}
