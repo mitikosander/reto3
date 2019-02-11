@@ -26,8 +26,8 @@ public class Controlador {
 		
 		
 		//Cargamos la pantalla de inicio en la ventana contenedora
-		vista.ventana.setContentPane(vista.pantCarga);
-		vista.ventana.setVisible(true);
+		vista.getVentana().setContentPane(vista.getPantCarga());
+		vista.getVentana().setVisible(true);
 	}
 	
 	
@@ -38,74 +38,74 @@ public class Controlador {
 	private void InitializeEvents() {	
 		//Seteados valores en los campos
 		
-		vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
+		vista.getPagar().gettFIntroducidoPagar().setText(Double.toString(pagar));
 		
 			//Te mete a la pantalla login
-				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
+				vista.getPantCarga().getBtnAccederInicio().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.login);
+						vista.mostrarPantalla(vista.getLogin());
 					}
 				});
 				
 				//Cuando estas en la pantalla login, te lleva a la pantalla de carga
-				vista.login.getBtnCancelarLogin().addActionListener(new ActionListener() {
+				vista.getLogin().getBtnCancelarLogin().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);
+						vista.mostrarPantalla(vista.getPantCarga());
 						resetLogin();
 					}
 				});
 				
 				//Te lleva a la pantalla de registro
-				vista.pantCarga.btnRegistrarseInicio.addActionListener(new ActionListener() {
+				vista.getPantCarga().getBtnRegistrarseInicio().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.registro);
+						vista.mostrarPantalla(vista.getRegistro());
 					}
 				});
 				//Te lleva a la pantalla de carga
-				vista.registro.btnCancelarRegistro.addActionListener(new ActionListener() {
+				vista.getRegistro().getBtnCancelarRegistro().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);
+						vista.mostrarPantalla(vista.getPantCarga());
 					}
 				});
 				
 				//Te lleva a la pantalla de carga, habiendo creado el usuario
-				vista.registro.btnAceptarRegistro.addActionListener(new ActionListener() {
+				vista.getRegistro().getBtnAceptarRegistro().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-							String value = (String)vista.registro.cBSexoRegistro.getSelectedItem();
-							vista.registro.cBSexoRegistro.setSelectedItem(value);
+							String value = (String)vista.getRegistro().getcBSexoRegistro().getSelectedItem();
+							vista.getRegistro().getcBSexoRegistro().setSelectedItem(value);
 							
 							
 							//recogemos los datos del usuario
 							Cliente c1=cogerdatosregistroUsuario();
 							modelo.metodos.insertarUsuario(c1);
 							
-							vista.mostrarPantalla(vista.pantCarga);
+							vista.mostrarPantalla(vista.getPantCarga());
 						}
 				});
 				
 				//Te lleva a la pantalla de login
-				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
+				vista.getPantCarga().getBtnAccederInicio().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						vista.mostrarPantalla(vista.login);		
+						vista.mostrarPantalla(vista.getLogin());		
 						
 						}
 				});
 				//Te lleva a la pantalla de lineas
 				
-				vista.login.getBtnAceptarLogin().addActionListener(new ActionListener() {
+				vista.getLogin().getBtnAceptarLogin().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						String user=vista.login.gettFLogin().getText();
-						String password=String.valueOf(vista.login.getPasswordField().getPassword());
+						String user=vista.getLogin().gettFLogin().getText();
+						String password=String.valueOf(vista.getLogin().getPasswordField().getPassword());
 						boolean validarLogin=modelo.metodos.comprobarLogin(user,password);
 						
 						if(validarLogin==true) {
 							
-							vista.mostrarPantalla(vista.lineas);
+							vista.mostrarPantalla(vista.getLineas());
 						}else {
 							
-							vista.login.getLblErrorDeRegistro().setVisible(true);
+							vista.getLogin().getLblErrorDeRegistro().setVisible(true);
 							resetLogin();
 						}
 						
@@ -115,10 +115,10 @@ public class Controlador {
 
 				
 				//Te lleva a la pantalla paradas
-				vista.lineas.btnaceptarLineas.addActionListener(new ActionListener() {
+				vista.getLineas().getBtnaceptarLineas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						String nombreLineaSelecc=vista.lineas.LineascB.getSelectedItem().toString();
-						vista.mostrarPantalla(vista.paradas);
+						String nombreLineaSelecc=vista.getLineas().getLineascB().getSelectedItem().toString();
+						vista.mostrarPantalla(vista.getParadas());
 						rellenarComboParadasInicio(nombreLineaSelecc);
 						rellenarComboParadasDestino(nombreLineaSelecc);
 						
@@ -126,222 +126,222 @@ public class Controlador {
 				});
 				
 				
-				vista.lineas.btnCancelarLineas.addActionListener(new ActionListener() {
+				vista.getLineas().getBtnCancelarLineas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			
+						vista.mostrarPantalla(vista.getPantCarga());			
 						}
 				});
-				vista.seleccionFecha.btnCancelarSeleccionFecha.addActionListener(new ActionListener() {
+				vista.getSeleccionFecha().getBtnCancelarSeleccionFecha().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			
+						vista.mostrarPantalla(vista.getPantCarga());			
 						}
 				});
-				vista.seleccionFecha.btnAceptarSeleccionFecha.addActionListener(new ActionListener() {
+				vista.getSeleccionFecha().getBtnAceptarSeleccionFecha().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.ticket);			
+						vista.mostrarPantalla(vista.getTicket());			
 						}
 				});
 				
-				vista.paradas.btnAceptarParadas.addActionListener(new ActionListener() {
+				vista.getParadas().getBtnAceptarParadas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.seleccionFecha);			
+						vista.mostrarPantalla(vista.getSeleccionFecha());			
 						}
 				});
-				vista.paradas.btnCancelarParadas.addActionListener(new ActionListener() {
+				vista.getParadas().getBtnCancelarParadas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			
+						vista.mostrarPantalla(vista.getPantCarga());			
 						}
 				});
-				vista.ticket.btnPagarTicket.addActionListener(new ActionListener() {
+				vista.getTicket().getBtnPagarTicket().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pagar);			
+						vista.mostrarPantalla(vista.getPagar());			
 						}
 				});
-				vista.ticket.btnCancelarTicket.addActionListener(new ActionListener() {
+				vista.getTicket().getBtnCancelarTicket().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			
+						vista.mostrarPantalla(vista.getPantCarga());			
 						}
 				});
-				vista.pagar.btnFinalizar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtnFinalizar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						vista.vueltas.setVisible(true);
+						vista.getVueltas().setVisible(true);
 							
 						}
 				});
-				vista.pagar.btnCancelar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtnCancelar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.pantCarga);			
+						vista.mostrarPantalla(vista.getPantCarga());			
 						}
 				});
-				vista.vueltas.cancelButton.addActionListener(new ActionListener() {
+				vista.getVueltas().getCancelButton().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						vista.mostrarPantalla(vista.pantCarga);			
+						vista.mostrarPantalla(vista.getPantCarga());			
 						}
 				});
-				vista.pagar.btnGuardar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtnGuardar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						//Guarda los datos en un archivo y vuelve al inicio 
-						vista.mostrarPantalla(vista.pantCarga);			
+						vista.mostrarPantalla(vista.getPantCarga());			
 						}
 				});
 				//Para que cada vez que le des a un boton de pagar, vaya restando de el precio 
-				vista.pagar.btn50Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn50Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					
 						if(pagar>0) {
 						pagar=pagar-50;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					
 						
 				}
 				});
-				vista.pagar.btn20Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn20Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-20;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn10Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn10Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-10;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn5Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn5Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-5;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn2Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn2Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-2;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn1Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn1Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-1;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn05Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn05Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-0.5;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn02Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn02Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-0.2;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn01Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn01Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-0.1;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn005Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn005Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-0.05;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn002Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn002Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-0.02;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
-				vista.pagar.btn001Pagar.addActionListener(new ActionListener() {
+				vista.getPagar().getBtn001Pagar().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
 						if(pagar>0) {
 						pagar=pagar-0.01;	
 						pagar = Math.round(pagar * 100.0) / 100.0;
-						vista.pagar.tFAdevolverPagar.setText(Double.toString(pagar));
+						vista.getPagar().gettFAdevolverPagar().setText(Double.toString(pagar));
 						}else if(pagar<0) {
 							vueltas=pagar*-1;
-							vista.pagar.tFAdevolverPagar.setText(Double.toString(vueltas));
+							vista.getPagar().gettFAdevolverPagar().setText(Double.toString(vueltas));
 						}
 					}
 				});
@@ -356,7 +356,7 @@ public class Controlador {
 		//2.Rellenar combo de lineas		
 
 		for(int i = 0;i<lineas.size();i++) {
-			vista.lineas.LineascB.addItem(lineas.get(i));
+			vista.getLineas().getLineascB().addItem(lineas.get(i));
 		}
 
 	}
@@ -367,7 +367,7 @@ public class Controlador {
 	
 		//Rellenar las paradas
 		for(int i = 0;i<nombreParadas.size();i++) {
-			vista.paradas.cBOrigenParadas.addItem(nombreParadas.get(i));
+			vista.getParadas().getcBOrigenParadas().addItem(nombreParadas.get(i));
 		}
 	}
 	
@@ -378,7 +378,7 @@ public class Controlador {
 		
 		//Rellenar las paradas
 		for(int i = 0;i<nombreParadas.size();i++) {
-			vista.paradas.cBDestinoParadas.addItem(nombreParadas.get(i));
+			vista.getParadas().getcBDestinoParadas().addItem(nombreParadas.get(i));
 		}
 		
 	}
@@ -388,16 +388,16 @@ public class Controlador {
 		
 		//Al darle al boton registrar, Guardas los datos de la pantalla y los guarda en un objeto usuario
 		
-		if(vista.registro.pFContraseñaRegistro.getPassword() == vista.registro.pFRegistroContraseña1.getPassword()) {
+		if(vista.getRegistro().getpFContraseñaRegistro().getPassword() == vista.getRegistro().getpFRegistroContraseña1().getPassword()) {
 
 		Cliente c1 = new Cliente();
 
-		c1.setNombre(vista.registro.tFNombreRegistro.getText());
-		c1.setDni(vista.registro.tfDNIRegistro.getText());
+		c1.setNombre(vista.getRegistro().gettFNombreRegistro().getText());
+		c1.setDni(vista.getRegistro().getTfDNIRegistro().getText());
 		
-		c1.setContrasenya(String.valueOf(vista.registro.pFContraseñaRegistro.getPassword()));
-		c1.setContrasenya(String.valueOf(vista.registro.pFRegistroContraseña1.getPassword()));
-		if (vista.registro.cBSexoRegistro.getSelectedItem().equals("Masculino")){
+		c1.setContrasenya(String.valueOf(vista.getRegistro().getpFContraseñaRegistro().getPassword()));
+		c1.setContrasenya(String.valueOf(vista.getRegistro().getpFRegistroContraseña1().getPassword()));
+		if (vista.getRegistro().getcBSexoRegistro().getSelectedItem().equals("Masculino")){
 			c1.setSexo("M");
 		}else {
 			c1.setSexo("F");
@@ -443,9 +443,9 @@ public class Controlador {
 		//Método para resetear valores de pantalla login
 		public static void resetLogin() {
 			Vista vista=new Vista();
-			vista.login.gettFLogin().setText(null);
-			vista.login.getPasswordField().setText(null);
-			vista.login.getLblErrorDeRegistro().setVisible(false);
+			vista.getLogin().gettFLogin().setText(null);
+			vista.getLogin().getPasswordField().setText(null);
+			vista.getLogin().getLblErrorDeRegistro().setVisible(false);
 		}
 		
 		//Método para resetear valores de la pantalla Registro

@@ -15,7 +15,8 @@ public class Vista {
 	private SeleccionFecha seleccionFecha;
 	private Ticket ticket;
 	private Vueltas vueltas;
-	private Vista() {
+	
+	public Vista() {
 		
 		//Instanciamos el panel como un objeto para acceder a sus atributos
 		ventana=new Contenedor();
