@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 import modelo.Cliente;
-import modelo.Lineasdeautobuses;
+
 import modelo.Modelo;
-import modelo.Parada;
+
 import vista.Vista;
 
 public class Controlador {
@@ -40,16 +40,18 @@ public class Controlador {
 		
 		vista.pagar.tFIntroducidoPagar.setText(Double.toString(pagar));
 		
-		//Te mete a la pantalla login
+			//Te mete a la pantalla login
 				vista.pantCarga.btnAccederInicio.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.login);
 					}
 				});
+				
 				//Cuando estas en la pantalla login, te lleva a la pantalla de carga
 				vista.login.getBtnCancelarLogin().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.pantCarga);
+						resetLogin();
 					}
 				});
 				
@@ -72,11 +74,13 @@ public class Controlador {
 						
 							String value = (String)vista.registro.cBSexoRegistro.getSelectedItem();
 							vista.registro.cBSexoRegistro.setSelectedItem(value);
-							vista.mostrarPantalla(vista.pantCarga);
+							
 							
 							//recogemos los datos del usuario
 							Cliente c1=cogerdatosregistroUsuario();
 							modelo.metodos.insertarUsuario(c1);
+							
+							vista.mostrarPantalla(vista.pantCarga);
 						}
 				});
 				
@@ -100,8 +104,9 @@ public class Controlador {
 							
 							vista.mostrarPantalla(vista.lineas);
 						}else {
-							//tener en cuenta valor para resetear
+							
 							vista.login.getLblErrorDeRegistro().setVisible(true);
+							resetLogin();
 						}
 						
 						rellenarComboLineas();
@@ -112,9 +117,11 @@ public class Controlador {
 				//Te lleva a la pantalla paradas
 				vista.lineas.btnaceptarLineas.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						String nombreLineaSelecc=vista.lineas.LineascB.getSelectedItem().toString();
 						vista.mostrarPantalla(vista.paradas);
-						rellenarComboParadasInicio(1);
-						rellenarComboParadasDestino(2);
+						rellenarComboParadasInicio(nombreLineaSelecc);
+						rellenarComboParadasDestino(nombreLineaSelecc);
+						
 					}
 				});
 				
@@ -344,9 +351,9 @@ public class Controlador {
 		//Sacar las lineas de la BBDD y rellenar el combobox
 		//1.Sacar datos de la BBDD
 				
-		ArrayList<Lineasdeautobuses> lineas=modelo.datos.getLineas();
+		ArrayList<String> lineas=modelo.metodos.cargarLineas();
 		
-		//2.Relllenar combo de lineas		
+		//2.Rellenar combo de lineas		
 
 		for(int i = 0;i<lineas.size();i++) {
 			vista.lineas.LineascB.addItem(lineas.get(i));
@@ -354,24 +361,24 @@ public class Controlador {
 
 	}
 	//Rellena el combo con las paradas de inicio que haya en esa linea
-	private void rellenarComboParadasInicio(int codLinea) {
+	private void rellenarComboParadasInicio(String nombreLineaP) {
 
-		ArrayList<Parada> paradaInicio=modelo.datos.getParadas();		
+		ArrayList<String>nombreParadas=modelo.metodos.cargarParadas(nombreLineaP);	
 	
 		//Rellenar las paradas
-		for(int i = 0;i<paradaInicio.size();i++) {
-			//vista.paradas.cBOrigenParadas.addItem(paradaInicio.get(i));
+		for(int i = 0;i<nombreParadas.size();i++) {
+			vista.paradas.cBOrigenParadas.addItem(nombreParadas.get(i));
 		}
 	}
 	
 	//Rellena el combo con las paradas de destino que haya en esa linea
-	private void rellenarComboParadasDestino(int codLinea) {
+	private void rellenarComboParadasDestino(String nombreLineaP) {
 		
-		ArrayList<Parada> paradaDestino=modelo.datos.getParadas();		
-
+		ArrayList<String>nombreParadas=modelo.metodos.cargarParadas(nombreLineaP);	
+		
 		//Rellenar las paradas
-		for(int i = 0;i<paradaDestino.size();i++) {
-			//vista.paradas.cBDestinoParadas.
+		for(int i = 0;i<nombreParadas.size();i++) {
+			vista.paradas.cBDestinoParadas.addItem(nombreParadas.get(i));
 		}
 		
 	}
@@ -432,5 +439,42 @@ public class Controlador {
 			}
 
 		}
+		
+		//Método para resetear valores de pantalla login
+		public static void resetLogin() {
+			Vista vista=new Vista();
+			vista.login.gettFLogin().setText(null);
+			vista.login.getPasswordField().setText(null);
+			vista.login.getLblErrorDeRegistro().setVisible(false);
+		}
+		
+		//Método para resetear valores de la pantalla Registro
+		public static void resetRegistro() {
+			
+		}
+		
+		//Método para resetear valores de la pantalla Lineas
+		public static void resetLineas() {
+			
+		}
+		
+		//Método para resetear valores de la pantalla Paradas
+		public static void resetParadas() {
+		
+		}
+		
+		//Método para resetear valores de la pantalla SeleccionFecha
+		public static void resetSeleccionFecha() {
+			
+		}
+		
+		//Método para resetear los valores de la pantalla Ticket
+		public static void resetTicket() {
+			
+		}
+		//Método para resetear los valores de la pantalla Pagar
+		public static void resetPagar() {
+			
 		}
 
+}
