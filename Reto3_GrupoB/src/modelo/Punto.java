@@ -2,7 +2,7 @@ package modelo;
 
 public class Punto {
 
-	public double x, y;
+	private double x, y;
 
 	public Punto(double x, double y) {
 		this.x = x;

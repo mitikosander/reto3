@@ -22,7 +22,7 @@ public class Inicio extends JPanel {
 	//Creamos en publico la instancia para poder llamar al objeto necesario desde vista
 	private JLabel logotermi;
 	private JButton btnAccederInicio,btnRegistrarseInicio;
-	private Inicio() {
+	Inicio() {
 		setLayout(null);
 		setBounds(100, 100, 500, 500);
 		

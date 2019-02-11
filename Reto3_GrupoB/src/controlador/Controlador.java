@@ -26,8 +26,8 @@ public class Controlador {
 		
 		
 		//Cargamos la pantalla de inicio en la ventana contenedora
-		vista.ventana.setContentPane(vista.pantCarga);
-		vista.ventana.setVisible(true);
+		vista.getVentana().setContentPane(vista.getPantCarga());
+		vista.getVentana().setVisible(true);
 	}
 	
 	
