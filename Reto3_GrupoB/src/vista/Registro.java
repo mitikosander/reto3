@@ -13,13 +13,13 @@ public class Registro extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JTextField tFNombreRegistro;
-	public JTextField tfDNIRegistro;
-	public JPasswordField pFContraseñaRegistro;
-	public JPasswordField pFRegistroContraseña1;
-	public JComboBox<String> cBSexoRegistro;
-	public JButton btnCancelarRegistro, btnAceptarRegistro;
-	public JLabel warningrepe;
+	private JTextField tFNombreRegistro;
+	private JTextField tfDNIRegistro;
+	private JPasswordField pFContraseñaRegistro;
+	private JPasswordField pFRegistroContraseña1;
+	private JComboBox<String> cBSexoRegistro;
+	private JButton btnCancelarRegistro, btnAceptarRegistro;
+	private JLabel warningrepe;
 	/**
 	 * Create the panel.
 	 */
@@ -90,4 +90,53 @@ public class Registro extends JPanel {
 
 
 	}
+	public JTextField gettFNombreRegistro() {
+		return tFNombreRegistro;
+	}
+	public void settFNombreRegistro(JTextField tFNombreRegistro) {
+		this.tFNombreRegistro = tFNombreRegistro;
+	}
+	public JTextField getTfDNIRegistro() {
+		return tfDNIRegistro;
+	}
+	public void setTfDNIRegistro(JTextField tfDNIRegistro) {
+		this.tfDNIRegistro = tfDNIRegistro;
+	}
+	public JPasswordField getpFContraseñaRegistro() {
+		return pFContraseñaRegistro;
+	}
+	public void setpFContraseñaRegistro(JPasswordField pFContraseñaRegistro) {
+		this.pFContraseñaRegistro = pFContraseñaRegistro;
+	}
+	public JPasswordField getpFRegistroContraseña1() {
+		return pFRegistroContraseña1;
+	}
+	public void setpFRegistroContraseña1(JPasswordField pFRegistroContraseña1) {
+		this.pFRegistroContraseña1 = pFRegistroContraseña1;
+	}
+	public JComboBox<String> getcBSexoRegistro() {
+		return cBSexoRegistro;
+	}
+	public void setcBSexoRegistro(JComboBox<String> cBSexoRegistro) {
+		this.cBSexoRegistro = cBSexoRegistro;
+	}
+	public JButton getBtnCancelarRegistro() {
+		return btnCancelarRegistro;
+	}
+	public void setBtnCancelarRegistro(JButton btnCancelarRegistro) {
+		this.btnCancelarRegistro = btnCancelarRegistro;
+	}
+	public JButton getBtnAceptarRegistro() {
+		return btnAceptarRegistro;
+	}
+	public void setBtnAceptarRegistro(JButton btnAceptarRegistro) {
+		this.btnAceptarRegistro = btnAceptarRegistro;
+	}
+	public JLabel getWarningrepe() {
+		return warningrepe;
+	}
+	public void setWarningrepe(JLabel warningrepe) {
+		this.warningrepe = warningrepe;
+	}
+	
 }

@@ -16,7 +16,7 @@ public class Ticket extends JPanel {
 	private JTextField tFOrigenTicket;
 	private JTextField tFDestinoTicket;
 	private JTextField tFPrecioTicket;
-	public JButton btnCancelarTicket, btnPagarTicket;
+	private JButton btnCancelarTicket, btnPagarTicket;
 	private JTextField txtFechaVuelta;
 	private JTextField txtHoraSalida;
 	private JTextField txtHoraVuelta;
@@ -140,4 +140,102 @@ public class Ticket extends JPanel {
 		
 
 	}
+
+	public JTextField gettFNbilleteTicket() {
+		return tFNbilleteTicket;
+	}
+
+	public void settFNbilleteTicket(JTextField tFNbilleteTicket) {
+		this.tFNbilleteTicket = tFNbilleteTicket;
+	}
+
+	public JTextField gettFFechaTicket() {
+		return tFFechaTicket;
+	}
+
+	public void settFFechaTicket(JTextField tFFechaTicket) {
+		this.tFFechaTicket = tFFechaTicket;
+	}
+
+	public JTextField gettFLineaTicket() {
+		return tFLineaTicket;
+	}
+
+	public void settFLineaTicket(JTextField tFLineaTicket) {
+		this.tFLineaTicket = tFLineaTicket;
+	}
+
+	public JTextField gettFOrigenTicket() {
+		return tFOrigenTicket;
+	}
+
+	public void settFOrigenTicket(JTextField tFOrigenTicket) {
+		this.tFOrigenTicket = tFOrigenTicket;
+	}
+
+	public JTextField gettFDestinoTicket() {
+		return tFDestinoTicket;
+	}
+
+	public void settFDestinoTicket(JTextField tFDestinoTicket) {
+		this.tFDestinoTicket = tFDestinoTicket;
+	}
+
+	public JTextField gettFPrecioTicket() {
+		return tFPrecioTicket;
+	}
+
+	public void settFPrecioTicket(JTextField tFPrecioTicket) {
+		this.tFPrecioTicket = tFPrecioTicket;
+	}
+
+	public JButton getBtnCancelarTicket() {
+		return btnCancelarTicket;
+	}
+
+	public void setBtnCancelarTicket(JButton btnCancelarTicket) {
+		this.btnCancelarTicket = btnCancelarTicket;
+	}
+
+	public JButton getBtnPagarTicket() {
+		return btnPagarTicket;
+	}
+
+	public void setBtnPagarTicket(JButton btnPagarTicket) {
+		this.btnPagarTicket = btnPagarTicket;
+	}
+
+	public JTextField getTxtFechaVuelta() {
+		return txtFechaVuelta;
+	}
+
+	public void setTxtFechaVuelta(JTextField txtFechaVuelta) {
+		this.txtFechaVuelta = txtFechaVuelta;
+	}
+
+	public JTextField getTxtHoraSalida() {
+		return txtHoraSalida;
+	}
+
+	public void setTxtHoraSalida(JTextField txtHoraSalida) {
+		this.txtHoraSalida = txtHoraSalida;
+	}
+
+	public JTextField getTxtHoraVuelta() {
+		return txtHoraVuelta;
+	}
+
+	public void setTxtHoraVuelta(JTextField txtHoraVuelta) {
+		this.txtHoraVuelta = txtHoraVuelta;
+	}
+
+	public JTextField getTxtNombreTicket() {
+		return txtNombreTicket;
+	}
+
+	public void setTxtNombreTicket(JTextField txtNombreTicket) {
+		this.txtNombreTicket = txtNombreTicket;
+	}
+	
+	
 }

@@ -15,11 +15,11 @@ public class Paradas extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JScrollPane sPNombreLineaParadas;
-	public JComboBox<String> cBOrigenParadas;
-	public JComboBox<String> cBDestinoParadas;
-	public JRadioButton rdbtnIdaVueltaParadas;
-	public JButton btnCancelarParadas,btnAceptarParadas;
+	private JScrollPane sPNombreLineaParadas;
+	private JComboBox<String> cBOrigenParadas;
+	private JComboBox<String> cBDestinoParadas;
+	private JRadioButton rdbtnIdaVueltaParadas;
+	private JButton btnCancelarParadas,btnAceptarParadas;
 	
 
 	/**
@@ -65,4 +65,65 @@ public class Paradas extends JPanel {
 		
 
 	}
+
+
+	public JScrollPane getsPNombreLineaParadas() {
+		return sPNombreLineaParadas;
+	}
+
+
+	public void setsPNombreLineaParadas(JScrollPane sPNombreLineaParadas) {
+		this.sPNombreLineaParadas = sPNombreLineaParadas;
+	}
+
+
+	public JComboBox<String> getcBOrigenParadas() {
+		return cBOrigenParadas;
+	}
+
+
+	public void setcBOrigenParadas(JComboBox<String> cBOrigenParadas) {
+		this.cBOrigenParadas = cBOrigenParadas;
+	}
+
+
+	public JComboBox<String> getcBDestinoParadas() {
+		return cBDestinoParadas;
+	}
+
+
+	public void setcBDestinoParadas(JComboBox<String> cBDestinoParadas) {
+		this.cBDestinoParadas = cBDestinoParadas;
+	}
+
+
+	public JRadioButton getRdbtnIdaVueltaParadas() {
+		return rdbtnIdaVueltaParadas;
+	}
+
+
+	public void setRdbtnIdaVueltaParadas(JRadioButton rdbtnIdaVueltaParadas) {
+		this.rdbtnIdaVueltaParadas = rdbtnIdaVueltaParadas;
+	}
+
+
+	public JButton getBtnCancelarParadas() {
+		return btnCancelarParadas;
+	}
+
+
+	public void setBtnCancelarParadas(JButton btnCancelarParadas) {
+		this.btnCancelarParadas = btnCancelarParadas;
+	}
+
+
+	public JButton getBtnAceptarParadas() {
+		return btnAceptarParadas;
+	}
+
+
+	public void setBtnAceptarParadas(JButton btnAceptarParadas) {
+		this.btnAceptarParadas = btnAceptarParadas;
+	}
+	
 }

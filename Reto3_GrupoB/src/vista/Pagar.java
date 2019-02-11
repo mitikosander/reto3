@@ -11,9 +11,9 @@ public class Pagar extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JTextField tFIntroducidoPagar;
-	public JTextField tFAdevolverPagar;
-	public JButton btn50Pagar, btn20Pagar, btn10Pagar, btn5Pagar, btn2Pagar,btn1Pagar, btn05Pagar,btn02Pagar,btn01Pagar,btn005Pagar,btn002Pagar, btn001Pagar, btnGuardar, btnCancelar,btnFinalizar;                                                      
+	private JTextField tFIntroducidoPagar;
+	private JTextField tFAdevolverPagar;
+	private JButton btn50Pagar, btn20Pagar, btn10Pagar, btn5Pagar, btn2Pagar,btn1Pagar, btn05Pagar,btn02Pagar,btn01Pagar,btn005Pagar,btn002Pagar, btn001Pagar, btnGuardar, btnCancelar,btnFinalizar;                                                      
 
 	
 	
@@ -109,4 +109,210 @@ public class Pagar extends JPanel {
 	
 
 	}
+
+
+
+	public JTextField gettFIntroducidoPagar() {
+		return tFIntroducidoPagar;
+	}
+
+
+
+	public void settFIntroducidoPagar(JTextField tFIntroducidoPagar) {
+		this.tFIntroducidoPagar = tFIntroducidoPagar;
+	}
+
+
+
+	public JTextField gettFAdevolverPagar() {
+		return tFAdevolverPagar;
+	}
+
+
+
+	public void settFAdevolverPagar(JTextField tFAdevolverPagar) {
+		this.tFAdevolverPagar = tFAdevolverPagar;
+	}
+
+
+
+	public JButton getBtn50Pagar() {
+		return btn50Pagar;
+	}
+
+
+
+	public void setBtn50Pagar(JButton btn50Pagar) {
+		this.btn50Pagar = btn50Pagar;
+	}
+
+
+
+	public JButton getBtn20Pagar() {
+		return btn20Pagar;
+	}
+
+
+
+	public void setBtn20Pagar(JButton btn20Pagar) {
+		this.btn20Pagar = btn20Pagar;
+	}
+
+
+
+	public JButton getBtn10Pagar() {
+		return btn10Pagar;
+	}
+
+
+
+	public void setBtn10Pagar(JButton btn10Pagar) {
+		this.btn10Pagar = btn10Pagar;
+	}
+
+
+
+	public JButton getBtn5Pagar() {
+		return btn5Pagar;
+	}
+
+
+
+	public void setBtn5Pagar(JButton btn5Pagar) {
+		this.btn5Pagar = btn5Pagar;
+	}
+
+
+
+	public JButton getBtn2Pagar() {
+		return btn2Pagar;
+	}
+
+
+
+	public void setBtn2Pagar(JButton btn2Pagar) {
+		this.btn2Pagar = btn2Pagar;
+	}
+
+
+
+	public JButton getBtn1Pagar() {
+		return btn1Pagar;
+	}
+
+
+
+	public void setBtn1Pagar(JButton btn1Pagar) {
+		this.btn1Pagar = btn1Pagar;
+	}
+
+
+
+	public JButton getBtn05Pagar() {
+		return btn05Pagar;
+	}
+
+
+
+	public void setBtn05Pagar(JButton btn05Pagar) {
+		this.btn05Pagar = btn05Pagar;
+	}
+
+
+
+	public JButton getBtn02Pagar() {
+		return btn02Pagar;
+	}
+
+
+
+	public void setBtn02Pagar(JButton btn02Pagar) {
+		this.btn02Pagar = btn02Pagar;
+	}
+
+
+
+	public JButton getBtn01Pagar() {
+		return btn01Pagar;
+	}
+
+
+
+	public void setBtn01Pagar(JButton btn01Pagar) {
+		this.btn01Pagar = btn01Pagar;
+	}
+
+
+
+	public JButton getBtn005Pagar() {
+		return btn005Pagar;
+	}
+
+
+
+	public void setBtn005Pagar(JButton btn005Pagar) {
+		this.btn005Pagar = btn005Pagar;
+	}
+
+
+
+	public JButton getBtn002Pagar() {
+		return btn002Pagar;
+	}
+
+
+
+	public void setBtn002Pagar(JButton btn002Pagar) {
+		this.btn002Pagar = btn002Pagar;
+	}
+
+
+
+	public JButton getBtn001Pagar() {
+		return btn001Pagar;
+	}
+
+
+
+	public void setBtn001Pagar(JButton btn001Pagar) {
+		this.btn001Pagar = btn001Pagar;
+	}
+
+
+
+	public JButton getBtnGuardar() {
+		return btnGuardar;
+	}
+
+
+
+	public void setBtnGuardar(JButton btnGuardar) {
+		this.btnGuardar = btnGuardar;
+	}
+
+
+
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
+
+
+
+	public void setBtnCancelar(JButton btnCancelar) {
+		this.btnCancelar = btnCancelar;
+	}
+
+
+
+	public JButton getBtnFinalizar() {
+		return btnFinalizar;
+	}
+
+
+
+	public void setBtnFinalizar(JButton btnFinalizar) {
+		this.btnFinalizar = btnFinalizar;
+	}
+	
+	
 }

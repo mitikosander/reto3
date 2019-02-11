@@ -13,7 +13,7 @@ public class SeleccionFecha extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JButton btnCancelarSeleccionFecha,btnAceptarSeleccionFecha;
+	private JButton btnCancelarSeleccionFecha,btnAceptarSeleccionFecha;
 
 	/**
 	 * Create the panel.
@@ -28,10 +28,12 @@ public class SeleccionFecha extends JPanel {
 		
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(201, 220, 95, 20);
+		dateChooser.setDateFormatString("yyyy-MM-dd");
 		add(dateChooser);
 		
 		JDateChooser dateChooser_1 = new JDateChooser();
 		dateChooser_1.setBounds(201, 353, 95, 20);
+		dateChooser.setDateFormatString("yyyy-MM-dd");
 		add(dateChooser_1);
 		
 		JLabel lblvueltaSeleccionVuelta = new JLabel("Vuelta");
@@ -47,4 +49,21 @@ public class SeleccionFecha extends JPanel {
 		add(btnAceptarSeleccionFecha);
 
 	}
+
+	public JButton getBtnCancelarSeleccionFecha() {
+		return btnCancelarSeleccionFecha;
+	}
+
+	public void setBtnCancelarSeleccionFecha(JButton btnCancelarSeleccionFecha) {
+		this.btnCancelarSeleccionFecha = btnCancelarSeleccionFecha;
+	}
+
+	public JButton getBtnAceptarSeleccionFecha() {
+		return btnAceptarSeleccionFecha;
+	}
+
+	public void setBtnAceptarSeleccionFecha(JButton btnAceptarSeleccionFecha) {
+		this.btnAceptarSeleccionFecha = btnAceptarSeleccionFecha;
+	}
+	
 }
