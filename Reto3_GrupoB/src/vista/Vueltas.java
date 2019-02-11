@@ -20,12 +20,12 @@ public class Vueltas extends JDialog {
 	/**
 	 * @author Alexander, Koldo, Eduardo, Jonathan
 	 */
-	public static final long serialVersionUID = 1L;
-	public final JPanel contentPanel = new JPanel();
-	public JButton cancelButton;
-	public final JLabel lblVueltas = new JLabel("Vueltas");
-	public static JTextArea txtDevolver;
-	public static double[] devolver = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+	private JButton cancelButton;
+	private final JLabel lblVueltas = new JLabel("Vueltas");
+	private static JTextArea txtDevolver;
+	private static double[] devolver = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
 	/**
@@ -69,6 +69,46 @@ public class Vueltas extends JDialog {
 		
 		Controlador.devolver(txtDevolver,devolver);
 
+	}
+
+
+	public JButton getCancelButton() {
+		return cancelButton;
+	}
+
+
+	public void setCancelButton(JButton cancelButton) {
+		this.cancelButton = cancelButton;
+	}
+
+
+	public static JTextArea getTxtDevolver() {
+		return txtDevolver;
+	}
+
+
+	public static void setTxtDevolver(JTextArea txtDevolver) {
+		Vueltas.txtDevolver = txtDevolver;
+	}
+
+
+	public static double[] getDevolver() {
+		return devolver;
+	}
+
+
+	public static void setDevolver(double[] devolver) {
+		Vueltas.devolver = devolver;
+	}
+
+
+	public JPanel getContentPanel() {
+		return contentPanel;
+	}
+
+
+	public JLabel getLblVueltas() {
+		return lblVueltas;
 	}
 
 

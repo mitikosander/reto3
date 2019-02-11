@@ -20,9 +20,9 @@ public class Inicio extends JPanel {
 	 */
 	
 	//Creamos en publico la instancia para poder llamar al objeto necesario desde vista
-	public JLabel logotermi;
-	public JButton btnAccederInicio,btnRegistrarseInicio;
-	public Inicio() {
+	private JLabel logotermi;
+	private JButton btnAccederInicio,btnRegistrarseInicio;
+	private Inicio() {
 		setLayout(null);
 		setBounds(100, 100, 500, 500);
 		
@@ -41,5 +41,24 @@ public class Inicio extends JPanel {
 		add(btnRegistrarseInicio);
 
 	}
+	public JLabel getLogotermi() {
+		return logotermi;
+	}
+	public void setLogotermi(JLabel logotermi) {
+		this.logotermi = logotermi;
+	}
+	public JButton getBtnAccederInicio() {
+		return btnAccederInicio;
+	}
+	public void setBtnAccederInicio(JButton btnAccederInicio) {
+		this.btnAccederInicio = btnAccederInicio;
+	}
+	public JButton getBtnRegistrarseInicio() {
+		return btnRegistrarseInicio;
+	}
+	public void setBtnRegistrarseInicio(JButton btnRegistrarseInicio) {
+		this.btnRegistrarseInicio = btnRegistrarseInicio;
+	}
 
+	
 }

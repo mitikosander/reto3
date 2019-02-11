@@ -10,9 +10,9 @@ public class Lineas extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JButton  btnCancelarLineas;
-	public JButton  btnaceptarLineas;
-	public JComboBox<Object> LineascB;
+	private JButton  btnCancelarLineas;
+	private JButton  btnaceptarLineas;
+	private JComboBox<Object> LineascB;
 	/**
 	 * Create the panel.
 	 */
@@ -34,4 +34,23 @@ public class Lineas extends JPanel {
 		
 
 	}
+	public JButton getBtnCancelarLineas() {
+		return btnCancelarLineas;
+	}
+	public void setBtnCancelarLineas(JButton btnCancelarLineas) {
+		this.btnCancelarLineas = btnCancelarLineas;
+	}
+	public JButton getBtnaceptarLineas() {
+		return btnaceptarLineas;
+	}
+	public void setBtnaceptarLineas(JButton btnaceptarLineas) {
+		this.btnaceptarLineas = btnaceptarLineas;
+	}
+	public JComboBox<Object> getLineascB() {
+		return LineascB;
+	}
+	public void setLineascB(JComboBox<Object> lineascB) {
+		LineascB = lineascB;
+	}
+	
 }
