@@ -23,7 +23,7 @@ public class Metodos {
 	public static boolean dniExistente(String dni) {
 		boolean dniExistente=false;
 		Vista vista=new Vista();
-		dni=vista.registro.tfDNIRegistro.getName();
+		dni=vista.getRegistro().getTfDNIRegistro().getName();
 		//hacer un bucle que compare el String recibido de la pantalla con los dni's existentes
 		
 		return dniExistente;
@@ -32,10 +32,10 @@ public class Metodos {
 	
 	
 	//Método para comprobar que el login del usuario ha sido correcto
-	public boolean comprobarLogin(String user,String pass) {
+	public boolean comprobarLogin(String dni,String pass) {
 	pass=encriptarPass(pass);
 	Conexion connection=new Conexion();
-	String sql="SELECT Nombre,Contrasenya FROM cliente WHERE Nombre LIKE '"+user+"' AND Contrasenya LIKE '"+pass+"'";
+	String sql="SELECT Nombre,Contrasenya FROM cliente WHERE DNI LIKE '"+dni+"' AND Contrasenya LIKE '"+pass+"'";
 
 		try {
 		PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
@@ -227,9 +227,9 @@ public class Metodos {
 		return nombreParadas;
 	}
 	
-	public static double calcularDistanciaEuclediana() {
-		Punto p1 = new Punto(5, 10);
-		Punto p2 = new Punto(3, 7);
+	public static double calcularDistanciaEuclediana(Parada pa1,Parada pa2) {
+		Punto p1 = new Punto(pa1.getLatitud(), pa1.getLongitud());
+		Punto p2 = new Punto(pa2.getLatitud(), pa2.getLongitud());
 		double resultado = 0;
 		try {
 			resultado = p1.distancia(p2);
@@ -317,4 +317,19 @@ public class Metodos {
 		return nombreParadas;
 	}
 	
+	
+	//Método para calcular el precio del ticket
+	public double calcularPrecioTicket() {
+		boolean ida_vuelta=false;
+		double resultado;
+		if(ida_vuelta==true) {
+			
+			
+			return resultado;
+		}else {
+			
+			
+			return resultado;
+		}
+	}
 }
