@@ -35,7 +35,8 @@ public class Metodos {
 	public boolean comprobarLogin(String dni,String pass) {
 	pass=encriptarPass(pass);
 	Conexion connection=new Conexion();
-	String sql="SELECT Nombre,Contrasenya FROM cliente WHERE DNI LIKE '"+dni+"' AND Contrasenya LIKE '"+pass+"'";
+	String sql="SELECT DNI,Contrasenya FROM cliente WHERE DNI LIKE '"+dni+"' AND Contrasenya LIKE '"+pass+"'";
+	
 
 		try {
 		PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
