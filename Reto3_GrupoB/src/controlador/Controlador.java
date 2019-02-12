@@ -108,49 +108,79 @@ public class Controlador {
 							vista.mostrarPantalla(vista.getLineas());
 							resetLogin();
 						}else {
-							
+							//mostramos el error pero borramos los campos para hacer un intendo de nuevo
 							vista.getLogin().getLblErrorDeRegistro().setVisible(true);
 							resetLogin();
 						}
+						//cargamos el combobox de lineas solo si es nulo de esta forma no habra redundancia de datos
+						if(vista.getLineas().getLineascB().getItemCount() <=0) {
+							rellenarComboLineas();	
+						}
 						
-						rellenarComboLineas();
+						
 					}
 				});
 
 				
-				//Te lleva a la pantalla paradas
+				//Boton que acepta la linea seleccionada y te lleva a la pantalla paradas
 				vista.getLineas().getBtnaceptarLineas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						String nombreLineaSelecc=vista.getLineas().getLineascB().getSelectedItem().toString();
 						vista.mostrarPantalla(vista.getParadas());
-						rellenarComboParadasInicio(nombreLineaSelecc);
-						rellenarComboParadasDestino(nombreLineaSelecc);
 						
+					//falta comprobar que el nombre de la linea seleccionada coincida con el de la linea cargada 
+						//si no al ya haber elementos, no actualizará la nueva linea seleccionada
+						if(vista.getParadas().getcBOrigenParadas().getItemCount() <=1 ||
+							vista.getParadas().getcBDestinoParadas().getItemCount() <=1) {
+						rellenarComboParadasInicio(nombreLineaSelecc);
+						rellenarComboParadasDestino(nombreLineaSelecc);	
+						}
+						
+						
+						resetLineas();
+					
 					}
 				});
 				
-				
+				//Boton que cancela la seleccion de la Linea
 				vista.getLineas().getBtnCancelarLineas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.getPantCarga());			
-						}
-				});
-				vista.getSeleccionFecha().getBtnCancelarSeleccionFecha().addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.getPantCarga());			
-						}
-				});
-				vista.getSeleccionFecha().getBtnAceptarSeleccionFecha().addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.getTicket());			
+						vista.mostrarPantalla(vista.getPantCarga());
+						
+						//reiniciamos los valores de las pantallas 
+						
+						
+						
+						resetLineas();
 						}
 				});
 				
-				vista.getParadas().getBtnAceptarParadas().addActionListener(new ActionListener() {
+				//Boton que cancela la seleccion de la fecha
+				vista.getSeleccionFecha().getBtnCancelarSeleccionFecha().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.getSeleccionFecha());			
+						vista.mostrarPantalla(vista.getPantCarga());
+						resetSeleccionFecha();
 						}
 				});
+				//Boton que acepta la seleccion de la fecha y pasa al resumen del ticket
+				vista.getSeleccionFecha().getBtnAceptarSeleccionFecha().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.getTicket());
+						
+						resetSeleccionFecha();
+						}
+				});
+				
+				//Boton que acepta las paradas y nos pasa a seleccion de fecha
+				vista.getParadas().getBtnAceptarParadas().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						vista.mostrarPantalla(vista.getSeleccionFecha());	
+						
+						if(vista.getParadas().getRdbtnIdaVueltaParadas())
+						}
+				});
+				
+				//Boton que cancela la seleccion de paradas
 				vista.getParadas().getBtnCancelarParadas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.getPantCarga());			
@@ -456,24 +486,28 @@ public class Controlador {
 		public static void resetRegistro() {
 			vista.getRegistro().gettFNombreRegistro().setText(null);
 			vista.getRegistro().getTfDNIRegistro().setText(null);
-			vista.getRegistro().getcBSexoRegistro().setName(null);
+			vista.getRegistro().getcBSexoRegistro().setSelectedIndex(0);
 			vista.getRegistro().getpFContraseñaRegistro().setText(null);
 			vista.getRegistro().getpFRegistroContraseña1().setText(null);
 		}
 		
 		//Método para resetear valores de la pantalla Lineas
 		public static void resetLineas() {
-			
+			vista.getLineas().getLineascB().setSelectedIndex(0);
 		}
 		
 		//Método para resetear valores de la pantalla Paradas
 		public static void resetParadas() {
-		
+		vista.getParadas().getcBOrigenParadas().setSelectedIndex(0);
+		vista.getParadas().getcBDestinoParadas().setSelectedIndex(0);
+		vista.getParadas().getRdbtnIdaVueltaParadas().setSelected(false);
 		}
 		
 		//Método para resetear valores de la pantalla SeleccionFecha
 		public static void resetSeleccionFecha() {
-			
+			vista.getSeleccionFecha().getDateChooser().setCalendar(null);
+			vista.getSeleccionFecha().getDateChooser_1().setCalendar(null);
+			vista.getSeleccionFecha().getDateChooser_1().setEnabled(false);
 		}
 		
 		//Método para resetear los valores de la pantalla Ticket

@@ -36,7 +36,7 @@ public class Metodos {
 	pass=encriptarPass(pass);
 	Conexion connection=new Conexion();
 	String sql="SELECT DNI,Contrasenya FROM cliente WHERE DNI LIKE '"+dni+"' AND Contrasenya LIKE '"+pass+"'";
-	System.out.println(sql);
+	
 
 		try {
 		PreparedStatement ps=connection.conectarBase().prepareStatement(sql);

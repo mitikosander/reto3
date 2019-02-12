@@ -14,6 +14,7 @@ public class SeleccionFecha extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JButton btnCancelarSeleccionFecha,btnAceptarSeleccionFecha;
+	private JDateChooser dateChooser, dateChooser_1;
 
 	/**
 	 * Create the panel.
@@ -26,25 +27,26 @@ public class SeleccionFecha extends JPanel {
 		lblIdaSeleccionFecha.setBounds(201, 158, 46, 14);
 		add(lblIdaSeleccionFecha);
 		
-		JDateChooser dateChooser = new JDateChooser();
+		 dateChooser = new JDateChooser();
 		dateChooser.setBounds(201, 220, 95, 20);
 		dateChooser.setDateFormatString("yyyy-MM-dd");
 		add(dateChooser);
 		
-		JDateChooser dateChooser_1 = new JDateChooser();
+	 dateChooser_1 = new JDateChooser();
 		dateChooser_1.setBounds(201, 353, 95, 20);
-		dateChooser.setDateFormatString("yyyy-MM-dd");
+		dateChooser_1.setDateFormatString("yyyy-MM-dd");
+		dateChooser_1.setEnabled(false);
 		add(dateChooser_1);
 		
 		JLabel lblvueltaSeleccionVuelta = new JLabel("Vuelta");
 		lblvueltaSeleccionVuelta.setBounds(201, 278, 75, 14);
 		add(lblvueltaSeleccionVuelta);
 		
-		 btnCancelarSeleccionFecha = new JButton("Cancelar");
+		btnCancelarSeleccionFecha = new JButton("Cancelar");
 		btnCancelarSeleccionFecha.setBounds(31, 445, 89, 23);
 		add(btnCancelarSeleccionFecha);
 		
-		 btnAceptarSeleccionFecha = new JButton("Aceptar");
+		btnAceptarSeleccionFecha = new JButton("Aceptar");
 		btnAceptarSeleccionFecha.setBounds(373, 445, 89, 23);
 		add(btnAceptarSeleccionFecha);
 
@@ -65,5 +67,23 @@ public class SeleccionFecha extends JPanel {
 	public void setBtnAceptarSeleccionFecha(JButton btnAceptarSeleccionFecha) {
 		this.btnAceptarSeleccionFecha = btnAceptarSeleccionFecha;
 	}
+
+	public JDateChooser getDateChooser() {
+		return dateChooser;
+	}
+
+	public void setDateChooser(JDateChooser dateChooser) {
+		this.dateChooser = dateChooser;
+	}
+
+	public JDateChooser getDateChooser_1() {
+		return dateChooser_1;
+	}
+
+	public void setDateChooser_1(JDateChooser dateChooser_1) {
+		this.dateChooser_1 = dateChooser_1;
+	}
+	
+	
 	
 }

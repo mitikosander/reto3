@@ -53,6 +53,7 @@ public class Paradas extends JPanel {
 		
 		rdbtnIdaVueltaParadas = new JRadioButton("Ida/Vuelta");
 		rdbtnIdaVueltaParadas.setBounds(183, 416, 109, 23);
+		
 		add(rdbtnIdaVueltaParadas);
 		
 		btnCancelarParadas = new JButton("Cancelar");
