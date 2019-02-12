@@ -14,13 +14,13 @@ import modelo.Modelo;
 import vista.Vista;
 
 public class Controlador {
-	private Vista vista;
+	private static Vista vista;
 	private Modelo modelo;
 	
 	
 	
 	public Controlador(Vista vista, Modelo modelo) {
-		this.vista=vista;
+		Controlador.vista=vista;
 		this.modelo=modelo;
 		InitializeEvents();
 		
@@ -44,6 +44,8 @@ public class Controlador {
 				vista.getPantCarga().getBtnAccederInicio().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.getLogin());
+						//Ocultamos el label de error al entrar a la pagina en caso de que este visible
+						vista.getLogin().getLblErrorDeRegistro().setVisible(false);
 					}
 				});
 				
@@ -65,6 +67,7 @@ public class Controlador {
 				vista.getRegistro().getBtnCancelarRegistro().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vista.mostrarPantalla(vista.getPantCarga());
+						resetRegistro();
 					}
 				});
 				
@@ -79,7 +82,7 @@ public class Controlador {
 							//recogemos los datos del usuario
 							Cliente c1=cogerdatosregistroUsuario();
 							modelo.metodos.insertarUsuario(c1);
-							
+							resetRegistro();
 							vista.mostrarPantalla(vista.getPantCarga());
 						}
 				});
@@ -103,6 +106,7 @@ public class Controlador {
 						if(validarLogin==true) {
 							
 							vista.mostrarPantalla(vista.getLineas());
+							resetLogin();
 						}else {
 							
 							vista.getLogin().getLblErrorDeRegistro().setVisible(true);
@@ -442,15 +446,19 @@ public class Controlador {
 		
 		//Método para resetear valores de pantalla login
 		public static void resetLogin() {
-			Vista vista=new Vista();
+			
 			vista.getLogin().gettFLogin().setText(null);
 			vista.getLogin().getPasswordField().setText(null);
-			vista.getLogin().getLblErrorDeRegistro().setVisible(false);
+			
 		}
 		
 		//Método para resetear valores de la pantalla Registro
 		public static void resetRegistro() {
-			
+			vista.getRegistro().gettFNombreRegistro().setText(null);
+			vista.getRegistro().getTfDNIRegistro().setText(null);
+			vista.getRegistro().getcBSexoRegistro().setName(null);
+			vista.getRegistro().getpFContraseñaRegistro().setText(null);
+			vista.getRegistro().getpFRegistroContraseña1().setText(null);
 		}
 		
 		//Método para resetear valores de la pantalla Lineas
