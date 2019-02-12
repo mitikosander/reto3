@@ -5,8 +5,8 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 
 
 public class Paradas extends JPanel {
@@ -18,9 +18,8 @@ public class Paradas extends JPanel {
 	private JScrollPane sPNombreLineaParadas;
 	private JComboBox<String> cBOrigenParadas;
 	private JComboBox<String> cBDestinoParadas;
-	private JRadioButton rdbtnIdaVueltaParadas;
 	private JButton btnCancelarParadas,btnAceptarParadas;
-	
+	private JCheckBox chckIdaVuelta;
 
 	/**
 	 * Create the panel.
@@ -51,11 +50,6 @@ public class Paradas extends JPanel {
 		cBDestinoParadas.addItem("Destino");
 		cBOrigenParadas.setToolTipText("");
 		
-		rdbtnIdaVueltaParadas = new JRadioButton("Ida/Vuelta");
-		rdbtnIdaVueltaParadas.setBounds(183, 416, 109, 23);
-		
-		add(rdbtnIdaVueltaParadas);
-		
 		btnCancelarParadas = new JButton("Cancelar");
 		btnCancelarParadas.setBounds(31, 466, 89, 23);
 		add(btnCancelarParadas);
@@ -63,6 +57,10 @@ public class Paradas extends JPanel {
 		btnAceptarParadas = new JButton("Aceptar");
 		btnAceptarParadas.setBounds(382, 466, 89, 23);
 		add(btnAceptarParadas);
+		
+		 chckIdaVuelta = new JCheckBox("Ida/Vuelta");
+		chckIdaVuelta.setBounds(180, 415, 97, 23);
+		add(chckIdaVuelta);
 		
 
 	}
@@ -98,14 +96,6 @@ public class Paradas extends JPanel {
 	}
 
 
-	public JRadioButton getRdbtnIdaVueltaParadas() {
-		return rdbtnIdaVueltaParadas;
-	}
-
-
-	public void setRdbtnIdaVueltaParadas(JRadioButton rdbtnIdaVueltaParadas) {
-		this.rdbtnIdaVueltaParadas = rdbtnIdaVueltaParadas;
-	}
 
 
 	public JButton getBtnCancelarParadas() {
@@ -126,5 +116,16 @@ public class Paradas extends JPanel {
 	public void setBtnAceptarParadas(JButton btnAceptarParadas) {
 		this.btnAceptarParadas = btnAceptarParadas;
 	}
+
+
+	public JCheckBox getChckIdaVuelta() {
+		return chckIdaVuelta;
+	}
+
+
+	public void setChckIdaVuelta(JCheckBox chckIdaVuelta) {
+		this.chckIdaVuelta = chckIdaVuelta;
+	}
+	
 	
 }

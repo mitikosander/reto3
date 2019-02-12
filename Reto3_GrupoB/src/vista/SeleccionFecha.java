@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class SeleccionFecha extends JPanel {
 
@@ -15,6 +16,7 @@ public class SeleccionFecha extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JButton btnCancelarSeleccionFecha,btnAceptarSeleccionFecha;
 	private JDateChooser dateChooser, dateChooser_1;
+	private JLabel lblErrorFecha ;
 
 	/**
 	 * Create the panel.
@@ -49,6 +51,12 @@ public class SeleccionFecha extends JPanel {
 		btnAceptarSeleccionFecha = new JButton("Aceptar");
 		btnAceptarSeleccionFecha.setBounds(373, 445, 89, 23);
 		add(btnAceptarSeleccionFecha);
+		
+		lblErrorFecha = new JLabel("fecha no valida, debe ser posterior a la ida");
+		lblErrorFecha.setForeground(Color.RED);
+		lblErrorFecha.setBounds(137, 398, 243, 14);
+		lblErrorFecha.setVisible(false);
+		add(lblErrorFecha);
 
 	}
 
@@ -83,7 +91,14 @@ public class SeleccionFecha extends JPanel {
 	public void setDateChooser_1(JDateChooser dateChooser_1) {
 		this.dateChooser_1 = dateChooser_1;
 	}
-	
+
+	public JLabel getLblErrorFecha() {
+		return lblErrorFecha;
+	}
+
+	public void setLblErrorFecha(JLabel lblErrorFecha) {
+		this.lblErrorFecha = lblErrorFecha;
+	}
 	
 	
 }

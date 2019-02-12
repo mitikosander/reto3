@@ -80,52 +80,52 @@ public class Ticket extends JPanel {
 		add(tFDestinoTicket);
 		
 		JLabel lblPrecioTicket = new JLabel("Precio:");
-		lblPrecioTicket.setBounds(272, 359, 61, 14);
+		lblPrecioTicket.setBounds(319, 359, 61, 14);
 		add(lblPrecioTicket);
 		
 		tFPrecioTicket = new JTextField();
 		tFPrecioTicket.setEditable(false);
 		tFPrecioTicket.setColumns(10);
-		tFPrecioTicket.setBounds(343, 356, 86, 20);
+		tFPrecioTicket.setBounds(390, 356, 86, 20);
 		add(tFPrecioTicket);
 		
 		btnCancelarTicket = new JButton("Cancelar");
-		btnCancelarTicket.setBounds(10, 448, 89, 23);
+		btnCancelarTicket.setBounds(10, 414, 89, 23);
 		add(btnCancelarTicket);
 		
 		btnPagarTicket = new JButton("Pagar");
-		btnPagarTicket.setBounds(387, 448, 89, 23);
+		btnPagarTicket.setBounds(390, 414, 89, 23);
 		add(btnPagarTicket);
 		
 		JLabel lblFechaVuelta = new JLabel("Fecha Vuelta: ");
-		lblFechaVuelta.setBounds(286, 144, 89, 14);
+		lblFechaVuelta.setBounds(286, 179, 89, 14);
 		add(lblFechaVuelta);
 		
 		txtFechaVuelta = new JTextField();
 		txtFechaVuelta.setEditable(false);
 		tFPrecioTicket.setEditable(false);
 		txtFechaVuelta.setColumns(10);
-		txtFechaVuelta.setBounds(375, 141, 86, 20);
+		txtFechaVuelta.setBounds(363, 176, 86, 20);
 		add(txtFechaVuelta);
 		
 		JLabel lblHoraSalida = new JLabel("Hora salida:");
-		lblHoraSalida.setBounds(286, 189, 76, 14);
+		lblHoraSalida.setBounds(286, 224, 76, 14);
 		add(lblHoraSalida);
 		
 		txtHoraSalida = new JTextField();
 		txtHoraSalida.setEditable(false);
 		txtHoraSalida.setColumns(10);
-		txtHoraSalida.setBounds(375, 186, 86, 20);
+		txtHoraSalida.setBounds(363, 221, 86, 20);
 		add(txtHoraSalida);
 		
 		JLabel lblHoraVuelta = new JLabel("Hora vuelta:");
-		lblHoraVuelta.setBounds(286, 231, 76, 14);
+		lblHoraVuelta.setBounds(286, 267, 76, 14);
 		add(lblHoraVuelta);
 		
 		txtHoraVuelta = new JTextField();
 		txtHoraVuelta.setEditable(false);
 		txtHoraVuelta.setColumns(10);
-		txtHoraVuelta.setBounds(375, 228, 86, 20);
+		txtHoraVuelta.setBounds(363, 264, 86, 20);
 		add(txtHoraVuelta);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
