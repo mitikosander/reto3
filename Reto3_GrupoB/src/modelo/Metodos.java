@@ -36,7 +36,7 @@ public class Metodos {
 	pass=encriptarPass(pass);
 	Conexion connection=new Conexion();
 	String sql="SELECT DNI,Contrasenya FROM cliente WHERE DNI LIKE '"+dni+"' AND Contrasenya LIKE '"+pass+"'";
-	System.out.println(sql);
+	
 
 		try {
 		PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
@@ -55,6 +55,50 @@ public class Metodos {
 	}
 	}
 	
+	//Método para obtener el nombre del usuario que ya se ha logueado
+	
+	public String obtenerNombreUsuario(String dni) {
+		Conexion connection=new Conexion();
+		String sql="SELECT Nombre FROM cliente WHERE DNI LIKE '"+dni+"'";
+		String nombre = null;
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				 nombre=rs.getString(1);
+			}
+			
+			return nombre;
+		}catch(Exception e) {
+			System.err.println("Consulta erronea "+ e);
+		}
+		
+		return nombre;
+	}
+	
+	//Método para comprobar que el codigo del ticket no se repite en la BBDD
+	public boolean comprobarCodBillete(String codBillete) {
+		Conexion connection=new Conexion();
+		
+		String sql="SELECT Cod_Billete FROM billete WHERE Cod_Billete = "+codBillete+"";
+		
+		try {
+		PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+		ResultSet rs=ps.executeQuery();
+		
+		if(rs.getRow()>0) {
+			return true;
+		}else {
+			return false;
+		}
+		
+		}catch(Exception e) {
+			System.err.println("Consulta erronea "+ e);
+		}
+		return true;
+		
+	}
 
 	
 	//Método para cargar array de Autobuses
@@ -294,7 +338,7 @@ public class Metodos {
 		
 		return nLineas;
 	}
-	
+		
 	
 	//Método para cargar en un arrayList las paradas de una Linea segun cual hayamos seleccionado
 	public ArrayList<String> cargarParadas(String nombreLinea){

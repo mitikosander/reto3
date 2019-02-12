@@ -12,7 +12,7 @@ package modelo;
 public class Billete {
     
    //ATRIBUTOS
-    private int numerobillete;
+
     private int dia;
     private int mes;
     private int anyo;
@@ -26,22 +26,11 @@ public class Billete {
     public Billete(){
     }
     
-    public Billete (int numerobillete, int dia, int mes, int anyo, int lineasrecorrido, 
-    String paradaorigen, String paradadestino, int codigoautobus, double preciotrayecto){
-    this.numerobillete = numerobillete;
-    this.dia = dia;
-    this.mes = mes;
-    this.anyo = anyo;
-    this.lineasrecorrido = lineasrecorrido;
-    this.paradaorigen = paradaorigen;
-    this.paradadestino = paradadestino;
-    this.codigoautobus = codigoautobus;
-    this.preciotrayecto = preciotrayecto;
-    }
+
 
     //GETTER
-    public int getNumerobillete() {
-        return numerobillete;
+    public String getNumerobillete() {
+        return generarNBillete();
     }
 
     public int getDia() {
@@ -77,9 +66,6 @@ public class Billete {
     }
 
     //SETTER
-    public void setNumerobillete(int numerobillete) {
-        this.numerobillete = numerobillete;
-    }
 
     public void setDia(int dia) {
         this.dia = dia;
@@ -112,6 +98,21 @@ public class Billete {
     public void setPreciotrayecto(double preciotrayecto) {
         this.preciotrayecto = preciotrayecto;
     }
+    
+    
+    //método para generar un Codigo de Billete de 8 cifras y comprobar que no existe en la BBDD
+    private static String generarNBillete() {
+    	int [] numeros= new int[8]; 
+    	String cod_N = "";
+    	for(int i=0;i<numeros.length;i++) {
+    		numeros[i]=(int) (Math.random()*9)+1;
+    		cod_N+=Integer.toString(numeros[i]);
+    	}
+    	
+    	
+    	 return cod_N;
+    }
+    
     
 }
 
