@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author IN1DM3B_15
@@ -13,9 +15,7 @@ public class Billete {
     
    //ATRIBUTOS
 
-    private int dia;
-    private int mes;
-    private int anyo;
+    private Date fecha;
     private int lineasrecorrido; 
     private String paradaorigen;
     private String paradadestino;
@@ -29,21 +29,15 @@ public class Billete {
 
 
     //GETTER
+    public Date getFecha() {
+		return fecha;
+	}
+    
     public String getNumerobillete() {
         return generarNBillete();
     }
 
-    public int getDia() {
-        return dia;
-    }
 
-    public int getMes() {
-        return mes;
-    }
-
-    public int getAnyo() {
-        return anyo;
-    }
 
     public int getLineasrecorrido() {
         return lineasrecorrido;
@@ -64,26 +58,23 @@ public class Billete {
     public double getPreciotrayecto() {
         return preciotrayecto;
     }
+    
 
     //SETTER
 
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
-
-    public void setAnyo(int anyo) {
-        this.anyo = anyo;
-    }
-
+ 
     public void setLineasrecorrido(int lineasrecorrido) {
         this.lineasrecorrido = lineasrecorrido;
     }
 
-    public void setParadaorigen(String paradaorigen) {
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+
+
+	public void setParadaorigen(String paradaorigen) {
         this.paradaorigen = paradaorigen;
     }
 

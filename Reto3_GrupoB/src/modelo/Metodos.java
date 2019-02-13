@@ -308,6 +308,7 @@ public class Metodos {
 			ps.setString(3, c1.getApellido());
 			ps.setDate(4, c1.getFecha_nac());
 			ps.setString(5, c1.getSexo());
+			//Pasar contraseña encriptada
 			ps.setString(6, c1.getContrasenya());
 			
 			ps.executeUpdate();
