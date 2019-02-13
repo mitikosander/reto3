@@ -82,7 +82,7 @@ public class Vueltas extends JDialog {
 	}
 
 
-	public static JTextArea getTxtDevolver() {
+	public JTextArea getTxtDevolver() {
 		return txtDevolver;
 	}
 
