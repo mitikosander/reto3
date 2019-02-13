@@ -210,10 +210,12 @@ public class Controlador {
 						//Si la seleccion de la fecha es anterior a la fecha de ida, no podremos avanzar de pantalla
 						if(fechaIdaSelec.before(fechaVueltaSelec)) {
 						vista.mostrarPantalla(vista.getTicket());
-						
+						ticket.setFecha(vista.getSeleccionFecha().getDateChooser().getDate());
+						vista.getTicket().gettFFechaTicket().setText(ticket.getFecha().toString());
 						resetSeleccionFecha();
 						}else {
 							vista.getSeleccionFecha().getLblErrorFecha().setVisible(true);
+							vista.getTicket().getTxtFechaVuelta().setText(vista.getSeleccionFecha().getDateChooser_1().getDateFormatString());
 						}
 						}else {
 							vista.mostrarPantalla(vista.getTicket());
@@ -231,7 +233,7 @@ public class Controlador {
 				//Boton para aceptar la compra de nuestro ticket
 				vista.getTicket().getBtnPagarTicket().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						vista.mostrarPantalla(vista.getPagar());	
+						vista.mostrarPantalla(vista.getPagar());
 						resetTicket();
 						}
 				});
