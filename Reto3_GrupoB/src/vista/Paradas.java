@@ -7,6 +7,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.ImageIcon;
 
 
 public class Paradas extends JPanel {
@@ -19,6 +20,9 @@ public class Paradas extends JPanel {
 	private JComboBox<String> cBDestinoParadas;
 	private JButton btnCancelarParadas,btnAceptarParadas;
 	private JCheckBox chckIdaVuelta;
+	private JLabel label;
+	private JLabel lblDestino;
+	private JLabel lblOrigen;
 
 	/**
 	 * Create the panel.
@@ -50,6 +54,19 @@ public class Paradas extends JPanel {
 		 chckIdaVuelta = new JCheckBox("Ida/Vuelta");
 		chckIdaVuelta.setBounds(198, 312, 97, 23);
 		add(chckIdaVuelta);
+		
+		lblDestino = new JLabel("Destino");
+		lblDestino.setBounds(210, 220, 56, 16);
+		add(lblDestino);
+		
+		lblOrigen = new JLabel("Origen");
+		lblOrigen.setBounds(210, 128, 56, 16);
+		add(lblOrigen);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(Paradas.class.getResource("/vista/fondo3.jpg")));
+		label.setBounds(0, 0, 500, 500);
+		add(label);
 		
 
 	}

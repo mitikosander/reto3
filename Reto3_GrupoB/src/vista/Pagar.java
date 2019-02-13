@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 
 public class Pagar extends JPanel {
@@ -14,6 +15,7 @@ public class Pagar extends JPanel {
 	private JTextField tFIntroducidoPagar;
 	private JTextField tFAdevolverPagar;
 	private JButton btn50Pagar, btn20Pagar, btn10Pagar, btn5Pagar, btn2Pagar,btn1Pagar, btn05Pagar,btn02Pagar,btn01Pagar,btn005Pagar,btn002Pagar, btn001Pagar, btnGuardar, btnCancelar,btnFinalizar;                                                      
+	private JLabel label;
 
 	
 	
@@ -105,6 +107,11 @@ public class Pagar extends JPanel {
 		 btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setBounds(401, 466, 89, 23);
 		add(btnFinalizar);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(Pagar.class.getResource("/vista/fondo3.jpg")));
+		label.setBounds(0, 0, 500, 500);
+		add(label);
 		
 	
 

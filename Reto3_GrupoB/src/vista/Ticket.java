@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class Ticket extends JPanel {
 	/**
@@ -21,6 +22,7 @@ public class Ticket extends JPanel {
 	private JTextField txtHoraSalida;
 	private JTextField txtHoraVuelta;
 	private JTextField txtNombreTicket;
+	private JLabel label;
 
 	/**
 	 * Create the panel.
@@ -137,6 +139,11 @@ public class Ticket extends JPanel {
 		txtNombreTicket.setColumns(10);
 		txtNombreTicket.setBounds(177, 86, 86, 20);
 		add(txtNombreTicket);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(Ticket.class.getResource("/vista/fondo3.jpg")));
+		label.setBounds(0, 0, 500, 500);
+		add(label);
 		
 
 	}

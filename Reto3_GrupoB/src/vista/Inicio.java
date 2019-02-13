@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Inicio extends JPanel {
 	
@@ -26,12 +27,6 @@ public class Inicio extends JPanel {
 		setLayout(null);
 		setBounds(100, 100, 500, 500);
 		
-		logotermi = new JLabel("TERMIBUS");
-		logotermi.setForeground(Color.RED);
-		logotermi.setFont(new Font("Rod", Font.PLAIN, 75));
-		logotermi.setBounds(58, 66, 404, 139);
-		add(logotermi);
-		
 		btnAccederInicio = new JButton("Acceder");
 		btnAccederInicio.setBounds(58, 418, 89, 23);
 		add(btnAccederInicio);
@@ -39,6 +34,13 @@ public class Inicio extends JPanel {
 		btnRegistrarseInicio = new JButton("Registrarse");
 		btnRegistrarseInicio.setBounds(329, 418, 102, 23);
 		add(btnRegistrarseInicio);
+		
+		logotermi = new JLabel("TERMIBUS");
+		logotermi.setIcon(new ImageIcon(Inicio.class.getResource("/vista/fondo3.jpg")));
+		logotermi.setForeground(Color.RED);
+		logotermi.setFont(new Font("Rod", Font.PLAIN, 75));
+		logotermi.setBounds(0, 0, 500, 500);
+		add(logotermi);
 
 	}
 	public JLabel getLogotermi() {

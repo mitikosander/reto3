@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class SeleccionFecha extends JPanel {
 
@@ -17,6 +18,7 @@ public class SeleccionFecha extends JPanel {
 	private JButton btnCancelarSeleccionFecha,btnAceptarSeleccionFecha;
 	private JDateChooser dateChooser, dateChooser_1;
 	private JLabel lblErrorFecha ;
+	private JLabel label;
 
 	/**
 	 * Create the panel.
@@ -57,6 +59,11 @@ public class SeleccionFecha extends JPanel {
 		lblErrorFecha.setBounds(137, 398, 243, 14);
 		lblErrorFecha.setVisible(false);
 		add(lblErrorFecha);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(SeleccionFecha.class.getResource("/vista/fondo3.jpg")));
+		label.setBounds(0, 0, 500, 500);
+		add(label);
 
 	}
 
