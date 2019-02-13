@@ -5,6 +5,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Lineas extends JPanel {
 
@@ -16,6 +18,7 @@ public class Lineas extends JPanel {
 	private JButton  btnaceptarLineas;
 	private JComboBox<Object> LineascB;
 	private JLabel label;
+	private JLabel lblLineas;
 	/**
 	 * Create the panel.
 	 */
@@ -24,16 +27,24 @@ public class Lineas extends JPanel {
 		setBounds(100, 100, 500, 500);
 		
 		 btnCancelarLineas = new JButton("Cancelar");
-		btnCancelarLineas.setBounds(79, 404, 89, 23);
+		btnCancelarLineas.setBounds(70, 342, 97, 24);
 		add(btnCancelarLineas);
 		
 		LineascB = new JComboBox<Object>();
-		LineascB.setBounds(150, 151, 195, 20);
+		LineascB.setBounds(138, 173, 195, 20);
 		add(LineascB);
 		
 		 btnaceptarLineas = new JButton("Aceptar");
-		btnaceptarLineas.setBounds(307, 403, 97, 25);
+		 btnaceptarLineas.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent arg0) {
+		 	}
+		 });
+		btnaceptarLineas.setBounds(298, 342, 97, 25);
 		add(btnaceptarLineas);
+		
+		lblLineas = new JLabel("Lineas");
+		lblLineas.setBounds(210, 144, 56, 16);
+		add(lblLineas);
 		
 		label = new JLabel("");
 		label.setIcon(new ImageIcon(Lineas.class.getResource("/vista/fondo3.jpg")));

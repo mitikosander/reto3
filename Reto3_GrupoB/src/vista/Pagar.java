@@ -37,7 +37,7 @@ public class Pagar extends JPanel {
 		add(tFIntroducidoPagar);
 		tFIntroducidoPagar.setColumns(10);
 		
-		JLabel lblADevolver = new JLabel("Vueltas:");
+		JLabel lblADevolver = new JLabel("Falta por pagar:");
 		lblADevolver.setBounds(77, 177, 99, 14);
 		add(lblADevolver);
 		
@@ -97,15 +97,15 @@ public class Pagar extends JPanel {
 		add(btn001Pagar);
 		
 		 btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(10, 466, 89, 23);
+		btnGuardar.setBounds(34, 400, 89, 23);
 		add(btnGuardar);
 		
 		 btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(221, 466, 89, 23);
+		btnCancelar.setBounds(197, 400, 89, 23);
 		add(btnCancelar);
 		
 		 btnFinalizar = new JButton("Finalizar");
-		btnFinalizar.setBounds(401, 466, 89, 23);
+		btnFinalizar.setBounds(357, 400, 89, 23);
 		add(btnFinalizar);
 		
 		label = new JLabel("");
