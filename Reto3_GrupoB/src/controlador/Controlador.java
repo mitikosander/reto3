@@ -124,6 +124,7 @@ public class Controlador {
 						
 						
 						
+					
 						
 					}
 				});
@@ -425,12 +426,6 @@ public class Controlador {
 		return null;
 		
 	}
-	
-	
-	
-
-
-	
 	/**
 	 * Este metodo se encarga de calcular la cantidad de monedas que se nos devolverá cuando ingresamos una cantidad mayor a la que se nos pide pagar
 	 * @param txtDevolver
