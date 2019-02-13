@@ -3,6 +3,7 @@ package vista;
 import java.awt.BorderLayout;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -13,9 +14,7 @@ import controlador.Controlador;
 
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.ImageIcon;
-import java.awt.Color;
+
 import javax.swing.UIManager;
 
 public class Vueltas extends JDialog {
