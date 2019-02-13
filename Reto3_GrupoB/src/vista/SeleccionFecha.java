@@ -28,35 +28,35 @@ public class SeleccionFecha extends JPanel {
 		setBounds(100, 100, 500, 500);
 		
 		JLabel lblIdaSeleccionFecha = new JLabel("Ida");
-		lblIdaSeleccionFecha.setBounds(201, 158, 46, 14);
+		lblIdaSeleccionFecha.setBounds(202, 95, 46, 14);
 		add(lblIdaSeleccionFecha);
 		
 		 dateChooser = new JDateChooser();
-		dateChooser.setBounds(201, 220, 95, 20);
+		dateChooser.setBounds(202, 157, 95, 20);
 		dateChooser.setDateFormatString("yyyy-MM-dd");
 		add(dateChooser);
 		
 	 dateChooser_1 = new JDateChooser();
-		dateChooser_1.setBounds(201, 353, 95, 20);
+		dateChooser_1.setBounds(202, 290, 95, 20);
 		dateChooser_1.setDateFormatString("yyyy-MM-dd");
 		dateChooser_1.setEnabled(false);
 		add(dateChooser_1);
 		
 		JLabel lblvueltaSeleccionVuelta = new JLabel("Vuelta");
-		lblvueltaSeleccionVuelta.setBounds(201, 278, 75, 14);
+		lblvueltaSeleccionVuelta.setBounds(202, 215, 75, 14);
 		add(lblvueltaSeleccionVuelta);
 		
 		btnCancelarSeleccionFecha = new JButton("Cancelar");
-		btnCancelarSeleccionFecha.setBounds(31, 445, 89, 23);
+		btnCancelarSeleccionFecha.setBounds(32, 382, 89, 23);
 		add(btnCancelarSeleccionFecha);
 		
 		btnAceptarSeleccionFecha = new JButton("Aceptar");
-		btnAceptarSeleccionFecha.setBounds(373, 445, 89, 23);
+		btnAceptarSeleccionFecha.setBounds(374, 382, 89, 23);
 		add(btnAceptarSeleccionFecha);
 		
 		lblErrorFecha = new JLabel("fecha no valida, debe ser posterior a la ida");
 		lblErrorFecha.setForeground(Color.RED);
-		lblErrorFecha.setBounds(137, 398, 243, 14);
+		lblErrorFecha.setBounds(138, 335, 270, 14);
 		lblErrorFecha.setVisible(false);
 		add(lblErrorFecha);
 		
