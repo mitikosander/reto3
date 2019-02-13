@@ -338,7 +338,8 @@ public class Metodos {
 		
 		return nLineas;
 	}
-		
+	
+
 	
 	//Método para cargar en un arrayList las paradas de una Linea segun cual hayamos seleccionado
 	public ArrayList<String> cargarParadas(String nombreLinea){
@@ -377,4 +378,15 @@ public class Metodos {
 			return resultado;
 		}
 	}
+	
+	//Método para insertar el Ticket de nuestra compra en la BBDD
+	
+	
+	//Método para calcular la distancia entre una parada y otra
+	
+	
+	//Método que recibe un arrayList de Paradas y lo ordena calculando la distancia entre unos y otros
+	
+	//Método para seleccionar un autobus aleatorio correspondiente a la linea que se ha escogido
+		
 }
