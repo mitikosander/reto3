@@ -32,12 +32,12 @@ public class SeleccionFecha extends JPanel {
 		add(lblIdaSeleccionFecha);
 		
 		 dateChooser = new JDateChooser();
-		dateChooser.setBounds(202, 157, 95, 20);
+		dateChooser.setBounds(202, 136, 95, 20);
 		dateChooser.setDateFormatString("yyyy-MM-dd");
 		add(dateChooser);
 		
 	 dateChooser_1 = new JDateChooser();
-		dateChooser_1.setBounds(202, 290, 95, 20);
+		dateChooser_1.setBounds(202, 262, 95, 20);
 		dateChooser_1.setDateFormatString("yyyy-MM-dd");
 		dateChooser_1.setEnabled(false);
 		add(dateChooser_1);
