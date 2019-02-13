@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Registro extends JPanel {
 	/**
@@ -20,6 +21,7 @@ public class Registro extends JPanel {
 	private JComboBox<String> cBSexoRegistro;
 	private JButton btnCancelarRegistro, btnAceptarRegistro;
 	private JLabel warningrepe;
+	private JLabel label;
 	/**
 	 * Create the panel.
 	 */
@@ -87,6 +89,11 @@ public class Registro extends JPanel {
 		warningrepe.setBounds(311, 378, 86, 16);
 		warningrepe.setVisible(false);
 		add(warningrepe);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(Registro.class.getResource("/vista/fondo3.jpg")));
+		label.setBounds(0, 0, 500, 500);
+		add(label);
 
 
 	}

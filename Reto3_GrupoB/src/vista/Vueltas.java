@@ -1,7 +1,7 @@
 package vista;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
+
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -14,6 +14,9 @@ import controlador.Controlador;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.UIManager;
 
 public class Vueltas extends JDialog {
 
@@ -37,20 +40,21 @@ public class Vueltas extends JDialog {
 	 */
 	public Vueltas() {
 		setBounds(100, 100, 450, 300);
-		contentPanel.setBackground(Color.orange);
+		
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
 			lblVueltas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-			lblVueltas.setBounds(163, 10, 98, 23);
+			lblVueltas.setBounds(163, 10, 54, 23);
 			contentPanel.add(lblVueltas);
 		}
 
 		txtDevolver = new JTextArea();
+		txtDevolver.setBackground(UIManager.getColor("Button.background"));
 		txtDevolver.setEditable(false);
-		txtDevolver.setBackground(Color.orange);
+		
 		txtDevolver.setBounds(10, 44, 414, 250);
 		contentPanel.add(txtDevolver);
 

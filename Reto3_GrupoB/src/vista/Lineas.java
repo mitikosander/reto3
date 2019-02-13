@@ -3,6 +3,8 @@ package vista;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Lineas extends JPanel {
 
@@ -13,6 +15,7 @@ public class Lineas extends JPanel {
 	private JButton  btnCancelarLineas;
 	private JButton  btnaceptarLineas;
 	private JComboBox<Object> LineascB;
+	private JLabel label;
 	/**
 	 * Create the panel.
 	 */
@@ -31,6 +34,11 @@ public class Lineas extends JPanel {
 		 btnaceptarLineas = new JButton("Aceptar");
 		btnaceptarLineas.setBounds(307, 403, 97, 25);
 		add(btnaceptarLineas);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(Lineas.class.getResource("/vista/fondo3.jpg")));
+		label.setBounds(0, 0, 500, 500);
+		add(label);
 		
 
 	}
@@ -52,5 +60,4 @@ public class Lineas extends JPanel {
 	public void setLineascB(JComboBox<Object> lineascB) {
 		LineascB = lineascB;
 	}
-	
 }

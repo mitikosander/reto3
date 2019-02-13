@@ -38,19 +38,7 @@ public class Vista {
 		ventana.setVisible(true);
 		
 	}
-	//metodo para poner un String en un label
-	public void setStringLabel(JLabel etiqueta, String txt) {
-		etiqueta.setText(txt);
-	}
-	//metodo para poner double en un label que le pasemos
-	public void setDoubleLabel(JLabel etiqueta, double d) {
-		etiqueta.setText(Double.toString(d));
-	}
-	
-	//metodo para poner ints en un label que le pasemos
-	public void setIntLabel(JLabel etiqueta, int n) {
-		etiqueta.setText(Integer.toString(n));
-	}
+
 	public Contenedor getVentana() {
 		return ventana;
 	}

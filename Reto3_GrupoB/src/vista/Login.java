@@ -7,6 +7,7 @@ import javax.swing.JButton;
 
 import java.awt.Color;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 
 public class Login extends JPanel {
 	/**
@@ -17,6 +18,7 @@ public class Login extends JPanel {
 	private JButton btnCancelarLogin, btnAceptarLogin;
 	private JLabel lblErrorDeRegistro;
 	private JPasswordField passwordField;
+	private JLabel label;
 
 	/**
 	 * Create the panel.
@@ -55,6 +57,11 @@ public class Login extends JPanel {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(200, 187, 86, 22);
 		add(passwordField);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(Login.class.getResource("/vista/fondo3.jpg")));
+		label.setBounds(0, 0, 500, 500);
+		add(label);
 
 	}
 
