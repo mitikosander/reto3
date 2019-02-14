@@ -20,6 +20,7 @@ public class Controlador {
 	//valores a los que necesitamos acceder durante la ejecucion
 	private modelo.Billete ticket=new modelo.Billete();
 	private Double PrecioTicket=0.0;
+	private modelo.Autobus bus=new modelo.Autobus();
 	public Controlador(Vista vista, Modelo modelo) {
 		Controlador.vista=vista;
 		this.modelo=modelo;
@@ -134,6 +135,9 @@ public class Controlador {
 				vista.getLineas().getBtnaceptarLineas().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						String nombreLineaSelecc=vista.getLineas().getLineascB().getSelectedItem().toString();
+						
+						//Obtenemos el autobus que usaremos durante el viaje segun la linea que hemos seleccionado
+						bus=modelo.metodos.obtenerBusLinea(nombreLineaSelecc);
 						vista.mostrarPantalla(vista.getParadas());
 						
 					//vaciamos los combos de origen y destino antes de llenarlo para evitar la redundancia de datos
