@@ -365,7 +365,7 @@ public class Metodos {
 	
 	
 	//Método para calcular el precio del ticket
-	public double calcularPrecioTicket() {
+	public double calcularPrecioTicket(Autobus a1) {
 		boolean ida_vuelta=false;
 		double resultado=0;
 		if(ida_vuelta==true) {
@@ -377,5 +377,45 @@ public class Metodos {
 			
 			return resultado;
 		}
+	}
+	
+	//Método que escoge un autobus aleatorio de la Línea que hayas escogido
+	
+	public Autobus obtenerBusLinea(String linea) {
+		Conexion connection=new Conexion();
+		String sql="SELECT Cod_bus FROM linea_autobus l1, linea l2 WHERE l1.Cod_Linea=l2.Cod_Linea AND Nombre LIKE '" +linea+"'";
+		ArrayList<Autobus> autobusesLinea=cargarArrAutobuses();
+		ArrayList<Autobus> seleccionados=new ArrayList<Autobus>();
+		int cod_Bus,cont=0,genNum=0;
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				//Buscamos los codigos de autobus que coincidan con nuestros codigos obtenidos de la BBDD 
+				cod_Bus=rs.getInt(1);
+				for(int i=0;i<autobusesLinea.size();i++) {
+					if(cod_Bus==autobusesLinea.get(i).getCodigoAutobus()) {
+						//Los guardamos en un nuevo arrayList que nos servira para filtrar solo los seleccionados 
+						seleccionados.add(autobusesLinea.get(i));
+					}
+				}
+				//Contamos el numero de codigos de autobuses que obtenemos
+				cont++;
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta erronea");
+		}
+		
+		//Despues de separar los autobuses de la linea seleccionada, escogeremos solamente uno aleatorio
+		
+		
+		
+		while(genNum>cont || genNum==0) {
+			genNum=(int) (Math.random()*cont)+1;
+		}
+		
+		return seleccionados.get(genNum);
+		
 	}
 }
