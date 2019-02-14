@@ -13,21 +13,22 @@ public class Punto {
 		this(0, 0);
 	}
 
-	public double obtenerX() {
+	public double getX() {
 		return x;
 	}
 
-	public double obtenerY() {
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
 		return y;
 	}
 
-	public double distancia(Punto p) throws Exception {
-		if (p == null)
-			throw new Exception("Ups! Debe inicializar el objeto punto");
-
-		double diferenciaX = x - p.obtenerX();
-		double diferenciaY = y - p.obtenerY();
-
-		return Math.sqrt(Math.pow(diferenciaX, 2) + Math.pow(diferenciaY, 2));
+	public void setY(double y) {
+		this.y = y;
 	}
+
+
+
 }

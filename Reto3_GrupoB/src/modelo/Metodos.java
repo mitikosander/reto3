@@ -24,7 +24,26 @@ public class Metodos {
 		boolean dniExistente=false;
 		Vista vista=new Vista();
 		dni=vista.getRegistro().getTfDNIRegistro().getName();
+		Conexion connection=new Conexion();
+		String sql="SELECT DNI FROM cliente";
 		//hacer un bucle que compare el String recibido de la pantalla con los dni's existentes
+		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				if(dni.equals(rs.getString(1))) {
+					//Devolvemos true si el dni está duplicado
+					return true;
+				}else {
+					//Devolvemos false si el dni no es existente en la BBDD
+					return false;
+				}
+			}
+		}catch(Exception e) {
+			
+		}
 		
 		return dniExistente;
 	}
@@ -275,9 +294,10 @@ public class Metodos {
 	public static double calcularDistanciaEuclediana(Parada pa1,Parada pa2) {
 		Punto p1 = new Punto(pa1.getLatitud(), pa1.getLongitud());
 		Punto p2 = new Punto(pa2.getLatitud(), pa2.getLongitud());
+		
 		double resultado = 0;
 		try {
-			resultado = p1.distancia(p2);
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -298,18 +318,20 @@ public class Metodos {
 	public void insertarUsuario(Cliente c1) {
 		Conexion connection=new Conexion();
 		String sql="INSERT INTO cliente VALUES(?,?,?,?,?,?)";
-		
+		boolean comprobarDni=dniExistente(c1.getDni());
 		try {
 			//Preparamos la consulta
 			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
 			//Seguidamente asignamos los atributos a la consulta
-			ps.setString(1, c1.getDni());
-			ps.setString(2, c1.getNombre());
-			ps.setString(3, c1.getApellido());
-			ps.setDate(4, c1.getFecha_nac());
-			ps.setString(5, c1.getSexo());
-			//Pasar contraseña encriptada
-			ps.setString(6, c1.getContrasenya());
+			if(comprobarDni==false) {
+				ps.setString(1, c1.getDni());
+				ps.setString(2, c1.getNombre());
+				ps.setString(3, c1.getApellido());
+				ps.setDate(4, c1.getFecha_nac());
+				ps.setString(5, c1.getSexo());
+				ps.setString(6, encriptarPass(c1.getContrasenya()));
+			}
+		
 			
 			ps.executeUpdate();
 			
@@ -365,14 +387,26 @@ public class Metodos {
 	
 	
 	//Método para calcular el precio del ticket
-	public double calcularPrecioTicket(Autobus a1) {
+	public double calcularPrecioTicket(Autobus a1,double distancia) {
 		boolean ida_vuelta=false;
 		double resultado=0;
+		double precioGasolina=0.8;
+		double veneficioEmpresa=1.2;
+		
+		
+		//Cogemos los valores necesarios (Consumo y Plazas  del autobus y Distancia de Paradas)
+		double consumo=a1.getConsummo();
+		int nplazas=a1.getNumeroDePlazas();
+		
+		 distancia=15;
 		if(ida_vuelta==true) {
 			
+			resultado=((((distancia*consumo)*precioGasolina)* (nplazas))*veneficioEmpresa)*2;
 			
 			return resultado;
 		}else {
+			
+			resultado=(((distancia*consumo)*precioGasolina)* (nplazas))*veneficioEmpresa;
 			
 			
 			return resultado;
@@ -408,7 +442,6 @@ public class Metodos {
 		}
 		
 		//Despues de separar los autobuses de la linea seleccionada, escogeremos solamente uno aleatorio
-		
 		
 		
 		while(genNum>cont || genNum==0) {
