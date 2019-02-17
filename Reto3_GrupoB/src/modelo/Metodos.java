@@ -381,7 +381,21 @@ public class Metodos {
 	}
 	
 	//Método para insertar el Ticket de nuestra compra en la BBDD
-	
+	public static void insertarBillete(Billete b1) {
+		String sql="INSERT INTO billete VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+		Conexion connection= new Conexion();
+		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			
+			ps.setInt(1,Integer.parseInt(b1.getNumerobillete()));
+			  
+			
+			
+		}catch(Exception e) {
+			System.err.println("Insert de datos no válido, compruebe los valores");
+		}
+	}
 	
 	//Método para calcular la distancia entre una parada y otra
 	
