@@ -24,7 +24,26 @@ public class Metodos {
 		boolean dniExistente=false;
 		Vista vista=new Vista();
 		dni=vista.getRegistro().getTfDNIRegistro().getName();
+		Conexion connection=new Conexion();
+		String sql="SELECT DNI FROM cliente";
 		//hacer un bucle que compare el String recibido de la pantalla con los dni's existentes
+		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				if(dni.equals(rs.getString(1))) {
+					//Devolvemos true si el dni está duplicado
+					return true;
+				}else {
+					//Devolvemos false si el dni no es existente en la BBDD
+					return false;
+				}
+			}
+		}catch(Exception e) {
+			
+		}
 		
 		return dniExistente;
 	}
@@ -275,9 +294,10 @@ public class Metodos {
 	public static double calcularDistanciaEuclediana(Parada pa1,Parada pa2) {
 		Punto p1 = new Punto(pa1.getLatitud(), pa1.getLongitud());
 		Punto p2 = new Punto(pa2.getLatitud(), pa2.getLongitud());
+		
 		double resultado = 0;
 		try {
-			resultado = p1.distancia(p2);
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -298,18 +318,20 @@ public class Metodos {
 	public void insertarUsuario(Cliente c1) {
 		Conexion connection=new Conexion();
 		String sql="INSERT INTO cliente VALUES(?,?,?,?,?,?)";
-		
+		boolean comprobarDni=dniExistente(c1.getDni());
 		try {
 			//Preparamos la consulta
 			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
 			//Seguidamente asignamos los atributos a la consulta
-			ps.setString(1, c1.getDni());
-			ps.setString(2, c1.getNombre());
-			ps.setString(3, c1.getApellido());
-			ps.setDate(4, c1.getFecha_nac());
-			ps.setString(5, c1.getSexo());
-			//Pasar contraseña encriptada
-			ps.setString(6, c1.getContrasenya());
+			if(comprobarDni==false) {
+				ps.setString(1, c1.getDni());
+				ps.setString(2, c1.getNombre());
+				ps.setString(3, c1.getApellido());
+				ps.setDate(4, c1.getFecha_nac());
+				ps.setString(5, c1.getSexo());
+				ps.setString(6, encriptarPass(c1.getContrasenya()));
+			}
+		
 			
 			ps.executeUpdate();
 			
@@ -366,20 +388,33 @@ public class Metodos {
 	
 	
 	//Método para calcular el precio del ticket
-	public double calcularPrecioTicket() {
+	public double calcularPrecioTicket(Autobus a1,double distancia) {
 		boolean ida_vuelta=false;
 		double resultado=0;
+		double precioGasolina=0.8;
+		double veneficioEmpresa=1.2;
+		
+		
+		//Cogemos los valores necesarios (Consumo y Plazas  del autobus y Distancia de Paradas)
+		double consumo=a1.getConsummo();
+		int nplazas=a1.getNumeroDePlazas();
+		
+		 distancia=15;
 		if(ida_vuelta==true) {
 			
+			resultado=((((distancia*consumo)*precioGasolina)* (nplazas))*veneficioEmpresa)*2;
 			
 			return resultado;
 		}else {
+			
+			resultado=(((distancia*consumo)*precioGasolina)* (nplazas))*veneficioEmpresa;
 			
 			
 			return resultado;
 		}
 	}
 	
+
 	//Método para insertar el Ticket de nuestra compra en la BBDD
 	public static void insertarBillete(Billete b1) {
 		String sql="INSERT INTO billete VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -404,4 +439,44 @@ public class Metodos {
 	
 	//Método para seleccionar un autobus aleatorio correspondiente a la linea que se ha escogido
 		
+
+	//Método que escoge un autobus aleatorio de la Línea que hayas escogido
+	
+	public Autobus obtenerBusLinea(String linea) {
+		Conexion connection=new Conexion();
+		String sql="SELECT Cod_bus FROM linea_autobus l1, linea l2 WHERE l1.Cod_Linea=l2.Cod_Linea AND Nombre LIKE '" +linea+"'";
+		ArrayList<Autobus> autobusesLinea=cargarArrAutobuses();
+		ArrayList<Autobus> seleccionados=new ArrayList<Autobus>();
+		int cod_Bus,cont=0,genNum=0;
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				//Buscamos los codigos de autobus que coincidan con nuestros codigos obtenidos de la BBDD 
+				cod_Bus=rs.getInt(1);
+				for(int i=0;i<autobusesLinea.size();i++) {
+					if(cod_Bus==autobusesLinea.get(i).getCodigoAutobus()) {
+						//Los guardamos en un nuevo arrayList que nos servira para filtrar solo los seleccionados 
+						seleccionados.add(autobusesLinea.get(i));
+					}
+				}
+				//Contamos el numero de codigos de autobuses que obtenemos
+				cont++;
+			}
+		}catch(Exception e) {
+			System.err.println("Consulta erronea");
+		}
+		
+		//Despues de separar los autobuses de la linea seleccionada, escogeremos solamente uno aleatorio
+		
+		
+		while(genNum>cont || genNum==0) {
+			genNum=(int) (Math.random()*cont)+1;
+		}
+		
+		return seleccionados.get(genNum);
+		
+	}
+
 }

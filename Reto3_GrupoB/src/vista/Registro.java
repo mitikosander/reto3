@@ -16,8 +16,8 @@ public class Registro extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField tFNombreRegistro;
 	private JTextField tfDNIRegistro;
-	private JPasswordField pFContraseñaRegistro;
-	private JPasswordField pFRegistroContraseña1;
+	private JPasswordField pFContrasenyaRegistro;
+	private JPasswordField pFRegistroContrasenya1;
 	private JComboBox<String> cBSexoRegistro;
 	private JButton btnCancelarRegistro, btnAceptarRegistro;
 	private JLabel warningrepe;
@@ -63,17 +63,17 @@ public class Registro extends JPanel {
 		lblContrasea.setBounds(66, 313, 86, 14);
 		add(lblContrasea);
 		
-		pFContraseñaRegistro = new JPasswordField();
-		pFContraseñaRegistro.setBounds(213, 310, 86, 20);
-		add(pFContraseñaRegistro);
+		pFContrasenyaRegistro = new JPasswordField();
+		pFContrasenyaRegistro.setBounds(213, 310, 86, 20);
+		add(pFContrasenyaRegistro);
 		
 		JLabel lblRepetirContrasea = new JLabel("Repetir contrase\u00F1a: ");
 		lblRepetirContrasea.setBounds(33, 379, 119, 14);
 		add(lblRepetirContrasea);
 		
-		pFRegistroContraseña1 = new JPasswordField();
-		pFRegistroContraseña1.setBounds(213, 376, 86, 20);
-		add(pFRegistroContraseña1);
+		pFRegistroContrasenya1 = new JPasswordField();
+		pFRegistroContrasenya1.setBounds(213, 376, 86, 20);
+		add(pFRegistroContrasenya1);
 		
 		 btnCancelarRegistro = new JButton("Cancelar");
 		btnCancelarRegistro.setBounds(33, 454, 89, 23);
@@ -109,17 +109,17 @@ public class Registro extends JPanel {
 	public void setTfDNIRegistro(JTextField tfDNIRegistro) {
 		this.tfDNIRegistro = tfDNIRegistro;
 	}
-	public JPasswordField getpFContraseñaRegistro() {
-		return pFContraseñaRegistro;
+	public JPasswordField getpFContrasenyaRegistro() {
+		return pFContrasenyaRegistro;
 	}
-	public void setpFContraseñaRegistro(JPasswordField pFContraseñaRegistro) {
-		this.pFContraseñaRegistro = pFContraseñaRegistro;
+	public void setpFContrasenyaRegistro(JPasswordField pFContrasenyaRegistro) {
+		this.pFContrasenyaRegistro = pFContrasenyaRegistro;
 	}
-	public JPasswordField getpFRegistroContraseña1() {
-		return pFRegistroContraseña1;
+	public JPasswordField getpFRegistroContrasenya1() {
+		return pFRegistroContrasenya1;
 	}
-	public void setpFRegistroContraseña1(JPasswordField pFRegistroContraseña1) {
-		this.pFRegistroContraseña1 = pFRegistroContraseña1;
+	public void setpFRegistroContrasenya1(JPasswordField pFRegistroContrasenya1) {
+		this.pFRegistroContrasenya1 = pFRegistroContrasenya1;
 	}
 	public JComboBox<String> getcBSexoRegistro() {
 		return cBSexoRegistro;

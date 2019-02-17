@@ -20,6 +20,7 @@ public class Controlador {
 	// valores a los que necesitamos acceder durante la ejecucion
 	private modelo.Billete ticket = new modelo.Billete();
 	private Double PrecioTicket = 0.0;
+	private modelo.Autobus bus = new modelo.Autobus();
 
 	public Controlador(Vista vista, Modelo modelo) {
 		Controlador.vista = vista;
@@ -199,6 +200,91 @@ public class Controlador {
 					// Si la seleccion de la fecha es anterior a la fecha de ida, no podremos
 					// avanzar de pantalla
 					if (fechaIdaSelec.before(fechaVueltaSelec)) {
+
+					}
+				}
+			}
+		});
+
+		// Boton que acepta la linea seleccionada y te lleva a la pantalla paradas
+		vista.getLineas().getBtnaceptarLineas().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nombreLineaSelecc = vista.getLineas().getLineascB().getSelectedItem().toString();
+
+				// Obtenemos el autobus que usaremos durante el viaje segun la linea que hemos
+				// seleccionado
+				bus = modelo.metodos.obtenerBusLinea(nombreLineaSelecc);
+				vista.mostrarPantalla(vista.getParadas());
+
+				// vaciamos los combos de origen y destino antes de llenarlo para evitar la
+				// redundancia de datos
+				resetcomboBox(vista.getParadas().getcBOrigenParadas());
+				resetcomboBox(vista.getParadas().getcBDestinoParadas());
+
+				if (vista.getParadas().getcBOrigenParadas().getItemCount() <= 1
+						|| vista.getParadas().getcBDestinoParadas().getItemCount() <= 1) {
+					rellenarComboParadasInicio(nombreLineaSelecc);
+					rellenarComboParadasDestino(nombreLineaSelecc);
+				}
+
+				resetLineas();
+
+			}
+		});
+
+		// Boton que cancela la seleccion de la Linea
+		vista.getLineas().getBtnCancelarLineas().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.mostrarPantalla(vista.getPantCarga());
+
+				// reiniciamos los valores de las pantallas
+
+				resetLineas();
+			}
+		});
+
+		// Boton que acepta las paradas y nos pasa a seleccion de fecha
+		vista.getParadas().getBtnAceptarParadas().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.mostrarPantalla(vista.getSeleccionFecha());
+
+				if (vista.getParadas().getChckIdaVuelta().isSelected()) {
+					vista.getSeleccionFecha().getDateChooser_1().setEnabled(true);
+				}
+				resetParadas();
+			}
+		});
+
+		// Boton que cancela la seleccion de paradas
+		vista.getParadas().getBtnCancelarParadas().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.mostrarPantalla(vista.getPantCarga());
+				resetParadas();
+			}
+		});
+
+		// Boton que cancela la seleccion de la fecha
+		vista.getSeleccionFecha().getBtnCancelarSeleccionFecha().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.mostrarPantalla(vista.getPantCarga());
+				resetSeleccionFecha();
+			}
+		});
+		// Boton que acepta la seleccion de la fecha y pasa al resumen del ticket
+		vista.getSeleccionFecha().getBtnAceptarSeleccionFecha().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String codBillete = ticket.getNumerobillete();
+				boolean validarBilleteTicket = modelo.metodos.comprobarCodBillete(codBillete);
+
+				// Si la vuelta esta activada probaremos que la fecha de vuelta es valida
+				if (vista.getSeleccionFecha().getDateChooser_1().isEnabled()) {
+
+					Date fechaIdaSelec = (Date) vista.getSeleccionFecha().getDateChooser().getDate();
+					Date fechaVueltaSelec = (Date) vista.getSeleccionFecha().getDateChooser_1().getDate();
+					// Si la seleccion de la fecha es anterior a la fecha de ida, no podremos
+					// avanzar de pantalla
+					if (fechaIdaSelec.before(fechaVueltaSelec)) {
+
 						vista.mostrarPantalla(vista.getTicket());
 						ticket.setFecha(vista.getSeleccionFecha().getDateChooser().getDate());
 						vista.getTicket().gettFFechaTicket().setText(ticket.getFecha().toString());
@@ -400,16 +486,16 @@ public class Controlador {
 		// Al darle al boton registrar, Guardas los datos de la pantalla y los guarda en
 		// un objeto usuario
 
-		if (vista.getRegistro().getpFContraseñaRegistro().getPassword() == vista.getRegistro()
-				.getpFRegistroContraseña1().getPassword()) {
+		if (vista.getRegistro().getpFContrasenyaRegistro().getPassword() == vista.getRegistro()
+				.getpFRegistroContrasenya1().getPassword()) {
 
 			Cliente c1 = new Cliente();
 
 			c1.setNombre(vista.getRegistro().gettFNombreRegistro().getText());
 			c1.setDni(vista.getRegistro().getTfDNIRegistro().getText());
 
-			c1.setContrasenya(String.valueOf(vista.getRegistro().getpFContraseñaRegistro().getPassword()));
-			c1.setContrasenya(String.valueOf(vista.getRegistro().getpFRegistroContraseña1().getPassword()));
+			c1.setContrasenya(String.valueOf(vista.getRegistro().getpFContrasenyaRegistro().getPassword()));
+			c1.setContrasenya(String.valueOf(vista.getRegistro().getpFRegistroContrasenya1().getPassword()));
 			if (vista.getRegistro().getcBSexoRegistro().getSelectedItem().equals("Masculino")) {
 				c1.setSexo("M");
 			} else {
@@ -464,8 +550,8 @@ public class Controlador {
 		vista.getRegistro().gettFNombreRegistro().setText(null);
 		vista.getRegistro().getTfDNIRegistro().setText(null);
 		vista.getRegistro().getcBSexoRegistro().setSelectedIndex(0);
-		vista.getRegistro().getpFContraseñaRegistro().setText(null);
-		vista.getRegistro().getpFRegistroContraseña1().setText(null);
+		vista.getRegistro().getpFContrasenyaRegistro().setText(null);
+		vista.getRegistro().getpFRegistroContrasenya1().setText(null);
 	}
 
 	// Método para resetear valores de la pantalla Lineas

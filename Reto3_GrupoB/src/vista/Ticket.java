@@ -144,7 +144,7 @@ public class Ticket extends JPanel {
 		label.setIcon(new ImageIcon(Ticket.class.getResource("/vista/fondo3.jpg")));
 		label.setBounds(0, 0, 500, 500);
 		add(label);
-		
+
 
 	}
 
