@@ -361,7 +361,8 @@ public class Metodos {
 		
 		return nLineas;
 	}
-		
+	
+
 	
 	//Método para cargar en un arrayList las paradas de una Linea segun cual hayamos seleccionado
 	public ArrayList<String> cargarParadas(String nombreLinea){
@@ -413,6 +414,32 @@ public class Metodos {
 		}
 	}
 	
+
+	//Método para insertar el Ticket de nuestra compra en la BBDD
+	public static void insertarBillete(Billete b1) {
+		String sql="INSERT INTO billete VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+		Conexion connection= new Conexion();
+		
+		try {
+			PreparedStatement ps=connection.conectarBase().prepareStatement(sql);
+			
+			ps.setInt(1,Integer.parseInt(b1.getNumerobillete()));
+			  
+			
+			
+		}catch(Exception e) {
+			System.err.println("Insert de datos no válido, compruebe los valores");
+		}
+	}
+	
+	//Método para calcular la distancia entre una parada y otra
+	
+	
+	//Método que recibe un arrayList de Paradas y lo ordena calculando la distancia entre unos y otros
+	
+	//Método para seleccionar un autobus aleatorio correspondiente a la linea que se ha escogido
+		
+
 	//Método que escoge un autobus aleatorio de la Línea que hayas escogido
 	
 	public Autobus obtenerBusLinea(String linea) {
@@ -451,4 +478,5 @@ public class Metodos {
 		return seleccionados.get(genNum);
 		
 	}
+
 }
