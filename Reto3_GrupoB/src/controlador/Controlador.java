@@ -42,7 +42,7 @@ public class Controlador {
 
 		vista.getPagar().gettFIntroducidoPagar().setText(Double.toString(pagar));
 
-		// Te mete a la pantalla login
+		// Te mete a la pantalla login 1
 		vista.getPantCarga().getBtnAccederInicio().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.mostrarPantalla(vista.getLogin());
@@ -51,7 +51,7 @@ public class Controlador {
 			}
 		});
 
-		// Cuando estas en la pantalla login, te lleva a la pantalla de carga
+		// Cuando estas en la pantalla login, te lleva a la pantalla de carga 1
 		vista.getLogin().getBtnCancelarLogin().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.mostrarPantalla(vista.getPantCarga());
@@ -59,21 +59,21 @@ public class Controlador {
 			}
 		});
 
-		// Te lleva a la pantalla de registro
+		// Te lleva a la pantalla de registro 1
 		vista.getPantCarga().getBtnRegistrarseInicio().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.mostrarPantalla(vista.getRegistro());
 			}
 		});
-		// Te lleva a la pantalla de carga
+		// Te lleva a la pantalla de carga 1
 		vista.getRegistro().getBtnCancelarRegistro().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getPantCarga());
+				vista.mostrarPantalla(vista.getLineas());
 				resetRegistro();
 			}
 		});
 
-		// Te lleva a la pantalla de carga, habiendo creado el usuario
+		// Te lleva a la pantalla de carga, habiendo creado el usuario 1
 		vista.getRegistro().getBtnAceptarRegistro().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -88,15 +88,7 @@ public class Controlador {
 			}
 		});
 
-		// Te lleva a la pantalla de login
-		vista.getPantCarga().getBtnAccederInicio().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				vista.mostrarPantalla(vista.getLogin());
-
-			}
-		});
-		// Te lleva a la pantalla de lineas
+		// Te lleva a la pantalla de lineas 1
 
 		vista.getLogin().getBtnAceptarLogin().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,12 +98,11 @@ public class Controlador {
 				boolean validarLogin = modelo.metodos.comprobarLogin(user, password);
 
 				if (validarLogin == true) {
-					// Pasamos el nombre y el numero de billete al ticket antes de borrar los datos
-					// de esta pantalla
+					// Pasamos el nombre al ticket
 					vista.getTicket().getTxtNombreTicket().setText(modelo.metodos.obtenerNombreUsuario(user));
 
 					vista.mostrarPantalla(vista.getLineas());
-					resetLogin();
+
 				} else {
 					// mostramos el error pero borramos los campos para hacer un intendo de nuevo
 					vista.getLogin().getLblErrorDeRegistro().setVisible(true);
@@ -126,32 +117,10 @@ public class Controlador {
 			}
 		});
 
-		// Boton que acepta la linea seleccionada y te lleva a la pantalla paradas
-		vista.getLineas().getBtnaceptarLineas().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String nombreLineaSelecc = vista.getLineas().getLineascB().getSelectedItem().toString();
-				vista.mostrarPantalla(vista.getParadas());
-
-				// vaciamos los combos de origen y destino antes de llenarlo para evitar la
-				// redundancia de datos
-				resetcomboBox(vista.getParadas().getcBOrigenParadas());
-				resetcomboBox(vista.getParadas().getcBDestinoParadas());
-
-				if (vista.getParadas().getcBOrigenParadas().getItemCount() <= 1
-						|| vista.getParadas().getcBDestinoParadas().getItemCount() <= 1) {
-					rellenarComboParadasInicio(nombreLineaSelecc);
-					rellenarComboParadasDestino(nombreLineaSelecc);
-				}
-
-				resetLineas();
-
-			}
-		});
-
-		// Boton que cancela la seleccion de la Linea
+		// Boton que cancela la seleccion de la Linea 1
 		vista.getLineas().getBtnCancelarLineas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getPantCarga());
+				vista.mostrarPantalla(vista.getLogin());
 
 				// reiniciamos los valores de las pantallas
 
@@ -159,54 +128,74 @@ public class Controlador {
 			}
 		});
 
-		// Boton que acepta las paradas y nos pasa a seleccion de fecha
+		// Boton que acepta las paradas y nos pasa a seleccion de fecha 1
 		vista.getParadas().getBtnAceptarParadas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.mostrarPantalla(vista.getSeleccionFecha());
-
+				vista.getTicket().gettFOrigenTicket()
+						.setText(vista.getParadas().getcBOrigenParadas().getSelectedItem().toString());
+				vista.getTicket().gettFDestinoTicket()
+						.setText(vista.getParadas().getcBDestinoParadas().getSelectedItem().toString());
 				if (vista.getParadas().getChckIdaVuelta().isSelected()) {
 					vista.getSeleccionFecha().getDateChooser_1().setEnabled(true);
 				}
-				resetParadas();
+
 			}
 		});
 
-		// Boton que cancela la seleccion de paradas
+		// Boton que cancela la seleccion de paradas 1
 		vista.getParadas().getBtnCancelarParadas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getPantCarga());
+				vista.mostrarPantalla(vista.getLineas());
 				resetParadas();
 			}
 		});
 
-		// Boton que cancela la seleccion de la fecha
+		// Boton que cancela la seleccion de la fecha 1
 		vista.getSeleccionFecha().getBtnCancelarSeleccionFecha().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getPantCarga());
+				vista.mostrarPantalla(vista.getLineas());
 				resetSeleccionFecha();
 			}
 		});
-		// Boton que acepta la seleccion de la fecha y pasa al resumen del ticket
+
+		// Boton que acepta la seleccion de la fecha y pasa al resumen del ticket 1
 		vista.getSeleccionFecha().getBtnAceptarSeleccionFecha().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String codBillete = ticket.getNumerobillete();
-				boolean validarBilleteTicket = modelo.metodos.comprobarCodBillete(codBillete);
-
+				
+			
+				Date fechaIdaSelec = (Date) vista.getSeleccionFecha().getDateChooser().getDate();
+				Date fechaVueltaSelec = (Date) vista.getSeleccionFecha().getDateChooser_1().getDate();
 				// Si la vuelta esta activada probaremos que la fecha de vuelta es valida
-				if (vista.getSeleccionFecha().getDateChooser_1().isEnabled()) {
 
-					Date fechaIdaSelec = (Date) vista.getSeleccionFecha().getDateChooser().getDate();
-					Date fechaVueltaSelec = (Date) vista.getSeleccionFecha().getDateChooser_1().getDate();
-					// Si la seleccion de la fecha es anterior a la fecha de ida, no podremos
-					// avanzar de pantalla
-					if (fechaIdaSelec.before(fechaVueltaSelec)) {
-
+				
+					if (vista.getSeleccionFecha().getDateChooser_1().isEnabled()) {
+						vista.getTicket().getLblFechaVuelta().setVisible(true);
+						vista.getTicket().getTxtFechaVuelta().setVisible(true);
+						vista.getTicket().gettFFechaTicket().setText(fechaIdaSelec.toString());
+						vista.getTicket().getTxtFechaVuelta().setText(fechaVueltaSelec.toString());
+						// Si la seleccion de la fecha es anterior a la fecha de ida, no podremos
+						// avanzar de pantalla
+						if (fechaIdaSelec.before(fechaVueltaSelec)) {
+							vista.getSeleccionFecha().getLblErrorFecha().setVisible(true);
+							
+						}
+						
+					}else {
+						
+						if(comprobarFechaActual(fechaIdaSelec)==true) {
+						vista.getSeleccionFecha().getLblErrorFecha().setVisible(true);
+						}else {
+							vista.getTicket().gettFFechaTicket().setText(fechaIdaSelec.toString());
+						}
+						
 					}
-				}
+					
+				
 			}
 		});
 
-		// Boton que acepta la linea seleccionada y te lleva a la pantalla paradas
+		// Boton que acepta la linea seleccionada y te lleva a la pantalla paradas 1
 		vista.getLineas().getBtnaceptarLineas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nombreLineaSelecc = vista.getLineas().getLineascB().getSelectedItem().toString();
@@ -227,87 +216,12 @@ public class Controlador {
 					rellenarComboParadasDestino(nombreLineaSelecc);
 				}
 
-				resetLineas();
+				vista.getTicket().gettFLineaTicket().setText(nombreLineaSelecc);
 
 			}
 		});
 
-		// Boton que cancela la seleccion de la Linea
-		vista.getLineas().getBtnCancelarLineas().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getPantCarga());
-
-				// reiniciamos los valores de las pantallas
-
-				resetLineas();
-			}
-		});
-
-		// Boton que acepta las paradas y nos pasa a seleccion de fecha
-		vista.getParadas().getBtnAceptarParadas().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getSeleccionFecha());
-
-				if (vista.getParadas().getChckIdaVuelta().isSelected()) {
-					vista.getSeleccionFecha().getDateChooser_1().setEnabled(true);
-				}
-				resetParadas();
-			}
-		});
-
-		// Boton que cancela la seleccion de paradas
-		vista.getParadas().getBtnCancelarParadas().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getPantCarga());
-				resetParadas();
-			}
-		});
-
-		// Boton que cancela la seleccion de la fecha
-		vista.getSeleccionFecha().getBtnCancelarSeleccionFecha().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				vista.mostrarPantalla(vista.getPantCarga());
-				resetSeleccionFecha();
-			}
-		});
-		// Boton que acepta la seleccion de la fecha y pasa al resumen del ticket
-		vista.getSeleccionFecha().getBtnAceptarSeleccionFecha().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String codBillete = ticket.getNumerobillete();
-				boolean validarBilleteTicket = modelo.metodos.comprobarCodBillete(codBillete);
-
-				// Si la vuelta esta activada probaremos que la fecha de vuelta es valida
-				if (vista.getSeleccionFecha().getDateChooser_1().isEnabled()) {
-
-					Date fechaIdaSelec = (Date) vista.getSeleccionFecha().getDateChooser().getDate();
-					Date fechaVueltaSelec = (Date) vista.getSeleccionFecha().getDateChooser_1().getDate();
-					// Si la seleccion de la fecha es anterior a la fecha de ida, no podremos
-					// avanzar de pantalla
-					if (fechaIdaSelec.before(fechaVueltaSelec)) {
-
-						vista.mostrarPantalla(vista.getTicket());
-						ticket.setFecha(vista.getSeleccionFecha().getDateChooser().getDate());
-						vista.getTicket().gettFFechaTicket().setText(ticket.getFecha().toString());
-						resetSeleccionFecha();
-					} else {
-						vista.getSeleccionFecha().getLblErrorFecha().setVisible(true);
-						vista.getTicket().getTxtFechaVuelta()
-								.setText(vista.getSeleccionFecha().getDateChooser_1().getDateFormatString());
-					}
-				} else {
-					vista.mostrarPantalla(vista.getTicket());
-
-					resetSeleccionFecha();
-				}
-
-				if (validarBilleteTicket == false) {
-					vista.getTicket().gettFNbilleteTicket().setText(codBillete);
-				}
-
-			}
-		});
-
-		// Boton para aceptar la compra de nuestro ticket
+		// Boton para aceptar la compra de nuestro ticket 1
 		vista.getTicket().getBtnPagarTicket().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.mostrarPantalla(vista.getPagar());
@@ -315,7 +229,7 @@ public class Controlador {
 			}
 		});
 
-		// Boton para cancelar nuestro resumen del ticket y volver al inicio
+		// Boton para cancelar nuestro resumen del ticket y volver al inicio 1
 		vista.getTicket().getBtnCancelarTicket().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.mostrarPantalla(vista.getPantCarga());
@@ -323,7 +237,7 @@ public class Controlador {
 			}
 		});
 
-		// Boton para finalizar el pago de nuestra compra
+		// Boton para finalizar el pago de nuestra compra 1
 		vista.getPagar().getBtnFinalizar().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Se ha finalizado la compra
@@ -333,7 +247,7 @@ public class Controlador {
 			}
 		});
 
-		// Boton para cancelar el pago del ticket
+		// Boton para cancelar el pago del ticket 1
 		vista.getPagar().getBtnCancelar().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.mostrarPantalla(vista.getPantCarga());
@@ -341,14 +255,17 @@ public class Controlador {
 			}
 		});
 
+		// Botón para cerrar la pantalla de Vueltas
 		vista.getVueltas().getCancelButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				vista.mostrarPantalla(vista.getPantCarga());
+				vista.getVueltas().setVisible(false);
 				resetVueltas();
 			}
 		});
 
+		// Boton para Guardar el fichero del ticket al haber pagado
 		vista.getPagar().getBtnGuardar().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Guarda los datos en un archivo y vuelve al inicio
@@ -421,26 +338,6 @@ public class Controlador {
 			}
 		});
 
-		vista.getPagar().getBtn005Pagar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				pagar_cantidad(0.05);
-			}
-		});
-
-		vista.getPagar().getBtn002Pagar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				pagar_cantidad(0.02);
-			}
-		});
-
-		vista.getPagar().getBtn001Pagar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				pagar_cantidad(0.01);
-			}
-		});
 	}
 
 	private void rellenarComboLineas() {
@@ -577,8 +474,8 @@ public class Controlador {
 	// Método para resetear los valores de la pantalla Ticket
 	private static void resetTicket() {
 		vista.getTicket().getTxtFechaVuelta().setText(null);
-		vista.getTicket().getTxtHoraSalida().setText(null);
-		vista.getTicket().getTxtHoraVuelta().setText(null);
+		vista.getTicket().getTxtFechaVuelta().setVisible(false);
+		vista.getTicket().getLblFechaVuelta().setVisible(false);
 		vista.getTicket().getTxtNombreTicket().setText(null);
 		vista.getTicket().gettFDestinoTicket().setText(null);
 		vista.getTicket().gettFFechaTicket().setText(null);
@@ -604,6 +501,18 @@ public class Controlador {
 	private static void resetcomboBox(JComboBox<String> combo) {
 		combo.removeAllItems();
 
+	}
+
+	// Metodo para comprobar que la fecha seleccionada no sea mayor que la del dia
+	// actual
+	private static boolean comprobarFechaActual(Date fechaSelec) {
+		Date fechaActual = new Date();
+		System.out.println(fechaActual);
+		if (fechaSelec.before(fechaActual)) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	private static void pagar_cantidad(double cantidad) {

@@ -26,8 +26,8 @@ public class Login extends JPanel {
 	public Login() {
 		setLayout(null);
 		setBounds(100, 100, 500, 500);
-		JLabel lblLogin = new JLabel("Login: ");
-		lblLogin.setBounds(136, 116, 46, 14);
+		JLabel lblLogin = new JLabel("DNI: ");
+		lblLogin.setBounds(159, 116, 31, 14);
 		add(lblLogin);
 		
 		tFLogin = new JTextField();
@@ -36,26 +36,26 @@ public class Login extends JPanel {
 		tFLogin.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(119, 191, 79, 14);
+		lblPassword.setBounds(134, 233, 56, 14);
 		add(lblPassword);
 		
 		 btnCancelarLogin = new JButton("Cancelar");
-		btnCancelarLogin.setBounds(40, 335, 89, 23);
+		btnCancelarLogin.setBounds(69, 335, 89, 23);
 		add(btnCancelarLogin);
 		
 		 btnAceptarLogin = new JButton("Aceptar");
 		
-		btnAceptarLogin.setBounds(375, 335, 89, 23);
+		btnAceptarLogin.setBounds(344, 335, 89, 23);
 		add(btnAceptarLogin);
 		
 		lblErrorDeRegistro = new JLabel("Error de registro");
 		lblErrorDeRegistro.setForeground(Color.RED);
-		lblErrorDeRegistro.setBounds(196, 252, 112, 16);
+		lblErrorDeRegistro.setBounds(200, 286, 112, 16);
 		lblErrorDeRegistro.setVisible(false);
 		add(lblErrorDeRegistro);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(200, 187, 86, 22);
+		passwordField.setBounds(200, 229, 86, 22);
 		add(passwordField);
 		
 		label = new JLabel("");

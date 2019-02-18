@@ -107,15 +107,15 @@ public class Metodos {
 		ResultSet rs=ps.executeQuery();
 		
 		if(rs.getRow()>0) {
-			return true;
-		}else {
 			return false;
+		}else {
+			return true;
 		}
 		
 		}catch(Exception e) {
 			System.err.println("Consulta erronea "+ e);
 		}
-		return true;
+		return false;
 		
 	}
 
@@ -470,12 +470,11 @@ public class Metodos {
 		
 		//Despues de separar los autobuses de la linea seleccionada, escogeremos solamente uno aleatorio
 		
-		
-		while(genNum>cont || genNum==0) {
+
 			genNum=(int) (Math.random()*cont)+1;
-		}
 		
-		return seleccionados.get(genNum);
+		
+		return seleccionados.get(genNum-1);
 		
 	}
 

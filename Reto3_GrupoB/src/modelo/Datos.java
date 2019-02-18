@@ -13,9 +13,7 @@ public class Datos {
 	static String server_BBDD="127.0.0.1";
 	static String URL_BBDD="jdbc:mysql://"+server_BBDD+":3306/"+nombre_BBDD+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	
-	//datos para la URL del fichero y la ruta de destino para guardar el ticket
-	static String URL_Fichero="";
-	static String URL_destino_ticket="";
+	
 	
 	
 	//Arrays que vamos a cargar con los datos de la BBDD
